@@ -1,0 +1,107 @@
+@import 'keyfarames.scss';
+
+.sprint {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+
+  &__welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+    height: 70vh;
+    border-radius: 1vw;
+    -webkit-box-shadow: 0px 5px 10px 2px silver;
+    -moz-box-shadow: 0px 5px 10px 2px silver;
+    box-shadow: 0px 5px 10px 2px silver;
+    color: grey;
+  }
+
+  &__heading {
+    font-size: 3rem;
+  }
+
+  &__text {
+    font-size: 1.3rem;
+  }
+
+  &__start-btn {
+    padding: 2vh 2vw;
+    font-size: 1.3rem;
+    border-radius: 1vw;
+    -webkit-box-shadow: 0px 5px 10px 2px silver;
+    -moz-box-shadow: 0px 5px 10px 2px silver;
+    box-shadow: 0px 5px 10px 2px silver;
+    color: grey;
+
+    &:hover {
+      -webkit-animation: jello-vertical 0.9s both;
+      animation: jello-vertical 0.9s both;
+    }
+
+    &:active {
+      background-color: silver;
+    }
+  }
+
+  &__level-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .level-list__item {
+
+      .level-item__input {
+        display: none;
+      }
+
+      .level-item__input:checked + .level-item__label {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    width: 40px;
+    height: 40px;
+    border-radius: 1vw;
+
+    .close-btn {
+      &__line {
+        position: absolute;
+        top: 15px;
+        width: 40px;
+        height: 10px;
+        background-color: silver;
+      }
+
+      &__first-line {
+        left: 0;
+        transform: rotate(45deg);
+      }
+
+      &__second-line {
+        right: 0;
+        transform: rotate(315deg);
+      }
+    }
+
+    &:hover {
+      -webkit-animation: shake-lr 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+      animation: shake-lr 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    }
+
+    &:active .close-btn__line {
+      background-color: grey;
+    }
+  }
+}
