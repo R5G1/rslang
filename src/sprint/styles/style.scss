@@ -109,7 +109,120 @@
         }
     }
     &__game {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70vw;
+        height: 70vh;
+        border-radius: 1vw;
         @extend %box-shadow;
+        .game {
+            &__score {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &__timer {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            &__field {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 90%;
+                width: 50%;
+                font-size: 2rem;
+                outline: 1px solid red;
+                .field {
+                    &__multiplier {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        .multiplier {
+                            &__mark {
+                                width: 2vw;
+                                height: 2vw;
+                                background: url("/src/sprint/assets/done.png") no-repeat center center;
+                                background-size: 80%;
+                                // opacity: 0.1;
+                            }
+                            &__multiply {
+                                position: absolute;
+                                top: 100%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                display: flex;
+                                align-items: center;
+                                // opacity: 0;
+                                &>* {
+                                    width: 1vw;
+                                    height: 2vw;
+                                }
+                                .multiply {
+                                    &-mark {
+                                        background: url("/src/sprint/assets/multiply.png") no-repeat center center;
+                                        background-size: contain;
+                                    }
+                                    &-number {
+                                        background: url("/src/sprint/assets/two.png") no-repeat center center;
+                                        background-size: contain;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &__word {
+                        font-size: 3rem;
+                    }
+                    &__translate {
+                        font-style: italic;
+                    }
+                    &__choice {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        border-top: 1px solid #000;
+                        .choice {
+                            &__result {
+                                position: absolute;
+                                top: 0;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                .result {
+                                    width: 4vw;
+                                    height: 4vw;
+                                    @include animation(puff-out-center 2s cubic-bezier(0.165,
+                                    0.840,
+                                    0.440,
+                                    1.000) both);
+                                    &__yes {
+                                        display: none;
+                                        background: url("/src/sprint/assets/result-yes.png") no-repeat center center;
+                                        background-size: contain;
+                                    }
+                                    &__no {
+                                        display: none;
+                                        background: url("/src/sprint/assets/result-no.png") no-repeat center center;
+                                        background-size: contain;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
