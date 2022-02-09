@@ -3,11 +3,200 @@
 @import "/src/scss/_font name.scss";
 //Sprint
 @import "sprint/styles/style.scss";
-//!===============================================================================
-//!===============================================================================
+//main
 body {
     font-family: "Forum", cursive;
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: normal;
+    background: rgb(187, 187, 187);
+}
+
+main {
+    min-height: calc(100vh - 80px);
+    color: #ffffff;
+    .conteiner {
+        padding: 0px 10px;
+        margin: 0 auto;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+%btnn {
+    width: 140px;
+    height: 30px;
+    border: 1.5px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 60px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 22px;
+    transition: background 0.3s ease 0s;
+    &:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+    &:active {
+        background: rgba(255, 255, 255, 1);
+        box-sizing: border-box;
+        border-radius: 60px;
+    }
+}
+
+//!===============================================================================
+.main-page {
+    &__content {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        @media (max-height: 720px) {
+            height: 100%;
+            .m-p__content-img-photo {
+                margin: 30px 0px 30px 0px;
+            }
+        }
+    }
+}
+
+.m-p {
+    &__content-img {
+        display: flex;
+        justify-content: center;
+    }
+    &__content-img-photo {
+        // margin: 20px 0px 20px 0px;
+        min-width: 600px;
+        min-height: 600px;
+        background: url("/src/assets/menu-header/img/img-header.svg") 0 0 / cover no-repeat;
+        background-size: 100% 100%;
+        box-shadow: 0px 4px 8px 20px rgba(34, 60, 80, 0.2);
+        border-radius: 20px;
+        transition: box-shadow 0.1s ease 0s;
+        @media (max-height: 900px) {
+            min-width: 400px;
+            min-height: 400px;
+        }
+        @media (max-width: 720px) {
+            min-width: 300px;
+            min-height: 300px;
+        }
+        &:hover {
+            box-shadow: 0px 4px 8px 16px rgba(34, 60, 80, 0.2);
+        }
+        &:active {
+            border: 5px solid rgba(255, 255, 255, 0);
+            box-shadow: 0px 4px 8px 10px rgba(34, 60, 80, 0.2);
+            // border-radius: 10px;
+        }
+    }
+    &__menu {}
+    &__menu-ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        li {
+            margin: 0px 20px 0px 20px;
+            padding: 10px 0px 0px 0px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            border-radius: 50px;
+            border: 1px solid rgba(248, 248, 248, 0.342);
+            transition: box-shadow 0.2s ease 0s;
+            &:hover {
+                transition: box-shadow, background-color 0.3s ease 0s;
+                transition: box-shadow 0.3s ease 0s;
+                background-color: rgba(161, 161, 161, 0.8);
+                box-shadow: 0px 4px 8px 10px rgba(34, 60, 80, 0.2);
+                .m-p__menu-ul-text {
+                    opacity: 1;
+                    cursor: pointer;
+                }
+                &:active {
+                    // transition: border 0.3s ease 0s;
+                    border: 5px solid rgba(255, 255, 255, 0);
+                    box-shadow: 0px 4px 8px 5px rgba(34, 60, 80, 0.2);
+                }
+            }
+        }
+    }
+    &__menu-ul-text {
+        opacity: 0;
+        font-weight: bold;
+        font-size: 18px;
+        color: rgb(223, 223, 223);
+        text-align: center;
+    }
+    &__menu-ul-authorisation {
+        background: url("./assets/menu-header/img/authorisation.png") 0 0/100% 100% no-repeat;
+    }
+    &__menu-ul-sprint {
+        background: url("./assets/menu-header/img/Sprint.png") center / 70% 70% no-repeat;
+    }
+    &__menu-ul-audio-challenge {
+        background: url("./assets/menu-header/img/Audio-challenge.png") center / 70% 70% no-repeat;
+    }
+    &__menu-ul-textbook {
+        background: url("./assets/menu-header/img/textbook.png") 0 0/100% 100% no-repeat;
+    }
+    &__menu-ul-statistics {
+        background: url("./assets/menu-header/img/statistics.png") center / 80% 80% no-repeat;
+    }
+}
+
+//!===============================================================================
+//!===============================================================================
+//!===============================================================================
+//!===============================================================================
+.footer {
+    .conteiner {
+        padding: 0px;
+        margin: 0 auto;
+    }
+    &__content {
+        height: 80px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 20px;
+        color: #ffffff;
+        background: #192f2d;
+    }
+    &__logors {}
+    &__logors-link {}
+    &__logors-img {
+        background: url("/src/assets/footer/rs_school_footer.svg") 0 no-repeat;
+        width: 120px;
+        height: 80px;
+    }
+    &__logo-data {}
+    &__logo-naim {
+        a {
+            color: #ffffff;
+            border: 5px solid rgba(255, 255, 255, 0);
+            margin: 0px 10px 0px 10px;
+            transition: box-shadow, background 0.3s ease 0s;
+            border-radius: 20px;
+            @media (max-width: 720px) {}
+            &:hover {
+                box-shadow: 0px 4px 8px 5px rgba(255, 255, 255, 0.2);
+                background: rgb(65, 65, 65);
+            }
+            &:active {
+                box-shadow: 0px 4px 8px 5px rgba(2, 143, 250, 0.2);
+                // border-radius: 10px;
+            }
+        }
+    }
+    &__logo-naim-link {}
 }
