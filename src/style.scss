@@ -1,20 +1,13 @@
 //Styles
-
 @import "/src/scss/_null.scss";
-
 @import "/src/scss/_font name.scss";
-
 //Sprint
-
 @import "sprint/styles/style.scss";
-
 //!===============================================================================
-
 //!===============================================================================
-
 body {
-  font-family: "Forum", cursive;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
+    font-family: "Forum", cursive;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
 }

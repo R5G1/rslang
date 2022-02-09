@@ -2,50 +2,76 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/public/favicon.ico">
-  <link rel="shortcut icon" href="../public/icon.png" type="image/x-icon">
-  <title>RS Lang</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <link rel="shortcut icon" href="../public/icon.png" type="image/x-icon" />
+    <title>RS Lang</title>
 </head>
+
 <body>
- <section class="sprint">
-   <div class="sprint__welcome">
-     <h1 class="sprint__heading">Спринт</h1>
-     <p class="sprint__text">Правила: необходимо выбрать правильный перевод предложенного слова</p>
-     <ul class="sprint__level-list">
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-1" value="1" checked>
-         <label class="level-item__label" for="lvl-1">1</label>
-       </li>
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-2" value="2">
-         <label class="level-item__label" for="lvl-2">2</label>
-       </li>
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-3" value="3">
-         <label class="level-item__label" for="lvl-3">3</label>
-       </li>
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-4" value="4">
-         <label class="level-item__label" for="lvl-4">4</label>
-       </li>
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-5" value="5">
-         <label class="level-item__label" for="lvl-5">5</label>
-       </li>
-       <li class="level-list__item">
-         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-6" value="6">
-         <label class="level-item__label" for="lvl-6">6</label>
-       </li>
-     </ul>
-     <button class="sprint__start-btn">Начать</button>
-   </div>
-   <button class="sprint__close-btn">
-     <div class="close-btn__first-line close-btn__line"></div>
-     <div class="close-btn__second-line close-btn__line"></div>
-   </button>
- </section>
+    <section class="sprint">
+        <section class="sprint__welcome hide">
+            <h1 class="welcome__heading">Спринт</h1>
+            <p class="welcome__text">
+                Правила: необходимо выбрать соответствует ли перевод предложенному слову.
+            </p>
+            <p class="welcome__text">Выберите уровень:</p>
+            <ul class="welcome__level-list">
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-1" value="1" checked />
+                    <label class="level-item__label" for="lvl-1">A1</label>
+                </li>
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-2" value="2" />
+                    <label class="level-item__label" for="lvl-2">A2</label>
+                </li>
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-3" value="3" />
+                    <label class="level-item__label" for="lvl-3">B1</label>
+                </li>
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-4" value="4" />
+                    <label class="level-item__label" for="lvl-4">B2</label>
+                </li>
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-5" value="5" />
+                    <label class="level-item__label" for="lvl-5">C1</label>
+                </li>
+                <li class="level-list__item">
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-6" value="6" />
+                    <label class="level-item__label" for="lvl-6">C2</label>
+                </li>
+            </ul>
+            <button class="welcome__start-btn">Начать</button>
+        </section>
+        <section class="sprint__game">
+            <div class="game__score">110</div>
+            <div class="game__timer">30</div>
+            <div class="game__field">
+                <div class="field__multiplier"></div>
+                <p class="field__word">book</p>
+                <p class="field__translate">книга</p>
+                <div class="field__choice">
+                    <div class="choice__result">11</div>
+                    <div class="choice__buttons">
+                        <button class="buttons__false-btn">Не верно</button>
+                        <button class="buttons__true-btn">Верно</button>
+                    </div>
+                    <div class="choice__arrow-keys">
+                        <div class="arrow-keys__left">1</div>
+                        <div class="arrow-keys__right">2</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sprint__controls">
+            <button class="controls__close-btn controls__item"></button>
+            <button class="controls__fullscreen-btn controls__item"></button>
+            <button class="controls__sound-btn controls__item"></button>
+        </section>
+    </section>
 </body>
+
 </html>
