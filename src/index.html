@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/public/favicon.ico">
-  <link rel="stylesheet" href="sprint/style.css">
+  <link rel="shortcut icon" href="../public/icon.png" type="image/x-icon">
   <title>RS Lang</title>
 </head>
 <body>
@@ -15,19 +15,37 @@
      <h1 class="sprint__heading">Спринт</h1>
      <p class="sprint__text">Правила: необходимо выбрать правильный перевод предложенного слова</p>
      <ul class="sprint__level-list">
-       <li class="level-list__item">1</li>
-       <li class="level-list__item">2</li>
-       <li class="level-list__item">3</li>
-       <li class="level-list__item">4</li>
-       <li class="level-list__item">5</li>
-       <li class="level-list__item">6</li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-1" value="1" checked>
+         <label class="level-item__label" for="lvl-1">1</label>
+       </li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-2" value="2">
+         <label class="level-item__label" for="lvl-2">2</label>
+       </li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-3" value="3">
+         <label class="level-item__label" for="lvl-3">3</label>
+       </li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-4" value="4">
+         <label class="level-item__label" for="lvl-4">4</label>
+       </li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-5" value="5">
+         <label class="level-item__label" for="lvl-5">5</label>
+       </li>
+       <li class="level-list__item">
+         <input type="radio" name="sprint-lvl" class="level-item__input" id="lvl-6" value="6">
+         <label class="level-item__label" for="lvl-6">6</label>
+       </li>
      </ul>
-     <button class="sprint__btn">Начать</button>
+     <button class="sprint__start-btn">Начать</button>
    </div>
    <button class="sprint__close-btn">
-    close
+     <div class="close-btn__first-line close-btn__line"></div>
+     <div class="close-btn__second-line close-btn__line"></div>
    </button>
  </section>
- <script src="sprint/script.js" type="module"></script>
 </body>
 </html>
