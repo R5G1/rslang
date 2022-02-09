@@ -5,6 +5,10 @@
 @import "/src/scss/_font name.scss";
 
 //!===============================================================================
+.hide-pages {
+  display: none;
+}
+
 body {
   font-family: "Forum", cursive;
   font-family: "Roboto", sans-serif;
@@ -21,9 +25,7 @@ main {
     margin: 0 auto;
   }
 }
-.hide {
-  display: none;
-}
+
 %btnn {
   width: 140px;
   height: 30px;
@@ -48,7 +50,6 @@ main {
 //!===============================================================================
 
 .main-page {
-  
   &__content {
     height: 90vh;
     display: flex;
@@ -57,10 +58,9 @@ main {
     align-items: center;
     @media (max-height: 720px) {
       height: 100%;
-      .m-p__content-img-photo{
+      .m-p__content-img-photo {
         margin: 30px 0px 30px 0px;
       }
-
     }
   }
 }
@@ -171,10 +171,6 @@ main {
 
 //!===============================================================================
 
-//!===============================================================================
-
-//!===============================================================================
-
 .footer {
   .conteiner {
     padding: 0px;
@@ -196,6 +192,7 @@ main {
   }
 
   &__logors-link {
+    
   }
 
   &__logors-img {
@@ -231,4 +228,5 @@ main {
   &__logo-naim-link {
   }
 }
+
 //!===============================================================================

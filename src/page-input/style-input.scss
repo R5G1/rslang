@@ -1,43 +1,144 @@
-.authorisation {
-
-    &__content {
-        
-    }
-
-    &__welcome {
-    }
-
-    &__input-authorisation {
-    }
-
-    &__input-email {
-    }
-
-    &__input-password {
-    }
-
-    &__input-btn {
-    }
+%btnn {
+  width: 240px;
+  height: 50px;
+  border: 1.5px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 60px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  transition: background 0.3s ease 0s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  &:active {
+    background: rgba(255, 255, 255, 1);
+  }
 }
+//!===============================================================================
 .conteiner {
 }
+
+.contents-authorisation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 25vh;
+  padding-bottom: 15px;
+  .authorisation__content,
+  .registration__content {
+    border: 10px solid rgb(0, 0, 0);
+    border-radius: 30px;
+    height: 450px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    input {
+      display: block;
+      margin: 20px 0px 20px 0px;
+      padding: 5px 30px;
+      border: 1px solid rgb(252, 252, 252);
+      &:focus{
+        border: 1px solid #000;
+      }
+    }
+    &:hover{
+      border: 10px solid rgb(53, 53, 53);
+    }
+  }
+  button{
+    @extend %btnn;
+  }
+
+  .hide-authorisation {
+    display: none;
+  }
+}
+
+.authorisation {
+  &__content {
+  }
+
+  &__welcome {
+  }
+
+  &__input-authorisation {
+  }
+
+  &__input-email {
+  }
+
+  &__input-password {
+  }
+
+  &__input-btn {
+  }
+}
+
 .registration {
+  &__content {
+  }
 
-    &__content {
-    }
+  &__welcome {
+  }
 
-    &__welcome {
-    }
+  &__input-registration {
+  }
 
-    &__input-registration {
-    }
+  &__input-email {
+  }
 
-    &__input-email {
-    }
+  &__input-password {
+  }
 
-    &__input-password {
+  &__input-btn {
+  }
+}
+.conteiner__content-menu {
+  display: block;
+  margin: 10px 0px;
+  p {
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    top: -50px;
+    
+    &:hover {
+      cursor: pointer;
+      padding: 5px;
+      // border: 5px solid rgba(0, 0, 0, 1);
+      margin-top: -10px;
+      color: rgb(139, 139, 139);
     }
+    &:active {
+      color: rgb(255, 0, 0);
+    }
+  }
+}
 
-    &__input-btn {
-    }
+.registration__exit {
+  text-align: right;
+  font-weight: bold;
+  font-size: 30px;
+  color: #000;
+  position: relative;
+  left: 160px;
+  top: -20px;
+  transition: color 0.3s ease 0s;
+  &:hover {
+    cursor: pointer;
+    padding: 5px;
+    // border: 5px solid rgba(0, 0, 0, 1);
+    margin-top: -10px;
+    color: rgb(139, 139, 139);
+  }
+  &:active {
+    color: rgb(255, 0, 0);
+  }
 }
