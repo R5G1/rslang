@@ -4,7 +4,12 @@
 
 @import "/src/scss/_font name.scss";
 
-//!===============================================================================
+//Sprint
+
+@import "sprint/styles/style.scss";
+
+//main
+
 body {
   font-family: "Forum", cursive;
   font-family: "Roboto", sans-serif;
