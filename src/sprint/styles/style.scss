@@ -19,6 +19,7 @@
     width: 100%;
     height: 100%;
     background-color: #f3f3f3;
+    user-select: none;
     &__welcome {
         display: flex;
         flex-direction: column;
@@ -116,18 +117,35 @@
         justify-content: center;
         width: 70vw;
         height: 70vh;
+        font-size: 2rem;
         border-radius: 1vw;
+        color: grey;
         @extend %box-shadow;
         .game {
             &__score {
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: 5vh;
+                left: 5vw;
             }
             &__timer {
                 position: absolute;
-                top: 0;
-                right: 0;
+                top: 5vh;
+                right: 5vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 5rem;
+                height: 5rem;
+                .animate-container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 4px solid silver;
+                    border-top: 4px solid grey;
+                    border-bottom: 4px solid grey;
+                    border-radius: 50%;
+                    @include animation(rotate 2s infinite linear);
+                }
             }
             &__field {
                 display: flex;
@@ -136,8 +154,7 @@
                 justify-content: space-between;
                 height: 90%;
                 width: 50%;
-                font-size: 2rem;
-                outline: 1px solid red;
+                text-transform: capitalize;
                 .field {
                     &__multiplier {
                         position: relative;
@@ -149,7 +166,7 @@
                                 height: 2vw;
                                 background: url("/src/sprint/assets/done.png") no-repeat center center;
                                 background-size: 80%;
-                                // opacity: 0.1;
+                                opacity: 0.1;
                             }
                             &__multiply {
                                 position: absolute;
@@ -182,6 +199,14 @@
                     &__translate {
                         font-style: italic;
                     }
+                    &__hr_washed {
+                        margin: 20px 0;
+                        padding: 0;
+                        width: 100%;
+                        height: 0;
+                        border: none;
+                        box-shadow: 0 0 10px 1px black;
+                    }
                     &__choice {
                         position: relative;
                         display: flex;
@@ -189,7 +214,7 @@
                         align-items: center;
                         justify-content: center;
                         width: 100%;
-                        border-top: 1px solid #000;
+                        padding-top: 2vh;
                         .choice {
                             &__result {
                                 position: absolute;
@@ -217,6 +242,89 @@
                                         background-size: contain;
                                     }
                                 }
+                            }
+                            &__buttons {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                width: 70%;
+                                .buttons {
+                                    &__item {
+                                        width: 40%;
+                                        padding: 1rem;
+                                        font-size: 1.2rem;
+                                        border: 1px solid darken(grey, 4%);
+                                        border-radius: 0.5rem;
+                                        color: #f3f3f3;
+                                        background: lighten(grey, 3%);
+                                        box-shadow: 0px 2px 0 darken(grey, 5%), 2px 4px 6px darken(grey, 2%);
+                                        transition: all 150ms linear;
+                                    }
+                                    &__item:hover {
+                                        box-shadow: 0px 4px 0 darken(grey, 5%), 3px 5px 7px darken(grey, 2%);
+                                    }
+                                    &__item:active {
+                                        border: 1px solid rgba(#000, .05);
+                                        background: darken(grey, 1.5%);
+                                        box-shadow: 1px 1px 2px rgba(#fff, .2);
+                                        color: darken(silver, 1%);
+                                    }
+                                    &__item::before,
+                                    &__item::after {
+                                        position: absolute;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        font-size: 2rem;
+                                        color: grey;
+                                        pointer-events: none;
+                                    }
+                                    &__item:active::before,
+                                    &__item:active::after {
+                                        @include animation(pulsate .5s ease-in-out);
+                                    }
+                                    &__false-btn::before {
+                                        content: "\21E6";
+                                        left: 1vw;
+                                    }
+                                    &__true-btn::after {
+                                        content: "\21E8";
+                                        right: 1vw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__modal-result {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 40vw;
+        height: 80vh;
+        border-radius: 1vw;
+        background: #f3f3f3;
+        @extend %box-shadow;
+        .modal-result {
+            &__progress {
+                width: 80%;
+                .progress {
+                    &__smiles {}
+                    &__percent {}
+                    &__bar {
+                        width: 100%;
+                        height: 20px;
+                        padding: 2px;
+                        background-color: grey;
+                        .bar {
+                            &__fill {
+                                width: 100%;
+                                height: 16px;
+                                background: linear-gradient(to right, silver 0%, silver 15%, grey 15%, grey 100%);
                             }
                         }
                     }

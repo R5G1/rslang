@@ -158,42 +158,6 @@
     }
 }
 
-@-webkit-keyframes ping {
-    0% {
-        -webkit-transform: scale(0.2);
-        transform: scale(0.2);
-        opacity: 0.8;
-    }
-    80% {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: scale(2.2);
-        transform: scale(2.2);
-        opacity: 0;
-    }
-}
-
-@keyframes ping {
-    0% {
-        -webkit-transform: scale(0.2);
-        transform: scale(0.2);
-        opacity: 0.8;
-    }
-    80% {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: scale(2.2);
-        transform: scale(2.2);
-        opacity: 0;
-    }
-}
-
 @-webkit-keyframes puff-out-center {
     0% {
         -webkit-transform: scale(1);
@@ -225,5 +189,53 @@
         -webkit-filter: blur(4px);
         filter: blur(4px);
         opacity: 0;
+    }
+}
+
+@-webkit-keyframes pulsate {
+    50% {
+        text-shadow: 0px 0px 10px silver, 0px 0px 10px rgb(200, 200, 200), 0px 0px 25px rgb(190, 190, 190), 0px 0px 25px rgb(180, 180, 180), 0px 0px 25px rgb(170, 170, 170), 0px 0px 25px rgb(160, 160, 160), 0px 0px 25px rgb(150, 150, 150), 0px 0px 25px rgb(140, 140, 140), 0px 0px 50px rgb(130, 130, 130), 0px 0px 50px rgb(120, 120, 120), 0px 0px 50px rgb(110, 110, 110), 0px 0px 150px rgb(100, 100, 100), 0px 10px 100px rgb(90, 90, 90), 0px 10px 100px rgb(80, 80, 80), 0px 10px 100px rgb(70, 70, 70), 0px 10px 100px rgb(60, 60, 60), 0px -10px 100px rgb(50, 50, 50), 0px -10px 100px rgb(40, 40, 40);
+    }
+}
+
+@keyframes pulsate {
+    50% {
+        text-shadow: 0px 0px 10px silver, 0px 0px 10px rgb(200, 200, 200), 0px 0px 25px rgb(190, 190, 190), 0px 0px 25px rgb(180, 180, 180), 0px 0px 25px rgb(170, 170, 170), 0px 0px 25px rgb(160, 160, 160), 0px 0px 25px rgb(150, 150, 150), 0px 0px 25px rgb(140, 140, 140), 0px 0px 50px rgb(130, 130, 130), 0px 0px 50px rgb(120, 120, 120), 0px 0px 50px rgb(110, 110, 110), 0px 0px 150px rgb(100, 100, 100), 0px 10px 100px rgb(90, 90, 90), 0px 10px 100px rgb(80, 80, 80), 0px 10px 100px rgb(70, 70, 70), 0px 10px 100px rgb(60, 60, 60), 0px -10px 100px rgb(50, 50, 50), 0px -10px 100px rgb(40, 40, 40);
+    }
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes fill-bar {
+    0% {
+        width: 0%;
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fill-bar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
