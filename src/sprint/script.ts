@@ -8,4 +8,5 @@ export default class Sprint {
 }
 
 let x = new Sprint();
+
 x.start();

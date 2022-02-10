@@ -153,31 +153,37 @@
             </div>
         </section>
         <section class="sprint__modal-result">
-            <h3 class="modal-result__heading">Твой результат: <span class="result">1440</span></h3>
+            <h3 class="modal-result__heading">Твой результат: <span class="sprint-result">1440</span></h3>
             <div class="modal-result__progress">
-                <div class="progress__smiles"></div>
-                <div class="progress__percent">82%</div>
+                <div class="progress__smiles">
+                    <div class="smiles__sad smiles__item"></div>
+                    <div class="smiles__poker smiles__item"></div>
+                    <div class="smiles__happy smiles__item"></div>
+                </div>
                 <div class="progress__bar">
                     <div class="bar__fill"></div>
+                    <div class="bar__percent">82%</div>
                 </div>
             </div>
-            <div class="modal-result__mistakes">
-                <h4 class="mistakes__heading modal-result__subheading">Неправильно: <span>13</span></h4>
-                <ul class="mistakes__list">
-                    <li class="list__item">
-                        <div class="item__sound"></div>
-                        <p class="item__text"><span class="word">list</span> —<span class="translate">список</span></p>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-result__correct">
-                <h4 class="correct__heading modal-result__subheading">Правильно: <span>14</span></h4>
-                <ul class="correct__list">
-                    <li class="list__item">
-                        <div class="item__sound"></div>
-                        <p class="item__text"><span class="word">list</span> —<span class="translate">список</span></p>
-                    </li>
-                </ul>
+            <div class="modal-result__words">
+                <div class="words__mistakes">
+                    <h4 class="mistakes__heading words__subheading">Неправильно: <span>13</span></h4>
+                    <ul class="mistakes__list">
+                        <li class="list__item">
+                            <button class="item__sound"></button>
+                            <p class="item__text"><span class="word">list</span> —<span class="translate">список</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="words__correct">
+                    <h4 class="correct__heading words__subheading">Правильно: <span>14</span></h4>
+                    <ul class="correct__list">
+                        <li class="list__item">
+                            <button class="item__sound"></button>
+                            <p class="item__text"><span class="word">list</span> —<span class="translate">список</span></p>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="modal-result__buttons">
                 <button class="modal-result__continue">Ещё раз</button>
@@ -191,7 +197,7 @@
         </section>
         <!-- <template class="list__item">
             <li class="list__item">
-                <div class="item__sound"></div>
+                <button class="item__sound"></button>
                 <p class="item__text"><span class="word">list</span> —<span class="translate">список</span></p>
             </li>
         </template> -->

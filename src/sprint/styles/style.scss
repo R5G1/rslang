@@ -303,28 +303,113 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
         width: 40vw;
         height: 80vh;
+        padding: 15px;
         border-radius: 1vw;
         background: #f3f3f3;
+        color: grey;
         @extend %box-shadow;
         .modal-result {
+            &__heading {
+                font-size: 2rem;
+                margin-bottom: 2vh;
+            }
             &__progress {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 width: 80%;
                 .progress {
-                    &__smiles {}
-                    &__percent {}
+                    &__smiles {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 90%;
+                        margin-bottom: 1vh;
+                        .smiles {
+                            &__sad {
+                                background: url(/src/sprint/assets/sad-face.png) no-repeat center center;
+                            }
+                            &__poker {
+                                background: url(/src/sprint/assets/poker-face.png) no-repeat center center;
+                            }
+                            &__happy {
+                                background: url(/src/sprint/assets/happy-face.png) no-repeat center center;
+                            }
+                            &__item {
+                                width: 40px;
+                                height: 40px;
+                                background-size: contain;
+                            }
+                        }
+                    }
                     &__bar {
+                        position: relative;
                         width: 100%;
                         height: 20px;
                         padding: 2px;
                         background-color: grey;
                         .bar {
                             &__fill {
-                                width: 100%;
+                                width: 82%;
                                 height: 16px;
-                                background: linear-gradient(to right, silver 0%, silver 15%, grey 15%, grey 100%);
+                                background: silver;
+                                transition: 5s;
+                            }
+                            &__percent {
+                                position: absolute;
+                                top: 125%;
+                                left: 82%;
+                                font-weight: bold;
+                                transition: 5s;
+                            }
+                        }
+                    }
+                }
+            }
+            &__words {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-grow: 1;
+                width: 100%;
+                margin: 1.5rem 0;
+                overflow-y: auto;
+                outline: 1px solid red;
+                .words {
+                    &__subheading {
+                        font-size: 1.3rem;
+                        margin-bottom: 1vh;
+                        align-self: flex-start;
+                    }
+                    &__mistakes,
+                    &__correct {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 80%;
+                        .mistakes,
+                        .correct {
+                            &__list {
+                                width: 90%;
+                                .list {
+                                    &__item {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        width: 100%;
+                                        .item {
+                                            &__sound {
+                                                width: 20px;
+                                                height: 20px;
+                                                background: url(/src/sprint/assets/sound-word.png) no-repeat center center;
+                                                background-size: contain;
+                                            }
+                                            &__text {}
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
