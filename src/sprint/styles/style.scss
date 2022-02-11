@@ -80,41 +80,6 @@
             }
         }
     }
-    &__controls {
-        position: absolute;
-        top: 2vh;
-        right: 2vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .controls {
-            &__close-btn {
-                background: url("/src/sprint/assets/close-btn.png") no-repeat center center;
-            }
-            &__fullscreen-btn {
-                background: url("/src/sprint/assets/fullscreen-in.png") no-repeat center center;
-            }
-            &__sound-btn {
-                background: url("/src/sprint/assets/sound-on.png") no-repeat center center;
-            }
-            &__item {
-                width: 20px;
-                height: 20px;
-                margin: 1vw 0;
-                background-size: contain;
-                background-color: #f3f3f3;
-                &:hover {
-                    @include animation(shake-lr 0.7s cubic-bezier(0.455,
-                    0.030,
-                    0.515,
-                    0.955) both);
-                }
-                &:active {
-                    opacity: 0.5;
-                }
-            }
-        }
-    }
     &__game {
         position: relative;
         display: flex;
@@ -170,7 +135,7 @@
                             &__mark {
                                 width: 2vw;
                                 height: 2vw;
-                                background: url("/src/sprint/assets/done.png") no-repeat center center;
+                                background: url("/src/sprint/assets/icons/done.png") no-repeat center center;
                                 background-size: 80%;
                                 opacity: 0.1;
                             }
@@ -188,11 +153,11 @@
                                 }
                                 .multiply {
                                     &-mark {
-                                        background: url("/src/sprint/assets/multiply.png") no-repeat center center;
+                                        background: url("/src/sprint/assets/icons/multiply.png") no-repeat center center;
                                         background-size: contain;
                                     }
                                     &-number {
-                                        background: url("/src/sprint/assets/two.png") no-repeat center center;
+                                        background: url("/src/sprint/assets/icons/two.png") no-repeat center center;
                                         background-size: contain;
                                     }
                                 }
@@ -239,12 +204,12 @@
                                     1.000) both);
                                     &__yes {
                                         display: none;
-                                        background: url("/src/sprint/assets/result-yes.png") no-repeat center center;
+                                        background: url("/src/sprint/assets/icons/result-yes.png") no-repeat center center;
                                         background-size: contain;
                                     }
                                     &__no {
                                         display: none;
-                                        background: url("/src/sprint/assets/result-no.png") no-repeat center center;
+                                        background: url("/src/sprint/assets/icons/result-no.png") no-repeat center center;
                                         background-size: contain;
                                     }
                                 }
@@ -335,13 +300,13 @@
                         margin-bottom: 1vh;
                         .smiles {
                             &__sad {
-                                background: url(/src/sprint/assets/sad-face.png) no-repeat center center;
+                                background: url(/src/sprint/assets/icons/sad-face.png) no-repeat center center;
                             }
                             &__poker {
-                                background: url(/src/sprint/assets/poker-face.png) no-repeat center center;
+                                background: url(/src/sprint/assets/icons/poker-face.png) no-repeat center center;
                             }
                             &__happy {
-                                background: url(/src/sprint/assets/happy-face.png) no-repeat center center;
+                                background: url(/src/sprint/assets/icons/happy-face.png) no-repeat center center;
                             }
                             &__item {
                                 width: 40px;
@@ -425,7 +390,7 @@
                                                 width: 20px;
                                                 height: 20px;
                                                 margin-right: 4vw;
-                                                background: url(/src/sprint/assets/sound-word.png) no-repeat center center;
+                                                background: url(/src/sprint/assets/icons/sound-word.png) no-repeat center center;
                                                 background-size: contain;
                                             }
                                             &__text {
@@ -453,6 +418,47 @@
                     &__item:hover {
                         transform: translateY(-10%) scale(1.1);
                     }
+                }
+            }
+        }
+    }
+    &__controls {
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .controls {
+            &__close-btn {
+                background: url("/src/sprint/assets/icons/close-btn.png") no-repeat center center;
+            }
+            &__fullscreen-btn {
+                background: url("/src/sprint/assets/icons/fullscreen-in.png") no-repeat center center;
+            }
+            &__fullscreen-out-btn {
+                background: url("/src/sprint/assets/icons/fullscreen-out.png") no-repeat center center;
+            }
+            &__sound-btn {
+                background: url("/src/sprint/assets/icons/sound-on.png") no-repeat center center;
+            }
+            &__sound-mute-btn {
+                background: url("/src/sprint/assets/icons/sound-off.png") no-repeat center center;
+            }
+            &__item {
+                width: 20px;
+                height: 20px;
+                margin: 1vw 0;
+                background-size: contain;
+                background-color: #f3f3f3;
+                &:hover {
+                    @include animation(shake-lr 0.7s cubic-bezier(0.455,
+                    0.030,
+                    0.515,
+                    0.955) both);
+                }
+                &:active {
+                    opacity: 0.5;
                 }
             }
         }
