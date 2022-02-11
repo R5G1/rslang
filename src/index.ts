@@ -1,5 +1,10 @@
-/* eslint-disable no-undef */
-/* eslint no-console:  */
-import './style.scss';
+/* eslint-disable linebreak-style */
+// eslint-disable-next-line linebreak-style
+/* eslint-disable import/extensions */
+/* eslint-disable linebreak-style */
 
-console.log('Hello world!');
+import './style.scss';
+import './sprint/script';
+// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/first
+import './page-input/index.ts';
