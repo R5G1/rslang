@@ -5,6 +5,12 @@
     box-shadow: 0px 5px 10px 2px silver;
 }
 
+%box-shadow-inset {
+    -webkit-box-shadow: 0px 5px 10px 2px silver inset;
+    -moz-box-shadow: 0px 5px 10px 2px silver inset;
+    box-shadow: 0px 5px 10px 2px silver inset;
+}
+
 @mixin animation($prop) {
     -webkit-animation: $prop;
     animation: $prop;
@@ -375,8 +381,24 @@
                 flex-grow: 1;
                 width: 100%;
                 margin: 1.5rem 0;
+                padding: 10px 0;
+                border-radius: 1vw;
                 overflow-y: auto;
-                outline: 1px solid red;
+                &::-webkit-scrollbar {
+                    transform: translateX(50px);
+                    width: 15px;
+                    border-radius: 1vw;
+                    background-color: grey;
+                    cursor: pointer;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: silver;
+                    border-radius: 1vw;
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                    box-shadow: inset 1px 1px 10px #f3f3f3;
+                }
+                @extend %box-shadow-inset;
                 .words {
                     &__subheading {
                         font-size: 1.3rem;
@@ -397,21 +419,39 @@
                                     &__item {
                                         display: flex;
                                         align-items: center;
-                                        justify-content: space-between;
                                         width: 100%;
                                         .item {
                                             &__sound {
                                                 width: 20px;
                                                 height: 20px;
+                                                margin-right: 4vw;
                                                 background: url(/src/sprint/assets/sound-word.png) no-repeat center center;
                                                 background-size: contain;
                                             }
-                                            &__text {}
+                                            &__text {
+                                                font-size: 1.2rem;
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+                    }
+                }
+            }
+            &__buttons {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 50%;
+                .buttons {
+                    &__item {
+                        font-size: 1.5rem;
+                        color: grey;
+                        transition: 0.3s;
+                    }
+                    &__item:hover {
+                        transform: translateY(-10%) scale(1.1);
                     }
                 }
             }
