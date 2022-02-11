@@ -1,7 +1,7 @@
 import { audio } from './audio';
 
-function PlayAudio(src: string): void {
-  audio.src = `assets/${src}`;
+function playAudio(src: string): void {
+  audio.src = src;
   audio.play();
 }
-export default PlayAudio;
+export default playAudio;
