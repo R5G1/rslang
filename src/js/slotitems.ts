@@ -1,15 +1,15 @@
-import { RandomNum } from './randomnum';
+import { randomNum } from './randomnum';
 
-function SlotItems(trueitem:number, items:number[], count:number):number[] {
+function setQuest(trueitem:number, items:number[], count:number):number[] {
   if (count > items.length) return [];
   if (!items.includes(trueitem)) return [];
   let value = trueitem;
-  const slot = [trueitem];
+  const quest= [trueitem];
   const arr = [...items].filter((v) => v !== value); // delete true from slot
-  while (slot.length < count) {
-    value = arr[RandomNum(0, arr.length - 1)];
-    slot.push(value);
+  while (quest.length < count) {
+    value = arr[randomNum(0, arr.length - 1)];
+    quest.push(value);
   }
-  return slot;
+  return quest;
 }
-export default SlotItems;
+export default setQuest;
