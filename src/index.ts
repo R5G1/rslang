@@ -4,11 +4,7 @@
 /* eslint-disable linebreak-style */
 
 import './style.scss';
-import Sprint from './sprint/script.js';
-
-const sprint = new Sprint();
-sprint.start();
-
+import './sprint/script';
 // eslint-disable-next-line import/extensions
 // eslint-disable-next-line import/first
 import './page-input/index.ts';
