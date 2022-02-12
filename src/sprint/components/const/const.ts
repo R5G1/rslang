@@ -1,4 +1,4 @@
-export default class DOM {
+export default class Const {
   sprint = document.querySelector('.sprint') as HTMLDivElement;
 
   fullscreenBtn = this.sprint.querySelector(

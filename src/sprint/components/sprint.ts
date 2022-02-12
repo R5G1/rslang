@@ -1,14 +1,16 @@
 import Utils from './utils/utils';
-import DOM from './DOM/dom';
+import Const from './const/const';
+import API from './API/api';
 
 export default class Sprint {
   utils: Utils = new Utils();
-  DOM: DOM = new DOM();
+  const: Const = new Const();
+  API: API = new API();
 
   addListenerToFullscreenBtn(Element: HTMLButtonElement) {
     const toggleFullscreen = () => {
       if (!document.fullscreenElement) {
-        this.DOM.sprint.requestFullscreen().catch((err: Error) => {
+        this.const.sprint.requestFullscreen().catch((err: Error) => {
           alert(
             `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
           );
@@ -38,18 +40,24 @@ export default class Sprint {
 
   addListenerToStartBtn(Element: HTMLButtonElement) {
     const onStartBtn = () => {
-      const levelInputs = [...this.DOM.levelInputs] as Array<HTMLInputElement>;
-      const checkedInput = levelInputs.find(el => el.checked) as HTMLInputElement;
-      const value: number = Number(checkedInput.value);
+      const levelInputs = [
+        ...this.const.levelInputs,
+      ] as Array<HTMLInputElement>;
+      const checkedInput = levelInputs.find(
+        (el) => el.checked
+      ) as HTMLInputElement;
+      const value: number = checkedInput ? Number(checkedInput.value) : 0;
       console.log(value);
-    }
+    };
     Element.addEventListener('click', onStartBtn);
   }
 
   start() {
-    this.addListenerToFullscreenBtn(this.DOM.fullscreenBtn);
-    this.addListenerToSoundBtn(this.DOM.soundBtn);
-    this.addListenerToCloseBtn(this.DOM.closeBtn);
-    this.addListenerToStartBtn(this.DOM.startBtn);
+    this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
+    this.addListenerToSoundBtn(this.const.soundBtn);
+    this.addListenerToCloseBtn(this.const.closeBtn);
+    this.addListenerToStartBtn(this.const.startBtn);
+
+    console.log(this.API.getWords(5, 5));
   }
 }
