@@ -1,4 +1,5 @@
 import { IWord } from './interfases';
+import './audio.css';
 
 export const SpeakerColor = (lvl:number , color: string) => `
       <div class="speaker" id="speaker-${lvl}">
@@ -19,36 +20,50 @@ export const renderSlot = (words: IWord[]) => `
   </ul>
 `;
 
-export const answ = (id:string)=> `
-      <div class="audio-answers" id="id-${id}">
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
+export const renderLvls = () => `
+      <div class="audio-lvls">
+        <div class="lvl click" >1</div>
+        <div class="lvl click" >2</div>
+        <div class="lvl click" >3</div>
+        <div class="lvl click" >4</div>
+        <div class="lvl click" >5</div>
+        <div class="lvl click" >6</div>
       </div>
 `;
 
-export const renderModal = (slot: IWord[], lvl:number, color:string) =>{
+export const answ = (num:number)=> `
+      <div class="audio-answers" id="id-${num}">
+        <div class="answer click">answer</div>
+        <div class="answer click">answer</div>
+        <div class="answer click">answer</div>
+        <div class="answer click">answer</div>
+        <div class="answer click">answer</div>
+        <div class="next click ">next</div>        
+      </div>
+`;
+
+export const renderAudio = (slot: IWord[], lvl:number, color:string, idx:number) =>{
   const html = `
   <div class="audio-wrap">
     <div class="quests">
-      <div class="speaker click">
-        ${SpeakerColor(lvl, color)};
-      </div>
       <div class="quest">
+        <div class="speaker click">
+        ${SpeakerColor(lvl, color)};
+        </div>
         <img src="" alt="">
+      ${answ(idx)}
       </div>
-      ${answ}
-    </div>
-    <div class="modal">
+      <div class="modal">
       ${renderSlot(slot)}
+      </div>
     </div>
+
   </div>
 `;
 
   const root = document.createElement('div');
   root.classList.add('container');
   root.innerHTML = html;
+  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${0}.jpg')`;
   document.body.appendChild(root);
 }
