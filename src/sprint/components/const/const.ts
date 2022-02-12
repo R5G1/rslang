@@ -16,4 +16,9 @@ export default class Const {
   levelInputs = this.sprint.querySelectorAll(
     '.level-item__input'
   ) as NodeListOf<HTMLInputElement>;
+  gameTimer = this.sprint.querySelector('.sprint-timer') as HTMLSpanElement;
+  ROUND_DURATION: number = 30;
+  word = this.sprint.querySelector('.field__word') as HTMLParagraphElement;
+  translate = this.sprint.querySelector('.field__translate') as HTMLParagraphElement;
+  score = this.sprint.querySelector('.sprint-score') as HTMLSpanElement;
 }

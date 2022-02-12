@@ -156,8 +156,19 @@
                                         background: url("/src/sprint/assets/icons/multiply.png") no-repeat center center;
                                         background-size: contain;
                                     }
-                                    &-number {
+                                    &-one {
+                                        background: url("/src/sprint/assets/icons/one.png") no-repeat center center;
+                                    }
+                                    &-two {
                                         background: url("/src/sprint/assets/icons/two.png") no-repeat center center;
+                                    }
+                                    &-four {
+                                        background: url("/src/sprint/assets/icons/four.png") no-repeat center center;
+                                    }
+                                    &-eight {
+                                        background: url("/src/sprint/assets/icons/eight.png") no-repeat center center;
+                                    }
+                                    &-number {
                                         background-size: contain;
                                     }
                                 }

@@ -1,11 +1,13 @@
 import Utils from './utils/utils';
 import Const from './const/const';
 import API from './API/api';
+import Gameplay from './gameplay/gameplay';
 
 export default class Sprint {
   utils: Utils = new Utils();
   const: Const = new Const();
   API: API = new API();
+  gameplay: Gameplay = new Gameplay();
 
   addListenerToFullscreenBtn(Element: HTMLButtonElement) {
     const toggleFullscreen = () => {
@@ -40,24 +42,19 @@ export default class Sprint {
 
   addListenerToStartBtn(Element: HTMLButtonElement) {
     const onStartBtn = () => {
-      const levelInputs = [
-        ...this.const.levelInputs,
-      ] as Array<HTMLInputElement>;
-      const checkedInput = levelInputs.find(
-        (el) => el.checked
-      ) as HTMLInputElement;
-      const value: number = checkedInput ? Number(checkedInput.value) : 0;
-      console.log(value);
+      this.gameplay.startRound();
+
+
     };
     Element.addEventListener('click', onStartBtn);
   }
 
-  start() {
+  async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);
 
-    console.log(this.API.getWords(5, 5));
+    this.gameplay.startTimer(this.const.gameTimer, this.const.ROUND_DURATION);
   }
 }

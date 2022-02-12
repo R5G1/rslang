@@ -87,7 +87,7 @@
             </div>
     </footer>
     <section class="sprint">
-        <section class="sprint__welcome">
+        <section class="sprint__welcome hide">
             <h1 class="welcome__heading">Спринт</h1>
             <p class="welcome__text">
                 Правила: необходимо выбрать соответствует ли перевод предложенному слову.
@@ -95,7 +95,7 @@
             <p class="welcome__text">Выберите уровень:</p>
             <ul class="welcome__level-list">
                 <li class="level-list__item">
-                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-1" value="0" />
+                    <input type="radio" name="welcome-lvl" class="level-item__input" id="lvl-1" value="0" checked/>
                     <label class="level-item__label" for="lvl-1">A1</label>
                 </li>
                 <li class="level-list__item">
@@ -121,8 +121,8 @@
             </ul>
             <button class="welcome__start-btn">Начать</button>
         </section>
-        <section class="sprint__game hide">
-            <div class="game__score">Счет: <span class="sprint-score">110</span></div>
+        <section class="sprint__game">
+            <div class="game__score">Счет: <span class="sprint-score">0</span></div>
             <div class="game__timer">
                 <span class="sprint-timer">30</span>
                 <div class="animate-container"></div>
@@ -134,7 +134,7 @@
                     <div class="multiplier__mark"></div>
                     <div class="multiplier__multiply">
                         <div class="multiply-mark"></div>
-                        <div class="multiply-number"></div>
+                        <div class="multiply-number multiply-one"></div>
                     </div>
                 </div>
                 <p class="field__word">book</p>
