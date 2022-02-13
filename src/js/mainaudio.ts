@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint no-console:  */
-import playAudio from './playaudio';
+// import playAudio from './playaudio';
 
 // import { renderAudio } from './renders';
-import data from './data'
+import data from './data';
 import { IWord } from './interfases';
-import Quest  from './quest'
+import Quest from './quest';
 // import { audio } from './audio';
 // import '../assets/rs-school-footer.svg';
 // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
@@ -15,8 +15,8 @@ function startAudio(dat: IWord[], group: number, page: number): void {
   // const i = 2;
   // const di = data[i];
   // renderModal(slot, 0, '#ffff00', 0);
-  const quest = new Quest(slot); 
-  quest.startAudio(data, 0, 0)
+  const quest = new Quest(slot);
+  quest.startAudio(data, 0, 0);
   quest.setEvents();
   // const srca = `assets/${di.audio}`;
   // console.log('srca', srca)
