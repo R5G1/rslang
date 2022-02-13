@@ -1,5 +1,8 @@
+import IWord from './IWord';
+
 export default interface IData {
-    words: Array<string>;
-    translates: Array<string>;
-    wrongTranslates: Array<string>;
+  arrayOfWords: Array<IWord>;
+  words: Array<string>;
+  translates: Array<string>;
+  wrongTranslates: Array<string>;
 }

@@ -16,9 +16,9 @@ export default class Gameplay {
   score: number = -10;
   isRightTranslate: boolean = true;
   streak: number = 0;
-  rightAnswersArray: Array<string> = [];
-  wrongAnswersArray: Array<string> = [];
-  data: IData = {words: [], translates: [], wrongTranslates:[]};
+  rightAnswersArray: Array<IWord> = [];
+  wrongAnswersArray: Array<IWord> = [];
+  data: IData = {arrayOfWords: [],words: [], translates: [], wrongTranslates:[]};
   level: number = 0;
   randomPageNumber: number = 0;
   
@@ -50,6 +50,7 @@ export default class Gameplay {
     );
     const wrongTranslates = [...translates].reverse();
     return {
+      arrayOfWords,
       words,
       translates,
       wrongTranslates,
@@ -137,9 +138,11 @@ export default class Gameplay {
   onTrueBtn = () => {
     if (this.isRightTranslate) {
       this.streak++;
+      this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
       this.nextWord();
     } else {
       this.streak = 0;
+      this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
       this.nextWord();
     }
   };
@@ -147,9 +150,11 @@ export default class Gameplay {
   onFalseBtn = () => {
     if (!this.isRightTranslate) {
       this.streak++;
+      this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
       this.nextWord();
     } else {
       this.streak = 0;
+      this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
       this.nextWord();
     }
   };
@@ -163,7 +168,8 @@ export default class Gameplay {
   }
 
   endRound() {
-    console.log('end');
+    console.log(this.rightAnswersArray);
+    console.log(this.wrongAnswersArray);
 
     this.const.trueBtn.removeEventListener('click', this.onTrueBtn);
     this.const.falseBtn.removeEventListener('click', this.onFalseBtn);
@@ -187,6 +193,9 @@ export default class Gameplay {
 
     this.randomPageNumber = this.utils.getRandomNumber(29);
     this.data = await this.getWordsForRound(this.level, this.randomPageNumber);
+
+    this.const.welcomeSection.classList.add('hide');
+    this.const.gameSection.classList.remove('hide');
 
     this.const.trueBtn.addEventListener('click', this.onTrueBtn);
     this.const.falseBtn.addEventListener('click', this.onFalseBtn);

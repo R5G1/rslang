@@ -24,4 +24,6 @@ export default class Const {
   falseBtn = this.sprint.querySelector('.buttons__false-btn') as HTMLButtonElement;
   multiplierMarks = this.sprint.querySelectorAll('.multiplier__mark') as NodeListOf<HTMLDivElement>;
   multiplyNumber = this.sprint.querySelector('.multiply-number') as HTMLDivElement;
+  welcomeSection = this.sprint.querySelector('.sprint__welcome') as HTMLDivElement;
+  gameSection = this.sprint.querySelector('.sprint__game') as HTMLDivElement;
 }
