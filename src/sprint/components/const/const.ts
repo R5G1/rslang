@@ -17,8 +17,11 @@ export default class Const {
     '.level-item__input'
   ) as NodeListOf<HTMLInputElement>;
   gameTimer = this.sprint.querySelector('.sprint-timer') as HTMLSpanElement;
-  ROUND_DURATION: number = 30;
   word = this.sprint.querySelector('.field__word') as HTMLParagraphElement;
   translate = this.sprint.querySelector('.field__translate') as HTMLParagraphElement;
   score = this.sprint.querySelector('.sprint-score') as HTMLSpanElement;
+  trueBtn = this.sprint.querySelector('.buttons__true-btn') as HTMLButtonElement;
+  falseBtn = this.sprint.querySelector('.buttons__false-btn') as HTMLButtonElement;
+  multiplierMarks = this.sprint.querySelectorAll('.multiplier__mark') as NodeListOf<HTMLDivElement>;
+  multiplyNumber = this.sprint.querySelector('.multiply-number') as HTMLDivElement;
 }

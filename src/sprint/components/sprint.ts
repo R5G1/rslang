@@ -43,8 +43,6 @@ export default class Sprint {
   addListenerToStartBtn(Element: HTMLButtonElement) {
     const onStartBtn = () => {
       this.gameplay.startRound();
-
-
     };
     Element.addEventListener('click', onStartBtn);
   }
@@ -55,6 +53,5 @@ export default class Sprint {
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);
 
-    this.gameplay.startTimer(this.const.gameTimer, this.const.ROUND_DURATION);
   }
 }
