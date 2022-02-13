@@ -1,7 +1,7 @@
 import { IWord } from './interfases';
 import './audio.css';
 
-export const SpeakerColor = (lvl:number , color: string) => `
+export const SpeakerColor = (lvl: number, color: string) => `
       <div class="speaker" id="speaker-${lvl}">
         ${`
           <svg id="speaksvg" version="1.1" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
@@ -14,14 +14,14 @@ export const SpeakerColor = (lvl:number , color: string) => `
 
 export const renderSlot = (words: IWord[]) => `
   <ul class="modal-slot">
-    ${[...words].map((word:IWord, idx) => `
+    ${[...words].map((word: IWord, idx) => `
       <li ><span class="res click" id="numslot-${idx}">${word.word}</span><span class="result">?</span></li>
     `).join('')}
   </ul>
 `;
 
 export const renderLvls = () => `
-      <div class="audio-lvls">
+      <div class="audio-lvls active">
         <div class="lvl click" >1</div>
         <div class="lvl click" >2</div>
         <div class="lvl click" >3</div>
@@ -31,7 +31,7 @@ export const renderLvls = () => `
       </div>
 `;
 
-export const answ = (num:number)=> `
+export const answ = (num: number) => `
       <div class="audio-answers" id="id-${num}">
         <div class="answer click">answer</div>
         <div class="answer click">answer</div>
@@ -42,9 +42,11 @@ export const answ = (num:number)=> `
       </div>
 `;
 
-export const renderAudio = (slot: IWord[], lvl:number, color:string, idx:number) =>{
+export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: number) => {
   const html = `
-  <div class="audio-wrap">
+  <section class="audio-wrap" id="audiocall">
+    <h2 class="audio-title">Audio Call</h2>
+    ${renderLvls}
     <div class="quests">
       <div class="quest">
         <div class="speaker click">
@@ -57,13 +59,71 @@ export const renderAudio = (slot: IWord[], lvl:number, color:string, idx:number)
       ${renderSlot(slot)}
       </div>
     </div>
-
-  </div>
+  </section>
 `;
 
   const root = document.createElement('div');
   root.classList.add('container');
   root.innerHTML = html;
-  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${0}.jpg')`;
+  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  document.body.appendChild(root);
+}
+
+export const renderHeader = () => {
+  const html = `
+  <header class="header">
+    <div class="header-wrap">
+      <a href="#main" class="logo click">
+        <div class="logo-img"></div>
+        <h1 class="logo-txt">RSLang</h1>
+      </a>
+      <nav class="menu">
+        <ul class="menu__list">
+          <li class="menu__list-item">
+            <a class="menu__list-link click" href="#main">
+              about
+            </a>
+          </li>
+          <li class="menu__list-item">
+            <a class="menu__list-link click" href="#audiocall">
+              audiocall
+            </a>
+          </li>
+          <li class="menu__list-item">
+            <a class="menu__list-link click" hhref="#sprint">
+              sprint
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="burger">
+      <div class="burger__top" onclick="this.classList.toggle('active')">
+      </div>
+      <ul class="burger__menu">
+        <li class="burger__item">
+          <a class="burger__item-link click" href="#main">
+            main
+          </a>
+        </li>
+        <li class="burger__item">
+          <a class="burger__item-link click" href="#audiocall">
+            audiocall
+          </a>
+        </li>
+        <li class="burger__item">
+          <a class="burger__item-link click" href="#sprint">
+            sprint
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+`;
+
+  const root = document.createElement('div');
+  root.classList.add('container');
+  root.innerHTML = html;
   document.body.appendChild(root);
 }
