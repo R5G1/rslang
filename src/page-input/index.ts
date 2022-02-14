@@ -69,7 +69,12 @@ btnTeamExit?.addEventListener('click', () => {
 // eslint-disable-next-line spaced-comment
 //!page======================================================
 const sectionHomepage = <Element>document.querySelector('.homepage');
+//sprint
 const btnSprint = <Element>document.querySelector('.m-p__menu-ul-sprint');
+const sectionSprint = <Element>document.querySelector('.sprint');
+const btSprintExit = <Element>document.querySelector('.controls__close-btn');
+const btSprintExitMenu = <Element>document.querySelector('.modal-result__exit');
+//================
 const btnAudioChallenge = <Element>(
   document.querySelector('.m-p__menu-ul-audio-challenge')
 );
@@ -80,6 +85,15 @@ const btnStatistics = <Element>(
 
 btnSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
+  sectionSprint.classList.remove('hide');
+});
+btSprintExit?.addEventListener('click', () => {
+  sectionHomepage.classList.remove('hide');
+  sectionSprint.classList.add('hide');
+});
+btSprintExitMenu?.addEventListener('click', () => {
+  sectionHomepage.classList.remove('hide');
+  sectionSprint.classList.add('hide');
 });
 btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
