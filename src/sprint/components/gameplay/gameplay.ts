@@ -13,15 +13,19 @@ export default class Gameplay {
   currentIndex: number = -1;
   BET: number = 10;
   multiplier: number = 1;
-  score: number = -10;
+  score: number = 0;
   isRightTranslate: boolean = true;
   streak: number = 0;
   rightAnswersArray: Array<IWord> = [];
   wrongAnswersArray: Array<IWord> = [];
-  data: IData = {arrayOfWords: [],words: [], translates: [], wrongTranslates:[]};
+  data: IData = {
+    arrayOfWords: [],
+    words: [],
+    translates: [],
+    wrongTranslates: [],
+  };
   level: number = 0;
   randomPageNumber: number = 0;
-  
 
   startTimer(timerElement: HTMLSpanElement, seconds: number) {
     timerElement.textContent = String(seconds);
@@ -110,7 +114,7 @@ export default class Gameplay {
       default:
         return;
     }
-  };
+  }
 
   async nextWord() {
     this.currentIndex++;
@@ -118,27 +122,31 @@ export default class Gameplay {
       this.currentIndex = 0;
       this.randomPageNumber++;
       if (this.randomPageNumber === 30) this.randomPageNumber = 0;
-      this.data = await this.getWordsForRound(this.level, this.randomPageNumber);
+      this.data = await this.getWordsForRound(
+        this.level,
+        this.randomPageNumber
+      );
     }
-    this.score += this.BET * this.multiplier;
     this.const.score.textContent = String(this.score);
     this.swithMultiply(this.streak);
 
     this.const.word.textContent = this.data.words[this.currentIndex];
     if (Math.round(Math.random())) {
-      this.const.translate.textContent = this.data.translates[this.currentIndex];
+      this.const.translate.textContent =
+        this.data.translates[this.currentIndex];
       this.isRightTranslate = true;
     } else {
       this.const.translate.textContent =
         this.data.wrongTranslates[this.currentIndex];
       this.isRightTranslate = false;
     }
-  };
+  }
 
   onTrueBtn = () => {
     if (this.isRightTranslate) {
       this.streak++;
       this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
+      this.score += this.BET * this.multiplier;
       this.nextWord();
     } else {
       this.streak = 0;
@@ -151,6 +159,7 @@ export default class Gameplay {
     if (!this.isRightTranslate) {
       this.streak++;
       this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
+      this.score += this.BET * this.multiplier;
       this.nextWord();
     } else {
       this.streak = 0;
@@ -160,16 +169,79 @@ export default class Gameplay {
   };
 
   onRightBtn = (evt: KeyboardEvent) => {
-    console.log(evt.key);
-  }
+    if (evt.key === 'ArrowRight') {
+      const event = new Event('click');
+      this.const.trueBtn.dispatchEvent(event);
+    }
+  };
 
   onLeftBtn = (evt: KeyboardEvent) => {
-    console.log(evt.key);
+    if (evt.key === 'ArrowLeft') {
+      const event = new Event('click');
+      this.const.falseBtn.dispatchEvent(event);
+    }
+  };
+
+  generateResult(fragment: DocumentFragment, item: IWord) {
+    const cloneTemp = this.const.listItemTemplate.content.cloneNode(true) as HTMLDivElement;
+
+    const itemSound = cloneTemp.querySelector('.item__sound') as HTMLButtonElement;
+    const itemWord = cloneTemp.querySelector('.word') as HTMLSpanElement;
+    const itemTranslate = cloneTemp.querySelector('.translate') as HTMLSpanElement;
+
+    const sound = new Audio(`${this.api.server}${item.audio}`) as HTMLAudioElement;
+
+    itemSound.addEventListener('click', () => {
+      sound.play();
+    });
+    itemWord.textContent = item.word;
+    itemTranslate.textContent = item.wordTranslate;
+
+    fragment.appendChild(cloneTemp);
   }
 
   endRound() {
-    console.log(this.rightAnswersArray);
-    console.log(this.wrongAnswersArray);
+    this.const.modalResult.classList.remove('hide');
+    this.const.modalGameResult.textContent = String(this.score);
+
+    const numberQuestion: number =
+      this.rightAnswersArray.length + this.wrongAnswersArray.length;
+    const succesPercent: number =
+      Math.round((this.rightAnswersArray.length / numberQuestion) * 100);
+
+    const TRANSITION: number = 3000;
+    const timeForTick: number = TRANSITION / succesPercent;
+    
+    let tick: Function;
+    let numberOfPercent: number = -1;
+    setTimeout(
+      (tick = () => {
+        numberOfPercent++;
+        this.const.modalBarPercent.textContent = `${numberOfPercent}%`;
+        this.const.modalBarPercent.style.left = `${numberOfPercent}%`;
+        this.const.modalBarFill.style.width = `${numberOfPercent}%`;
+        if (numberOfPercent < succesPercent) {
+          setTimeout(tick, timeForTick);
+        } else {
+          this.const.modalBarPercent.textContent = `${succesPercent}%`;
+          this.const.modalBarPercent.style.left = `${succesPercent}%`;
+          this.const.modalBarFill.style.width = `${succesPercent}%`;
+        }
+      }),
+      timeForTick
+    );
+
+    this.const.modalMistakes.textContent = `${this.wrongAnswersArray.length}`;
+    this.const.modalCorrects.textContent = `${this.rightAnswersArray.length}`;
+
+    const mistakesFragment = document.createDocumentFragment() as DocumentFragment;
+    const correctsFragment = document.createDocumentFragment() as DocumentFragment;
+
+    this.wrongAnswersArray.forEach(el => this.generateResult(mistakesFragment, el));
+    this.rightAnswersArray.forEach(el => this.generateResult(correctsFragment, el));
+
+    this.const.mistakesList.appendChild(mistakesFragment);
+    this.const.correctsList.appendChild(correctsFragment);
 
     this.const.trueBtn.removeEventListener('click', this.onTrueBtn);
     this.const.falseBtn.removeEventListener('click', this.onFalseBtn);
@@ -180,7 +252,7 @@ export default class Gameplay {
   async startRound() {
     this.currentIndex = -1;
     this.multiplier = 1;
-    this.score = -10;
+    this.score = 0;
     this.streak = 0;
     this.rightAnswersArray = [];
     this.wrongAnswersArray = [];
@@ -201,8 +273,8 @@ export default class Gameplay {
     this.const.falseBtn.addEventListener('click', this.onFalseBtn);
     window.addEventListener('keydown', this.onRightBtn);
     window.addEventListener('keydown', this.onLeftBtn);
-    
+
     this.startTimer(this.const.gameTimer, this.roundDuration);
-    this.nextWord();    
+    this.nextWord();
   }
 }

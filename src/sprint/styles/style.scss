@@ -334,17 +334,15 @@
                         background-color: grey;
                         .bar {
                             &__fill {
-                                width: 82%;
+                                width: 0%;
                                 height: 16px;
                                 background: silver;
-                                transition: 5s;
                             }
                             &__percent {
                                 position: absolute;
                                 top: 125%;
-                                left: 82%;
+                                left: 0%;
                                 font-weight: bold;
-                                transition: 5s;
                             }
                         }
                     }

@@ -26,4 +26,13 @@ export default class Const {
   multiplyNumber = this.sprint.querySelector('.multiply-number') as HTMLDivElement;
   welcomeSection = this.sprint.querySelector('.sprint__welcome') as HTMLDivElement;
   gameSection = this.sprint.querySelector('.sprint__game') as HTMLDivElement;
+  modalResult = this.sprint.querySelector('.sprint__modal-result') as HTMLDivElement;
+  modalGameResult = this.sprint.querySelector('.sprint-result') as HTMLSpanElement;
+  modalBarPercent = this.sprint.querySelector('.bar__percent') as HTMLDivElement;
+  modalBarFill = this.sprint.querySelector('.bar__fill') as HTMLDivElement;
+  modalMistakes = this.sprint.querySelector('.mistakes__heading span') as HTMLSpanElement;
+  modalCorrects = this.sprint.querySelector('.correct__heading span') as HTMLSpanElement;
+  mistakesList = this.sprint.querySelector('.mistakes__list') as HTMLUListElement;
+  correctsList = this.sprint.querySelector('.correct__list') as HTMLUListElement;
+  listItemTemplate = this.sprint.querySelector('.template__list') as HTMLTemplateElement;
 }
