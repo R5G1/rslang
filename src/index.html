@@ -9,7 +9,7 @@
   <title>RS Lang</title>
 </head>
 <body>
- <section class="homepage">
+ <section class="homepage ">
   <main>
     <section class="main-page hide-pages">
       <div class="conteiner">
@@ -24,6 +24,7 @@
                <li class="m-p__menu-ul-audio-challenge"><p class="m-p__menu-ul-text">Аудио вызов</p> </li>
                <li class="m-p__menu-ul-textbook"><p class="m-p__menu-ul-text">Электронный учебник</p></li>
                <li class="m-p__menu-ul-statistics"><p class="m-p__menu-ul-text">Статистика</p></li>
+               <li class="m-p__menu-ul-team"><p class="m-p__menu-ul-text">О команде</p></li>
              </ul>
            </nav> 
           </div>
@@ -33,7 +34,7 @@
       </div>
       
     </section>
-    <section class="authorisation">
+    <section class="authorisation ">
       <div class="conteiner">
         <div class="contents-authorisation">
           <div class="authorisation__content ">
@@ -42,35 +43,72 @@
               <p class="registration__welcome">Регистрация</p>
 
             </div>
-            <form  class="authorisation__input-authorisation" action="" method="post">
+            <form  class="authorisation__input-authorisation" >
               <label for="authorisation__input-email">Email:</label>
-              <input class="authorisation__input-email" type="email" name="email" id="">
+              <input class="authorisation__input-email" type="email" name="email" placeholder="Email">
                <label for="authorisation__input-password">Password:</label>
-              <input class="authorisation__input-password" type="password" name="password" id="">
+              <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8">
               <button class="authorisation__input-btn"  type="submit">Войти</button>
             </form> 
           </div>
-          <div class="registration__content hide-authorisation">
+          <div class="registration__content hide-authorisation ">
             <p class="registration__exit">X</p>
             <div class="conteiner__content-menu">
 
               <p class="authorisation__welcome">Войти</p>
             </div>
             
-            <form  class="registration__input-registration" action="" method="post">
-              <label for="registration__input-email">Email:</label>
-              <input class="registration__input-email" type="email" name="email" id="">
-              <label for="authorisation__input-password">Password:</label>
-              <input class="registration__input-password" type="password" name="password" id="">
-              <label for="registration__input-password">Password:</label>
-              <input class="registration__input-password" type="password" name="password" id="">
-              <button class="registration__input-btn"  type="submit">Регистрация</button>
+            <form  class="registration__input-registration"  >
+              <label >Email:
+                <input class="registration__input-email" type="email" name="email"  placeholder="Email"></label>
+              <label >Password:
+                <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password">
+              </label>
+              
+              <button type="submit" class="registration__input-btn"  >Регистрация</button>
             </form>
           </div>
         </div>
         
       </div>
       
+    </section>
+    <section class="team hide-pages">
+      <div class="conteiner">
+        <div class="team__content">
+          <div class="team__exit">X</div>
+          <div class="team__content-conteiner">
+            <a class="team__first conteiner-size" target="_blank" href="https://github.com/R5G1">
+              <div class="team__first-icon"></div>
+              <div class="team__link">@R5G1</div>
+              <div class="team__text-conteiner">
+                <!-- <p class="team__text-difficult"></p> -->
+                <p class="team__text-normal">Авторизация</p>
+                <p class="team__text-easily">Главная страница</p>
+              </div>
+            </a>
+            <a class="team__second conteiner-size" target="_blank" href="https://github.com/EdChekanov">
+              <div class="team__second-icon"></div>
+              <div class="team__link">@EdChekanov</div>
+              <div class="team__text-conteiner">
+                <p class="team__text-difficult">Спринт</p>
+                <p class="team__text-normal">страница статистики</p>
+                <!-- <p class="team__text-easily"></p> -->
+              </div>
+            </a>
+            
+            <a class="team__third conteiner-size" target="_blank" href="https://github.com/BSKOM">
+              <div class="team__third-icon"></div>
+              <div class="team__link">@BSKOM</div>
+              <div class="team__text-conteiner">
+                <p class="team__text-difficult">Аудиовызов</p>
+                <p class="team__text-normal">Электронный учебник</p>
+                <!-- <p class="team__text-easily"></p> -->
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
    </main>
    <footer>

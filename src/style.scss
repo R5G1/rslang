@@ -8,9 +8,12 @@
 .hide-pages {
   display: none;
 }
+.hide {
+  display: none;
+}
 
 body {
-  font-family: "Forum", cursive;
+  // font-family: "Forum", cursive;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -115,8 +118,8 @@ main {
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      border-radius: 50px;
-      border: 1px solid rgba(248, 248, 248, 0.342);
+      border-radius: 30px;
+      box-shadow: 0px 4px 8px 11px rgba(34, 60, 80, 0.2);
       transition: box-shadow 0.2s ease 0s;
       &:hover {
         transition: box-shadow, background-color 0.3s ease 0s;
@@ -166,8 +169,123 @@ main {
     background: url("./assets/menu-header/img/statistics.png") center / 80% 80%
       no-repeat;
   }
+  &__menu-ul-team {
+    background: url("./assets/menu-header/img/team.png") center / 80% 80%
+      no-repeat;
+  }
 }
 //!===============================================================================
+.team {
+  a {
+    color: rgb(255, 255, 255);
+  }
+  &__exit{
+    font-size: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
+    padding: 15px;
+    cursor: pointer;
+    &:hover {
+      color: rgb(139, 139, 139);
+    }
+    &:active {
+      color: rgb(255, 0, 0);
+    }
+  }
+  .conteiner-size {
+    max-width: 600px;
+    max-height: 250px;
+
+    border-radius: 10px;
+    margin: 15px 15px;
+    box-shadow: 0px 4px 8px 14px rgba(34, 60, 80, 0.2);
+    transition: box-shadow 0.2s ease 0s;
+    &:hover {
+      transition: box-shadow, background-color 0.3s ease 0s;
+      transition: box-shadow 0.3s ease 0s;
+      background-color: rgba(161, 161, 161, 0.8);
+      box-shadow: 0px 4px 8px 10px rgba(34, 60, 80, 0.2);
+      &:active {
+        box-shadow: 0px 4px 8px 5px rgba(34, 60, 80, 0.2);
+      }
+    }
+  }
+
+  &__content-conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+  }
+
+  &__first {
+  }
+
+  .team__first-icon,
+  .team__second-icon,
+  .team__third-icon {
+    margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__first-icon {
+    background: url("https://avatars.githubusercontent.com/u/71373383?v=4") 0 0/100%
+      100% no-repeat;
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+  }
+
+  &__text-conteiner {
+    display: flex;
+    p {
+      background: rgba(255, 255, 255, 0.253);
+      width: 160px;
+      height: 30px;
+      margin: 10px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__text-difficult {
+    color: rgb(134, 0, 0);
+  }
+
+  &__text-normal {
+    color: #aa9102;
+  }
+
+  &__text-easily {
+    color: rgb(1, 160, 15);
+  }
+
+  &__second {
+  }
+
+  &__second-icon {
+    background: url("https://avatars.githubusercontent.com/u/45365765?v=4") 0 0/100%
+      100% no-repeat;
+  }
+
+  &__third {
+  }
+
+  &__third-icon {
+    background: url("https://avatars.githubusercontent.com/u/71558467?v=4") 0 0/100%
+      100% no-repeat;
+  }
+}
 
 //!===============================================================================
 
@@ -192,11 +310,11 @@ main {
   }
 
   &__logors-link {
-    
   }
 
   &__logors-img {
-    background: url("/src/assets/footer/rs_school_footer.svg") 0 no-repeat;
+    background: url("/src/assets/menu-header/footer/rs_school_footer.svg") 0
+      no-repeat;
     width: 120px;
     height: 80px;
   }
