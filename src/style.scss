@@ -1,12 +1,21 @@
 //Styles
-
 @import "/src/scss/_null.scss";
-
 @import "/src/scss/_font name.scss";
 
 //!===============================================================================
 @import "/src/page-input/style-menu.scss" ;
 
-.hide {
-  display: none;
+=======
+//Sprint
+@import "sprint/styles/style.scss";
+//main
+body {
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    background: rgb(187, 187, 187);
 }
+.hide {
+    display: none;
+}
+
