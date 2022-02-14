@@ -168,7 +168,7 @@ const createUser = async (url: RequestInfo, user: HTMLFormElement) => {
 
   console.log(content);
 };
-const link = 'https://jsonplaceholder.typicode.com/todos/1';
+const link = 'https://rss-lang-task.herokuapp.com/';
 
 const onRegistration = () => {
   const user = {
