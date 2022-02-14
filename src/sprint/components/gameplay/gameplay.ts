@@ -26,6 +26,8 @@ export default class Gameplay {
   };
   level: number = 0;
   randomPageNumber: number = 0;
+  trueSound: HTMLAudioElement = new Audio();
+  falseSound: HTMLAudioElement = new Audio();
 
   startTimer(timerElement: HTMLSpanElement, seconds: number) {
     timerElement.textContent = String(seconds);
@@ -78,38 +80,38 @@ export default class Gameplay {
         break;
       case 3:
         this.const.multiplierMarks[2].style.opacity = '1';
+        this.multiplier = 2;
         break;
       case 4:
         this.const.multiplierMarks[1].style.opacity = '0.1';
         this.const.multiplierMarks[2].style.opacity = '0.1';
         this.const.multiplyNumber.classList.remove('multiply-one');
         this.const.multiplyNumber.classList.add('multiply-two');
-        this.multiplier = 2;
         break;
       case 5:
         this.const.multiplierMarks[1].style.opacity = '1';
         break;
       case 6:
         this.const.multiplierMarks[2].style.opacity = '1';
+        this.multiplier = 4;
         break;
       case 7:
         this.const.multiplierMarks[1].style.opacity = '0.1';
         this.const.multiplierMarks[2].style.opacity = '0.1';
         this.const.multiplyNumber.classList.remove('multiply-two');
         this.const.multiplyNumber.classList.add('multiply-four');
-        this.multiplier = 4;
         break;
       case 8:
         this.const.multiplierMarks[1].style.opacity = '1';
         break;
       case 9:
         this.const.multiplierMarks[2].style.opacity = '1';
+        this.multiplier = 8;
         break;
       case 10:
         this.const.multiplierMarks.forEach((el) => (el.style.opacity = '0'));
         this.const.multiplyNumber.classList.remove('multiply-four');
         this.const.multiplyNumber.classList.add('multiply-eight');
-        this.multiplier = 8;
         break;
       default:
         return;
@@ -142,30 +144,45 @@ export default class Gameplay {
     }
   }
 
+  onRightAnswer() {
+    this.streak++;
+    this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
+    this.score += this.BET * this.multiplier;
+    this.const.resultYesMark.classList.add('result_active');
+    setTimeout(() => this.const.resultYesMark.classList.remove('result_active'), 200);
+    this.trueSound.currentTime = 0;
+    this.trueSound.play();
+    this.nextWord();
+  }
+
+  onWrongAnswer() {
+    this.streak = 0;
+    this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
+    this.const.resultNoMark.classList.add('result_active');
+    setTimeout(() => this.const.resultNoMark.classList.remove('result_active'), 200);
+    this.falseSound.currentTime = 0;
+    this.falseSound.play();
+    this.nextWord();
+  }
+
   onTrueBtn = () => {
     if (this.isRightTranslate) {
-      this.streak++;
-      this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
-      this.score += this.BET * this.multiplier;
-      this.nextWord();
+      this.onRightAnswer();
     } else {
-      this.streak = 0;
-      this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
-      this.nextWord();
+      this.onWrongAnswer();
     }
+    this.const.trueBtn.classList.add('buttons__item_active');
+    setTimeout(() => this.const.trueBtn.classList.remove('buttons__item_active'), 500);
   };
 
   onFalseBtn = () => {
     if (!this.isRightTranslate) {
-      this.streak++;
-      this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
-      this.score += this.BET * this.multiplier;
-      this.nextWord();
+      this.onRightAnswer();
     } else {
-      this.streak = 0;
-      this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
-      this.nextWord();
+      this.onWrongAnswer();
     }
+    this.const.falseBtn.classList.add('buttons__item_active');
+    setTimeout(() => this.const.falseBtn.classList.remove('buttons__item_active'), 500);
   };
 
   onRightBtn = (evt: KeyboardEvent) => {

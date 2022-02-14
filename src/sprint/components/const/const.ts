@@ -35,4 +35,6 @@ export default class Const {
   mistakesList = this.sprint.querySelector('.mistakes__list') as HTMLUListElement;
   correctsList = this.sprint.querySelector('.correct__list') as HTMLUListElement;
   listItemTemplate = this.sprint.querySelector('.template__list') as HTMLTemplateElement;
+  resultYesMark = this.sprint.querySelector('.result__yes') as HTMLDivElement;
+  resultNoMark = this.sprint.querySelector('.result__no') as HTMLDivElement;
 }

@@ -209,10 +209,6 @@
                                 .result {
                                     width: 4vw;
                                     height: 4vw;
-                                    @include animation(puff-out-center 2s cubic-bezier(0.165,
-                                    0.840,
-                                    0.440,
-                                    1.000) both);
                                     &__yes {
                                         display: none;
                                         background: url("/src/sprint/assets/icons/result-yes.png") no-repeat center center;
@@ -222,6 +218,13 @@
                                         display: none;
                                         background: url("/src/sprint/assets/icons/result-no.png") no-repeat center center;
                                         background-size: contain;
+                                    }
+                                    &_active {
+                                        display: inline-block;
+                                        @include animation(puff-out-center .2s cubic-bezier(0.165,
+                                        0.840,
+                                        0.440,
+                                        1.000) both);
                                     }
                                 }
                             }
@@ -260,8 +263,8 @@
                                         color: grey;
                                         pointer-events: none;
                                     }
-                                    &__item:active::before,
-                                    &__item:active::after {
+                                    &__item_active::before,
+                                    &__item_active::after {
                                         @include animation(pulsate .5s ease-in-out);
                                     }
                                     &__false-btn::before {
