@@ -3,4 +3,5 @@
 import './style-input.scss';
 import './index-pages';
 import './index-authorisation';
+import './index-registration';
 // import './index-Api.ts';

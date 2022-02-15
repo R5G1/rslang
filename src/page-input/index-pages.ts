@@ -75,7 +75,7 @@ const btnTextbook = <Element>document.querySelector('.m-p__menu-ul-textbook');
 const btnStatistics = <Element>(
   document.querySelector('.m-p__menu-ul-statistics')
 );
-
+//!sprint======================================================
 btnSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
 });
