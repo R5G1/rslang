@@ -20,43 +20,61 @@ export const renderSlot = (words: IWord[]) => `
   </ul>
 `;
 
-export const renderLvls = () => `
+export const updateSlotResult = (results:number[]) => {
+  const modalResults = document.querySelectorAll('.modal-slot result');
+  [...modalResults].map((el, idx) => el.textContent = (results[idx] = 1) ? '+': '-' );
+};
+
+export const renderLvls = `
       <div class="audio-lvls active">
-        <div class="lvl click" >1</div>
-        <div class="lvl click" >2</div>
-        <div class="lvl click" >3</div>
-        <div class="lvl click" >4</div>
-        <div class="lvl click" >5</div>
-        <div class="lvl click" >6</div>
-      </div>
-`;
-
-export const answ = (num: number) => `
-      <div class="audio-answers" id="id-${num}">
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="answer click">answer</div>
-        <div class="next click ">next</div>        
-      </div>
-`;
-
-export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: number) => {
-  const html = `
-  <section class="audio-wrap" id="audiocall">
-    <h2 class="audio-title">Audio Call</h2>
-    ${renderLvls}
-    <div class="quests">
-      <div class="quest">
-        <div class="speaker click">
-        ${SpeakerColor(lvl, color)};
+        <div class="lvls-list">
+          <div class="lvl click" >1</div>
+          <div class="lvl click" >2</div>
+          <div class="lvl click" >3</div>
+          <div class="lvl click" >4</div>
+          <div class="lvl click" >5</div>
+          <div class="lvl click" >6</div>
         </div>
-        <img src="" alt="">
-      ${answ(idx)}
       </div>
-      <div class="modal">
-      ${renderSlot(slot)}
+`;
+
+export const answ = (num: number, answers: number[], words: string[]) => `
+      <div class="audio-answers" id="id-${num}">
+         ${[...answers].map(
+  (el: number, idx: number) => `
+        <div class="answer ${idx === num ? 'yes' : ''} click">${words[idx]}</div>  
+      `).join('')}
+        <div class="next click ">next</div>  
+      </div>
+`;
+
+export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: number, chunk: number[]) => {
+  const words = slot.filter((_, ind) => chunk.includes(ind)).map((el: IWord) => el.wordTranslate);
+  const html = `
+  <section class="audio-call" id="audiocall">
+    <h2 class="audio-title">Audio Call</h2>
+    <div class="audio-wrap">   
+      <div class="audio-lvls active">
+        <div class="lvls-list">
+          <div class="lvl click" >1</div>
+          <div class="lvl click" >2</div>
+          <div class="lvl click" >3</div>
+          <div class="lvl click" >4</div>
+          <div class="lvl click" >5</div>
+          <div class="lvl click" >6</div>
+        </div>
+      </div>
+      <div class="quests">
+        <div class="quest">
+          <div class="speaker click">
+          ${SpeakerColor(lvl, color)};
+          </div>
+          <img src="" alt="">
+        ${answ(idx, chunk, words)}
+        </div>
+        <div class="modal">
+        ${renderSlot(slot)}
+        </div>
       </div>
     </div>
   </section>
@@ -64,66 +82,36 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
 
   const root = document.createElement('div');
   root.classList.add('container');
+  root.classList.add('container-audio');
   root.innerHTML = html;
   (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
   (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
   document.body.appendChild(root);
 }
 
-export const renderHeader = () => {
+export const updateAudio = (slot: IWord[], lvl: number, color: string, idx: number, chunk: number[]) => {
+  const words = slot.filter((_, ind) => chunk.includes(ind)).map((el: IWord) => el.wordTranslate);
+  // console.log('idx', idx, 'words', words);
   const html = `
-  <header class="header">
-    <div class="header-wrap">
-      <a href="#main" class="logo click">
-        <div class="logo-img"></div>
-        <h1 class="logo-txt">RSLang</h1>
-      </a>
-      <nav class="menu">
-        <ul class="menu__list">
-          <li class="menu__list-item">
-            <a class="menu__list-link click" href="#main">
-              about
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link click" href="#audiocall">
-              audiocall
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link click" hhref="#sprint">
-              sprint
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="burger">
-      <div class="burger__top" onclick="this.classList.toggle('active')">
-      </div>
-      <ul class="burger__menu">
-        <li class="burger__item">
-          <a class="burger__item-link click" href="#main">
-            main
-          </a>
-        </li>
-        <li class="burger__item">
-          <a class="burger__item-link click" href="#audiocall">
-            audiocall
-          </a>
-        </li>
-        <li class="burger__item">
-          <a class="burger__item-link click" href="#sprint">
-            sprint
-          </a>
-        </li>
-      </ul>
-    </div>
-  </header>
+        <div class="quest">
+          <div class="speaker click">
+          ${SpeakerColor(lvl, color)};
+          </div>
+          <img src="" alt="">
+        ${answ(idx, chunk, words)}
+        </div>
+        <div class="modal">
+        ${renderSlot(slot)}
+        </div>
 `;
-
-  const root = document.createElement('div');
-  root.classList.add('container');
-  root.innerHTML = html;
-  document.body.appendChild(root);
+  const questsDom = (<HTMLElement>document.querySelector('.quests'));
+  const audioWrap = (<HTMLElement>document.querySelector('.audio-wrap'));
+  // questsDom.replaceChild ;
+  const quests = document.createElement('div');
+  quests.style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  quests.classList.add('quests');
+  quests.classList.add('active');
+  quests.innerHTML = html;
+  (<Element>audioWrap).removeChild(questsDom );
+  audioWrap.appendChild(quests);
 }
