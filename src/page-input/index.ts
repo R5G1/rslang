@@ -1,11 +1,9 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable spaced-comment */
 import './style-input.scss';
-<<<<<<< HEAD
 import './index-pages';
 import './index-authorisation';
 import './index-registration';
-=======
 // eslint-disable-next-line import/first
 // import './index-Api.ts';
 
@@ -225,4 +223,3 @@ onRegistration();
 //   // sectionAuthorisation.classList.add('hide-pages');
 //   // sectionMainPage.classList.remove('hide-pages');
 // });
->>>>>>> develop

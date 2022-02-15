@@ -7,4 +7,3 @@ import "./page-input/index";
 import './sprint/sprint-index';
 // eslint-disable-next-line import/extensions
 // eslint-disable-next-line import/first
-// import './page-input/index.ts';
