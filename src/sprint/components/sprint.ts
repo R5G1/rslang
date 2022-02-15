@@ -55,11 +55,6 @@ export default class Sprint {
     Element.addEventListener('click', onStartBtn);
   }
 
-  addSrcToBtnSounds() {
-    this.gameplay.trueSound.src = 'true.mp3';
-    this.gameplay.falseSound.src = 'false.mp3';
-  }
-
   addListenerToAgainBtn(Element: HTMLButtonElement) {
     const onAgainBtn = () => {
       this.const.modalResult.classList.add('hide');
@@ -70,7 +65,6 @@ export default class Sprint {
 
   async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
-    this.addSrcToBtnSounds();
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);

@@ -163,7 +163,10 @@ const onAuthorisation = () => {
 onAuthorisation();
 //!onRegistration======================================================
 
-const createUser = async (url: RequestInfo, user: HTMLFormElement) => {
+const createUser = async (url: RequestInfo, user: {
+  name: string;
+  password: string;
+}) => {
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -180,7 +183,7 @@ const createUser = async (url: RequestInfo, user: HTMLFormElement) => {
   }
   return rawResponse.json();
 
-  console.log(content);
+  // console.log(content);
 };
 const link = 'https://rss-lang-task.herokuapp.com/';
 
