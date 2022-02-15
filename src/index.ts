@@ -4,7 +4,4 @@
 /* eslint-disable linebreak-style */
 
 import './style.scss';
-import './sprint/script';
-// eslint-disable-next-line import/extensions
-// eslint-disable-next-line import/first
-import './page-input/index.ts';
+// import './sprint/script';
