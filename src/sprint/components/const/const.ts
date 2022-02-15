@@ -37,4 +37,5 @@ export default class Const {
   listItemTemplate = this.sprint.querySelector('.template__list') as HTMLTemplateElement;
   resultYesMark = this.sprint.querySelector('.result__yes') as HTMLDivElement;
   resultNoMark = this.sprint.querySelector('.result__no') as HTMLDivElement;
+  againBtn = this.sprint.querySelector('.modal-result__again') as HTMLButtonElement;
 }

@@ -29,6 +29,14 @@ export default class Sprint {
   addListenerToSoundBtn(Element: HTMLButtonElement) {
     const onSoundBtn = () => {
       Element.classList.toggle('controls__sound-mute-btn');
+
+      if (this.gameplay.trueSound.volume && this.gameplay.falseSound.volume) {
+        this.gameplay.trueSound.volume = 0;
+        this.gameplay.falseSound.volume = 0;
+      } else {
+        this.gameplay.trueSound.volume = 1;
+        this.gameplay.falseSound.volume = 1;
+      }
     };
     Element.addEventListener('click', onSoundBtn);
   }
@@ -52,16 +60,20 @@ export default class Sprint {
     this.gameplay.falseSound.src = 'false.mp3';
   }
 
-  addListenerToSoundBtn() {
-    
+  addListenerToAgainBtn(Element: HTMLButtonElement) {
+    const onAgainBtn = () => {
+      this.const.modalResult.classList.add('hide');
+      this.gameplay.startRound();
+    };
+    Element.addEventListener('click', onAgainBtn);
   }
 
   async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
+    this.addSrcToBtnSounds();
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);
-    this.addSrcToBtnSounds();
-
+    this.addListenerToAgainBtn(this.const.againBtn);
   }
 }
