@@ -56,8 +56,8 @@ export default class Sprint {
   }
 
   addSrcToBtnSounds() {
-    this.gameplay.trueSound.src = 'true.mp3';
-    this.gameplay.falseSound.src = 'false.mp3';
+    this.gameplay.trueSound.src = '/src/sprint/assets/sounds/true.mp3';
+    this.gameplay.falseSound.src = '/src/sprint/assets/sounds/false.mp3';
   }
 
   addListenerToAgainBtn(Element: HTMLButtonElement) {
