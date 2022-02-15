@@ -26,8 +26,8 @@ export default class Gameplay {
   };
   level: number = 0;
   randomPageNumber: number = 0;
-  trueSound: HTMLAudioElement = new Audio();
-  falseSound: HTMLAudioElement = new Audio();
+  trueSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/true.mp3');
+  falseSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/false.mp3');
 
   startTimer(timerElement: HTMLSpanElement, seconds: number) {
     timerElement.textContent = String(seconds);
@@ -274,6 +274,9 @@ export default class Gameplay {
     this.rightAnswersArray = [];
     this.wrongAnswersArray = [];
 
+    this.const.welcomeSection.classList.add('hide');
+    this.const.loaderSection.classList.remove('hide');
+
     const levelInputs = [...this.const.levelInputs] as Array<HTMLInputElement>;
     const checkedInput = levelInputs.find(
       (el) => el.checked
@@ -283,7 +286,7 @@ export default class Gameplay {
     this.randomPageNumber = this.utils.getRandomNumber(29);
     this.data = await this.getWordsForRound(this.level, this.randomPageNumber);
 
-    this.const.welcomeSection.classList.add('hide');
+    this.const.loaderSection.classList.add('hide');
     this.const.gameSection.classList.remove('hide');
 
     this.const.trueBtn.addEventListener('click', this.onTrueBtn);
