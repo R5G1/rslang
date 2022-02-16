@@ -28,14 +28,12 @@ const submitBtnRegistration = <Element>(
 
 //!onRegistration======================================================
 const link = 'https://react-learnwords-example.herokuapp.com/users';
-const token = '';
+let content;
 
 const createUser = async (url: RequestInfo, user: any) => {
-  console.log(typeof user, user);
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
-      // Authorization: `Bearer ${token}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
@@ -43,8 +41,10 @@ const createUser = async (url: RequestInfo, user: any) => {
     //body: user,
   });
 
-  const content = await rawResponse.json();
+  content = await rawResponse.json();
   console.log(content);
+
+  localStorage.setItem('user', JSON.stringify(content));
 
   if (!rawResponse.ok) {
     throw new Error(
@@ -53,6 +53,7 @@ const createUser = async (url: RequestInfo, user: any) => {
   }
   return content;
 };
+localStorage.getItem('user');
 
 function onRegistration() {
   formRegistration.addEventListener('submit', (e: any) => {

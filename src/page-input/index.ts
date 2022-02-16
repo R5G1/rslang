@@ -4,6 +4,7 @@ import './style-input.scss';
 import './index-pages';
 import './index-authorisation';
 import './index-registration';
+import './index-user-words';
 // eslint-disable-next-line import/first
 // import './index-Api.ts';
 

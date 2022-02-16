@@ -60,9 +60,9 @@ const submitBtnAuthorisation = <Element>(
 //!getData======================================================
 
 const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
+let contentloginUser;
 
 const loginUser = async (url: RequestInfo, user: any) => {
-  console.log(typeof user, user);
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -72,16 +72,20 @@ const loginUser = async (url: RequestInfo, user: any) => {
     body: JSON.stringify(user),
   });
 
-  const content = await rawResponse.json();
-  console.log(content);
+  contentloginUser = await rawResponse.json();
+  console.log(contentloginUser);
+
+  localStorage.setItem('loginUser', JSON.stringify(contentloginUser));
 
   if (!rawResponse.ok) {
     throw new Error(
       `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
     );
   }
-  return content;
+  return contentloginUser;
 };
+
+localStorage.getItem('loginUser');
 
 function onLoginUser() {
   formAuthorisation.addEventListener('submit', (e: any) => {
