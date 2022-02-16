@@ -1,4 +1,7 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable quote-props */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable operator-linebreak */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-multi-assign */
@@ -24,43 +27,52 @@ const submitBtnRegistration = <Element>(
 );
 
 //!onRegistration======================================================
+const link = 'https://react-learnwords-example.herokuapp.com/users';
+const token = '';
 
-const createUser = async (url: RequestInfo, user: FormData) => {
+const createUser = async (url: RequestInfo, user: any) => {
+  console.log(typeof user, user);
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
+      // Authorization: `Bearer ${token}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(user),
+    //body: user,
   });
+
+  const content = await rawResponse.json();
+  console.log(content);
 
   if (!rawResponse.ok) {
     throw new Error(
       `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
     );
   }
-  return rawResponse.json();
+  return content;
 };
 
 function onRegistration() {
-  const link = 'https://jsonplaceholder.typicode.com/posts';
-  const formData = new FormData(formRegistration);
   formRegistration.addEventListener('submit', (e: any) => {
     e.preventDefault();
+    const user = {
+      email: inputRegistration.value,
+      password: passwordRegistration.value,
+    };
 
-    createUser(link, formData)
+    createUser(link, user)
       .then(() => {
         formRegistration.reset();
         colorTryR();
         setTimeout(colorNormalR, 1000);
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.log(err);
       });
   });
 }
-
 onRegistration();
 //!=================================================
 function colorTryR() {
@@ -74,3 +86,4 @@ function colorNormalR() {
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+//!=================================================

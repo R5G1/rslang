@@ -12,46 +12,97 @@ const formAuthorisation = document.querySelector(
   '.authorisation__input-authorisation'
 ) as HTMLFormElement | any;
 
-const inputAuthorisation = <Element>(
-  (<unknown>document.querySelector('.authorisation__input-email'))
-);
-const passwordAuthorisation = <Element>(
-  document.querySelector('.authorisation__input-password')
-);
+const inputAuthorisation = document.querySelector(
+  '.authorisation__input-email'
+) as HTMLInputElement;
+const passwordAuthorisation = document.querySelector(
+  '.authorisation__input-password'
+) as HTMLInputElement;
 const submitBtnAuthorisation = <Element>(
   document.querySelector('.authorisation__input-btn')
 );
 
 //!getData======================================================
-const getData = async (url: RequestInfo) => {
-  const response = await fetch(url);
+// const getData = async (url: RequestInfo) => {
+//   const response = await fetch(url);
 
-  if (!response.ok) {
+//   if (!response.ok) {
+//     throw new Error(
+//       `Ошибка по адресу ${url}, статус ошибки ${response.status}`
+//     );
+//   }
+//   const content = await response.json();
+
+//   console.log(content);
+//   return content;
+// };
+
+// // getData('https://react-learnwords-example.herokuapp.com/users').then(
+// //   (data) => console.log(data)
+// // );
+// const onAuthorisation = () => {
+//   formAuthorisation.addEventListener('submit', (e: any) => {
+//     e.preventDefault();
+
+//     getData('https://react-learnwords-example.herokuapp.com/users')
+//       .then(() => {
+//         formAuthorisation.reset();
+//         colorTryA();
+//         setTimeout(colorNormalA, 1000);
+//       })
+//       .catch((err: any) => {
+//         console.log(err);
+//       });
+//   });
+// };
+
+// onAuthorisation();
+//!getData======================================================
+
+const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
+
+const loginUser = async (url: RequestInfo, user: any) => {
+  console.log(typeof user, user);
+  const rawResponse = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  });
+
+  const content = await rawResponse.json();
+  console.log(content);
+
+  if (!rawResponse.ok) {
     throw new Error(
-      `Ошибка по адресу ${url}, статус ошибки ${response.status}`
+      `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
     );
   }
-  return response.json();
+  return content;
 };
-// getData('https://jsonplaceholder.typicode.com/todos/1').then(
-//   (data) => console.log(data));
-const onAuthorisation = () => {
+
+function onLoginUser() {
   formAuthorisation.addEventListener('submit', (e: any) => {
     e.preventDefault();
+    const user = {
+      email: inputAuthorisation.value,
+      password: passwordAuthorisation.value,
+    };
 
-    getData('https://react-learnwords-example.herokuapp.com/doc/users/')
+    loginUser(link2, user)
       .then(() => {
         formAuthorisation.reset();
         colorTryA();
         setTimeout(colorNormalA, 1000);
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.log(err);
       });
   });
-};
-
-onAuthorisation();
+}
+onLoginUser();
 //!=================================================
 function colorTryA() {
   const coloStyl = document.querySelector('.authorisation__content') as any;
@@ -64,3 +115,4 @@ function colorNormalA() {
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+//!=================================================
