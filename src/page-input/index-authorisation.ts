@@ -21,45 +21,8 @@ const passwordAuthorisation = document.querySelector(
 const submitBtnAuthorisation = <Element>(
   document.querySelector('.authorisation__input-btn')
 );
-
-//!getData======================================================
-// const getData = async (url: RequestInfo) => {
-//   const response = await fetch(url);
-
-//   if (!response.ok) {
-//     throw new Error(
-//       `Ошибка по адресу ${url}, статус ошибки ${response.status}`
-//     );
-//   }
-//   const content = await response.json();
-
-//   console.log(content);
-//   return content;
-// };
-
-// // getData('https://react-learnwords-example.herokuapp.com/users').then(
-// //   (data) => console.log(data)
-// // );
-// const onAuthorisation = () => {
-//   formAuthorisation.addEventListener('submit', (e: any) => {
-//     e.preventDefault();
-
-//     getData('https://react-learnwords-example.herokuapp.com/users')
-//       .then(() => {
-//         formAuthorisation.reset();
-//         colorTryA();
-//         setTimeout(colorNormalA, 1000);
-//       })
-//       .catch((err: any) => {
-//         console.log(err);
-//       });
-//   });
-// };
-
-// onAuthorisation();
-//!getData======================================================
-
-const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
+//!==================================================
+const link2 = 'https://rss-lang-task.herokuapp.com/signin';
 let contentloginUser;
 
 const loginUser = async (url: RequestInfo, user: any) => {

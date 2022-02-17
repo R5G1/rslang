@@ -9,35 +9,77 @@
 // eslint-disable-next-line linebreak-style
 /* eslint-disable spaced-comment */
 //!==================================================
-// const token =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGNjOGViYjY1MTY4MDAxNWE4ZDYzMSIsImlhdCI6MTY0NTAwNTA1NCwiZXhwIjoxNjQ1MDE5NDU0fQ.CCrE1vHwbDEWrRAgCsGEpm5ReepRnzDsi_oqahdk1qE';
-// let contentUserWords;
-// const createUserWord = async (url: RequestInfo, { userId, wordId, word }) => {
-//   const rawResponse = await fetch(url, {
-//     method: 'POST',
-//     withCredentials: true,
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(word),
-//   });
 
-//   contentUserWords = await rawResponse.json();
-//   console.log(contentUserWords);
+let contentUserWords;
+const createUserWord = async (url: RequestInfo, tokenString: any) => {
+  const rawResponse = await fetch(url, {
+    method: 'POST',
+    // withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${tokenString}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    // body: JSON.stringify(word),
+  });
 
-//   localStorage.setItem('loginser', JSON.stringify(contentUserWords));
+  contentUserWords = await rawResponse.json();
+  console.log(contentUserWords);
 
-//   if (!rawResponse.ok) {
+  localStorage.setItem('loginser', JSON.stringify(contentUserWords));
+
+  if (!rawResponse.ok) {
+    throw new Error(
+      `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
+    );
+  }
+  return contentUserWords;
+};
+
+function oncreateUserWord() {
+  const local: any = localStorage.getItem('loginUser');
+  const parsLocal = JSON.parse(local);
+
+  const tokenString = parsLocal.token;
+  const userIdString = parsLocal.userId;
+  const wordIdString = parsLocal.userId;
+  const linkUserWords = `https://react-learnwords-example.herokuapp.com/users/${userIdString}/words/${wordIdString}`;
+  createUserWord(linkUserWords, tokenString);
+}
+// oncreateUserWord();
+//!getData======================================================
+// const getData = async (url: RequestInfo) => {
+//   const response = await fetch(url);
+
+//   if (!response.ok) {
 //     throw new Error(
-//       `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
+//       `Ошибка по адресу ${url}, статус ошибки ${response.status}`
 //     );
 //   }
-//   return contentUserWords;
+//   const content = await response.json();
+
+//   console.log(content);
+//   return content;
 // };
 
-// function oncreateUserWord() {
-//   const linkUserWords = `https://react-learnwords-example.herokuapp.com/users/${userId}/words/${wordId}`;
-// }
-// oncreateUserWord();
+// // getData('https://react-learnwords-example.herokuapp.com/users').then(
+// //   (data) => console.log(data)
+// // );
+// const onAuthorisation = () => {
+//   formAuthorisation.addEventListener('submit', (e: any) => {
+//     e.preventDefault();
+
+//     getData('https://react-learnwords-example.herokuapp.com/users')
+//       .then(() => {
+//         formAuthorisation.reset();
+//         colorTryA();
+//         setTimeout(colorNormalA, 1000);
+//       })
+//       .catch((err: any) => {
+//         console.log(err);
+//       });
+//   });
+// };
+
+// onAuthorisation();
+//!getData======================================================

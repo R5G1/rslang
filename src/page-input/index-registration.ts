@@ -27,7 +27,7 @@ const submitBtnRegistration = <Element>(
 );
 
 //!onRegistration======================================================
-const link = 'https://react-learnwords-example.herokuapp.com/users';
+const link = 'https://rss-lang-task.herokuapp.com/users';
 let content;
 
 const createUser = async (url: RequestInfo, user: any) => {
