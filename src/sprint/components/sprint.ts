@@ -1,3 +1,7 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable @typescript-eslint/comma-dangle */
+/* eslint-disable @typescript-eslint/lines-between-class-members */
+/* eslint-disable class-methods-use-this */
 import Utils from './utils/utils';
 import Const from './const/const';
 import API from './API/api';
@@ -55,10 +59,10 @@ export default class Sprint {
     Element.addEventListener('click', onStartBtn);
   }
 
-  addSrcToBtnSounds() {
-    // this.gameplay.trueSound.src = '/src/sprint/assets/sounds/true.mp3';
-    // this.gameplay.falseSound.src = '/src/sprint/assets/sounds/false.mp3';
-  }
+  //   addSrcToBtnSounds() {
+  //     // this.gameplay.trueSound.src = '/src/sprint/assets/sounds/true.mp3';
+  //     // this.gameplay.falseSound.src = '/src/sprint/assets/sounds/false.mp3';
+  //   }
 
   addListenerToAgainBtn(Element: HTMLButtonElement) {
     const onAgainBtn = () => {
@@ -70,7 +74,6 @@ export default class Sprint {
 
   async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
-    this.addSrcToBtnSounds();
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);

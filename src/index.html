@@ -36,7 +36,7 @@
     </section>
     <section class="homepage">
         <main>
-            <section class="main-page ">
+            <section class="main-page">
                 <div class="conteiner">
                     <div class="main-page__content">
                         <div class="m-p__content-img">
@@ -65,49 +65,43 @@
                             </ul>
                         </nav>
                     </div>
-
                 </div>
-
-                </div>
-
             </section>
             <section class="authorisation hide-pages">
                 <div class="conteiner">
                     <div class="contents-authorisation">
-                        <div class="authorisation__content ">
-                            <p class="registration__exit">X</p>
-                            <div class="conteiner__content-menu">
-                                <p class="registration__welcome">Регистрация</p>
-
+                        <div class="contents-authorisation">
+                            <div class="authorisation__content ">
+                                <p class="registration__exit">X</p>
+                                <div class="conteiner__content-menu">
+                                    <p class="registration__welcome">Регистрация</p>
+                                </div>
+                                <form class="authorisation__input-authorisation">
+                                    <label for="authorisation__input-email">Email:</label>
+                                    <input class="authorisation__input-email" type="email" name="email" placeholder="Email" required>
+                                    <label for="authorisation__input-password">Password:</label>
+                                    <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
+                                    <button class="authorisation__input-btn" type="submit">Войти</button>
+                                </form>
                             </div>
-                            <form class="authorisation__input-authorisation">
-                                <label for="authorisation__input-email">Email:</label>
-                                <input class="authorisation__input-email" type="email" name="email" placeholder="Email" required>
-                                <label for="authorisation__input-password">Password:</label>
-                                <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
-                                <button class="authorisation__input-btn" type="submit">Войти</button>
-                            </form>
                         </div>
                         <div class="registration__content hide-authorisation ">
                             <p class="registration__exit">X</p>
                             <div class="conteiner__content-menu">
-
                                 <p class="authorisation__welcome">Войти</p>
                             </div>
                             <form class="registration__input-registration">
                                 <label>Email:
-                <input class="registration__input-email" type="email" name="email"  placeholder="Email" required></label>
+                                        <input class="registration__input-email" type="email" name="email"  placeholder="Email" required>
+                                </label>
                                 <label>Password:
-                <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password" required>
-              </label>
-
+                                    <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password" required>
+                                </label>
                                 <button type="submit" class="registration__input-btn">Регистрация</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
-
             </section>
             <section class="team hide-pages">
                 <div class="conteiner">
@@ -170,7 +164,7 @@
     </section>
 
     <section class="sprint hide">
-        <section class="sprint__welcome hide">
+        <section class="sprint__welcome">
             <h1 class="welcome__heading">Спринт</h1>
             <p class="welcome__text">
                 Правила: необходимо выбрать соответствует ли перевод предложенному слову.
@@ -203,6 +197,9 @@
                 </li>
             </ul>
             <button class="welcome__start-btn">Начать</button>
+        </section>
+        <section class="sprint__loader hide">
+            <h1 class="loader__heading">Подождите идёт загрузка...</h1>
         </section>
         <section class="sprint__game hide">
             <div class="game__score">Счет: <span class="sprint-score">0</span></div>

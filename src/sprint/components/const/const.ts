@@ -25,6 +25,7 @@ export default class Const {
   multiplierMarks = this.sprint.querySelectorAll('.multiplier__mark') as NodeListOf<HTMLDivElement>;
   multiplyNumber = this.sprint.querySelector('.multiply-number') as HTMLDivElement;
   welcomeSection = this.sprint.querySelector('.sprint__welcome') as HTMLDivElement;
+  loaderSection = this.sprint.querySelector('.sprint__loader') as HTMLDivElement;
   gameSection = this.sprint.querySelector('.sprint__game') as HTMLDivElement;
   modalResult = this.sprint.querySelector('.sprint__modal-result') as HTMLDivElement;
   modalGameResult = this.sprint.querySelector('.sprint-result') as HTMLSpanElement;
