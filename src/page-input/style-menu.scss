@@ -5,7 +5,7 @@ body {
   font-weight: normal;
   background: rgb(187, 187, 187);
 }
-
+@import "/src/page-input/style-navigation.scss";
 main {
   min-height: calc(100vh - 80px);
   color: #ffffff;
@@ -97,7 +97,7 @@ main {
     flex-wrap: wrap;
 
     li {
-      margin: 0px 20px 0px 20px;
+      margin: 10px 20px 0px 20px;
       padding: 10px 0px 0px 0px;
       width: 140px;
       height: 140px;

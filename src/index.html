@@ -10,6 +10,30 @@
 </head>
 
 <body>
+    <section class="navigation hide">
+        <nav class="navigation__menu ">
+            <ul class="navigation__menu-ul">
+                <li class="navigation__menu-ul-authorisation">
+                    <p class="navigation__menu-ul-text">Главная</p>
+                </li>
+                <li class="navigation__menu-ul-sprint">
+                    <p class="navigation__menu-ul-text">Спринт</p>
+                </li>
+                <li class="navigation__menu-ul-audio-challenge">
+                    <p class="navigation__menu-ul-text">Аудио вызов</p>
+                </li>
+                <li class="navigation__menu-ul-textbook">
+                    <p class="navigation__menu-ul-text">Электронный учебник</p>
+                </li>
+                <li class="navigation__menu-ul-statistics">
+                    <p class="navigation__menu-ul-text">Статистика</p>
+                </li>
+                <!-- <li class="navigation__menu-ul-team">
+                    <p class="navigation__menu-ul-text">О команде</p>
+                </li> -->
+            </ul>
+        </nav>
+    </section>
     <section class="homepage">
         <main>
             <section class="main-page">
@@ -46,40 +70,38 @@
             <section class="authorisation hide-pages">
                 <div class="conteiner">
                     <div class="contents-authorisation">
-                        <div class="authorisation__content ">
-                            <p class="registration__exit">X</p>
-                            <div class="conteiner__content-menu">
-                                <p class="registration__welcome">Регистрация</p>
-
+                        <div class="contents-authorisation">
+                            <div class="authorisation__content ">
+                                <p class="registration__exit">X</p>
+                                <div class="conteiner__content-menu">
+                                    <p class="registration__welcome">Регистрация</p>
+                                </div>
+                                <form class="authorisation__input-authorisation">
+                                    <label for="authorisation__input-email">Email:</label>
+                                    <input class="authorisation__input-email" type="email" name="email" placeholder="Email" required>
+                                    <label for="authorisation__input-password">Password:</label>
+                                    <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
+                                    <button class="authorisation__input-btn" type="submit">Войти</button>
+                                </form>
                             </div>
-                            <form class="authorisation__input-authorisation">
-                                <label for="authorisation__input-email">Email:</label>
-                                <input class="authorisation__input-email" type="email" name="email" placeholder="Email">
-                                <label for="authorisation__input-password">Password:</label>
-                                <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8">
-                                <button class="authorisation__input-btn" type="submit">Войти</button>
-                            </form>
                         </div>
                         <div class="registration__content hide-authorisation ">
                             <p class="registration__exit">X</p>
                             <div class="conteiner__content-menu">
-
                                 <p class="authorisation__welcome">Войти</p>
                             </div>
                             <form class="registration__input-registration">
                                 <label>Email:
-                <input class="registration__input-email" type="email" name="email"  placeholder="Email"></label>
+                                        <input class="registration__input-email" type="email" name="email"  placeholder="Email" required>
+                                </label>
                                 <label>Password:
-                <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password">
-              </label>
-
+                                    <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password" required>
+                                </label>
                                 <button type="submit" class="registration__input-btn">Регистрация</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
-
             </section>
             <section class="team hide-pages">
                 <div class="conteiner">

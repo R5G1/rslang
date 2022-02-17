@@ -1,0 +1,46 @@
+.navigation {
+  &__menu {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.144);
+    width: 100%;
+  }
+
+  &__menu-ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      transition: background 0.3s ease 0s;
+      &:hover {
+        transition: background 0.3s ease 0s;
+        cursor: pointer;
+        background: rgb(255, 255, 255);
+        border-radius: 5px;
+        .navigation__menu-ul-text {
+          color: #000;
+        }
+      }
+      &:active {
+        .navigation__menu-ul-text {
+          color: rgb(255, 0, 0);
+        }
+      }
+    }
+  }
+
+  &__menu-ul-authorisation {
+  }
+
+  &__menu-ul-text {
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+  }
+
+}

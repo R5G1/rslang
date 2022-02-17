@@ -12,46 +12,64 @@ const formAuthorisation = document.querySelector(
   '.authorisation__input-authorisation'
 ) as HTMLFormElement | any;
 
-const inputAuthorisation = <Element>(
-  (<unknown>document.querySelector('.authorisation__input-email'))
-);
-const passwordAuthorisation = <Element>(
-  document.querySelector('.authorisation__input-password')
-);
+const inputAuthorisation = document.querySelector(
+  '.authorisation__input-email'
+) as HTMLInputElement;
+const passwordAuthorisation = document.querySelector(
+  '.authorisation__input-password'
+) as HTMLInputElement;
 const submitBtnAuthorisation = <Element>(
   document.querySelector('.authorisation__input-btn')
 );
+//!==================================================
+const link2 = 'https://rss-lang-task.herokuapp.com/signin';
+let contentloginUser;
 
-//!getData======================================================
-const getData = async (url: RequestInfo) => {
-  const response = await fetch(url);
+const loginUser = async (url: RequestInfo, user: any) => {
+  const rawResponse = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  });
 
-  if (!response.ok) {
+  contentloginUser = await rawResponse.json();
+  console.log(contentloginUser);
+
+  localStorage.setItem('loginUser', JSON.stringify(contentloginUser));
+
+  if (!rawResponse.ok) {
     throw new Error(
-      `Ошибка по адресу ${url}, статус ошибки ${response.status}`
+      `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
     );
   }
-  return response.json();
+  return contentloginUser;
 };
-// getData('https://jsonplaceholder.typicode.com/todos/1').then(
-//   (data) => console.log(data));
-const onAuthorisation = () => {
+
+localStorage.getItem('loginUser');
+
+function onLoginUser() {
   formAuthorisation.addEventListener('submit', (e: any) => {
     e.preventDefault();
+    const user = {
+      email: inputAuthorisation.value,
+      password: passwordAuthorisation.value,
+    };
 
-    getData('https://react-learnwords-example.herokuapp.com/doc/users/')
+    loginUser(link2, user)
       .then(() => {
         formAuthorisation.reset();
         colorTryA();
         setTimeout(colorNormalA, 1000);
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.log(err);
       });
   });
-};
-
-onAuthorisation();
+}
+onLoginUser();
 //!=================================================
 function colorTryA() {
   const coloStyl = document.querySelector('.authorisation__content') as any;
@@ -64,3 +82,4 @@ function colorNormalA() {
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+//!=================================================
