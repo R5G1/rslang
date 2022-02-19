@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable spaced-comment */
-import './style-input.scss';
 import './index-registration';
 import './index-authorisation';
 import './index-user-words';

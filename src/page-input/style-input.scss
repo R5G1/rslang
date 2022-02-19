@@ -1,22 +1,4 @@
-%btnn {
-  width: 240px;
-  height: 50px;
-  border: 1.5px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 60px;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0);
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 22px;
-  transition: background 0.3s ease 0s;
-  &:hover {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  &:active {
-    background: rgba(255, 255, 255, 1);
-  }
-}
+
 //!===============================================================================
 .conteiner {
 }
@@ -56,7 +38,23 @@
     }
   }
   button {
-    @extend %btnn;
+    width: 240px;
+    height: 50px;
+    border: 1.5px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 60px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 22px;
+    transition: background 0.3s ease 0s;
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    &:active {
+      background: rgba(255, 255, 255, 1);
+    }
   }
 
   .hide-authorisation {

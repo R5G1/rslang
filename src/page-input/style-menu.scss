@@ -7,7 +7,7 @@ body {
 }
 
 @import "/src/page-input/style-navigation.scss";
-
+@import "/src/page-input/style-input.scss";
 main {
   min-height: calc(100vh - 80px);
   color: #ffffff;
@@ -60,7 +60,6 @@ main {
     display: flex;
     justify-content: center;
   }
-
   &__content-img-photo {
     // margin: 20px 0px 20px 0px;
     min-width: 600px;
@@ -88,8 +87,9 @@ main {
       box-shadow: 0px 4px 8px 10px rgba(34, 60, 80, 0.2);
       // border-radius: 10px;
     }
+    
   }
-
+  
   &__menu {
   }
 
@@ -180,6 +180,16 @@ main {
     &:active {
       color: rgb(255, 0, 0);
     }
+  }
+  .team__content-info-text{
+    padding: 20px 0;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
   }
   .conteiner-size {
     max-width: 600px;

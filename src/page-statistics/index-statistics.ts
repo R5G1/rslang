@@ -30,3 +30,20 @@ function scoreSprintPercent() {}
 
 function scoreAudioNumber() {}
 function scoreAudioPercent() {}
+
+let sumSprint = {
+  a1: `100`,
+  a2: `160`,
+  b1: `130`,
+  b2: `100`,
+  c1: `160`,
+  c2: `130`,
+};
+let sumAudio = {
+  a1: `100`,
+  a2: `160`,
+  b1: `130`,
+  b2: `100`,
+  c1: `160`,
+  c2: `130`,
+};
