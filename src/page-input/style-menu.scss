@@ -5,7 +5,9 @@ body {
   font-weight: normal;
   background: rgb(187, 187, 187);
 }
+
 @import "/src/page-input/style-navigation.scss";
+
 main {
   min-height: calc(100vh - 80px);
   color: #ffffff;

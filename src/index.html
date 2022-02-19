@@ -70,7 +70,8 @@
             <section class="authorisation hide-pages">
                 <div class="conteiner">
                     <div class="contents-authorisation">
-                        <div class="authorisation__content ">
+                        <div class="contents-authorisation__user-login">
+                            <div class="authorisation__content">
                                 <p class="registration__exit">X</p>
                                 <div class="conteiner__content-menu">
                                     <p class="registration__welcome">Регистрация</p>
@@ -82,8 +83,8 @@
                                     <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
                                     <button class="authorisation__input-btn" type="submit">Войти</button>
                                 </form>
-                        </div>
-                        <div class="registration__content hide-authorisation ">
+                            </div>
+                            <div class="registration__content hide-authorisation ">
                             <p class="registration__exit">X</p>
                             <div class="conteiner__content-menu">
                                 <p class="authorisation__welcome">Войти</p>
@@ -97,7 +98,25 @@
                                 </label>
                                 <button type="submit" class="registration__input-btn">Регистрация</button>
                             </form>
+                            </div>
                         </div>
+                        <div class="contents-authorisation__user-info hide-pages">
+                            <div class="contents-authorisation__user-info-content">
+                                <p class="registration__exit">X</p>
+                                <div class="conteiner__content-menu">
+                                    <p class="contents-authorisation__welcome">Пользователь</p>
+                                </div>
+                                <div class="user-info__content">
+                                    <div class="user-info__content-icon"></div>
+                                    <p>userId: <span class="user-info__content-text"></span></p>
+                                    <input type="text"  class="user-info__content-input" placeholder="Enter name"></input>
+                                    <div class="user-info__content-login-out">login-out</div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -270,7 +289,84 @@
       </li>
     </template>
     </section>
-
+    <section class="statistics hide">
+        <div class="conteiner">
+            <div class="statistics__content">
+                <div class="statistics__content-heder">Статистика <span class="statistics__content-heder-text">(зарегистрируйтесь чтобы увидеть прогресс)</span></div>
+                <div class="statistics__general-analysis">
+                    <div class="general__analysis-all">
+                        <p class="statistics__game-heder">"Общая сумма"</p>
+                        <div class="general__analysis-number">Kоличество новых слов: <span class="general__analysis-number-text">0</span></div>
+                        <div class= "general__analysis-percent">Процент правильных ответов: <span class= "general__analysis-percent-text">0</span> %</div>
+                    </div>
+                    <div class="statistics__game-sprint">
+                        <p class="statistics__game-heder">"Спринт"</p>
+                        <p class="statistics__game-sprint-number">Kоличество новых слов: 
+                            <span class="statistics__game-sprint-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-sprint-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-sprint-percent-text">0</span> %
+                        </p>
+                    
+                        <!-- <div class="statistics__conteier">
+                            <div class="statistics__conteier-new-words">
+                                <p class="statistics__game-heder-level">количество новых слов</p>
+                                <p class="statistics__game-level-a1">level-a1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-a2">level-a2 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-b1">level-b1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-b2">level-b2 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-c1">level-c1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-c2">level-c1 <span class="statistics__game-level-a1-sprint">0</span></p> 
+                            </div>
+                             <div class="statistics__conteier-tru-words">
+                                <p class="statistics__game-heder-level">процент правильных ответов</p>
+                                <p class="statistics__game-level-a1">level-a1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-a2">level-a2 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-b1">level-b1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-b2">level-b2 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-c1">level-c1 <span class="statistics__game-level-a1-sprint">0</span></p>
+                                <p class="statistics__game-level-c2">level-c1 <span class="statistics__game-level-a1-sprint">0</span></p> 
+                            </div>     
+                        </div>  -->
+                    </div>
+                    <div class="statistics__game-audio-challenge">
+                        <p class="statistics__game-heder">"Аудиовызов"</p>
+                        <p class="statistics__game-audio-challenge-number">Kоличество новых слов: 
+                            <span class="statistics__game-audio-challenge-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-audio-challenge-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-audio-challenge-percent-text">0</span> %
+                        </p>
+                        <!-- <div class="statistics__conteier">
+                            <div class="statistics__conteier-new-words">
+                                <p class="statistics__game-heder-level">количество новых слов</p>
+                                <p class="statistics__game-level-a1">level-a1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-a2">level-a2 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-b1">level-b1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-b2">level-b2 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-c1">level-c1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-c2">level-c1 <span class="statistics__game-level-a1-audio-challenge">0</span></p> 
+                            </div>
+                             <div class="statistics__conteier-tru-words">
+                                <p class="statistics__game-heder-level">процент правильных ответов</p>
+                                <p class="statistics__game-level-a1">level-a1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-a2">level-a2 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-b1">level-b1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-b2">level-b2 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-c1">level-c1 <span class="statistics__game-level-a1-audio-challenge">0</span></p>
+                                <p class="statistics__game-level-c2">level-c1 <span class="statistics__game-level-a1-audio-challenge">0</span></p> 
+                            </div>
+                        </div>  -->
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+    <section class="textbook hide">
+    </section>
 </body>
 
 </html>

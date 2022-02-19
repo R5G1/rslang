@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-sequences */
 /* eslint-disable operator-linebreak */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-multi-assign */
@@ -21,8 +22,10 @@ const passwordAuthorisation = document.querySelector(
 const submitBtnAuthorisation = <Element>(
   document.querySelector('.authorisation__input-btn')
 );
+
 //!==================================================
-const link2 = 'https://rss-lang-task.herokuapp.com/signin';
+// const link2 = 'https://rss-lang-task.herokuapp.com/signin';
+const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
 let contentloginUser;
 
 const loginUser = async (url: RequestInfo, user: any) => {
@@ -57,14 +60,16 @@ function onLoginUser() {
       email: inputAuthorisation.value,
       password: passwordAuthorisation.value,
     };
-
     loginUser(link2, user)
       .then(() => {
         formAuthorisation.reset();
         colorTryA();
         setTimeout(colorNormalA, 1000);
+        setTimeout(exitFormAuthorisation, 1100);
       })
       .catch((err) => {
+        colorFalseA();
+        setTimeout(colorNormalA, 1000);
         console.log(err);
       });
   });
@@ -76,10 +81,32 @@ function colorTryA() {
   coloStyl.style.backgroundColor = 'green' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+function colorFalseA() {
+  const coloStyl = document.querySelector('.authorisation__content') as any;
+  coloStyl.style.backgroundColor = 'red' as unknown as HTMLStyleElement;
+  return coloStyl;
+}
 function colorNormalA() {
   const coloStyl = document.querySelector('.authorisation__content') as any;
   coloStyl.style.backgroundColor =
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+function exitFormAuthorisation(): void {
+  document.querySelector('.authorisation')?.classList.add('hide-pages');
+  document.querySelector('.main-page')?.classList.remove('hide-pages');
+  document
+    .querySelector('.contents-authorisation__user-login')
+    ?.classList.add('hide-pages');
+  document
+    .querySelector('.contents-authorisation__user-info')
+    ?.classList.remove('hide-pages');
+}
 //!=================================================
+function showAuthorisatione() {
+  if (localStorage.getItem('loginUser')) {
+    exitFormAuthorisation();
+  }
+}
+
+window.addEventListener('load', showAuthorisatione);

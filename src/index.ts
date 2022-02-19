@@ -5,4 +5,6 @@ import './style.scss';
 
 import './page-input/index';
 
+import './page-statistics/index';
+
 import './sprint/sprint-index';
