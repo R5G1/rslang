@@ -1,14 +1,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable spaced-comment */
+
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
 const sectionHeder = <Element>document.querySelector('.main-page');
 const sectionAuthorisation = <Element>document.querySelector('.authorisation');
 const sectionSprint = <Element>document.querySelector('.sprint');
 // const sectionAudioChallenge = <Element>document.querySelector('.');
-// const sectionTextbook = <Element>document.querySelector('.');
-// const sectionStatistics = <Element>document.querySelector('.');
+const sectionTextbook = <Element>document.querySelector('.textbook');
+const sectionStatistics = <Element>document.querySelector('.statistics');
 const sectionTeam = <Element>document.querySelector('.team');
 //!btnAuthorisation======================================================
 
@@ -113,10 +114,12 @@ btnTeamExit?.addEventListener('click', () => {
 btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
+  sectionTextbook.classList.remove('hide');
 });
 btnStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
+  sectionStatistics.classList.remove('hide');
 });
 
 //!sprint======================================================
@@ -148,8 +151,8 @@ btnNavigationHeder?.addEventListener('click', () => {
   sectionHomepage.classList.remove('hide');
   sectionSprint.classList.add('hide');
   // sectionAudioChallenge.classList.add('hide');
-  // sectionTextbookclassList.classList.add('hide');
-  // sectionStatistics.classList.add('hide');
+  sectionTextbook.classList.add('hide');
+  sectionStatistics.classList.add('hide');
   sectionNavigation.classList.add('hide');
   sectionTeam.classList.add('hide-pages');
 });
@@ -157,29 +160,29 @@ btnNavigationSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.remove('hide');
   // sectionAudioChallenge.classList.add('hide');
-  // sectionTextbookclassList.classList.add('hide');
-  // sectionStatistics.classList.add('hide');
+  sectionTextbook.classList.add('hide');
+  sectionStatistics.classList.add('hide');
 });
 btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
   // sectionAudioChallenge.classList.remove('hide');
-  // sectionTextbookclassList.classList.add('hide');
-  // sectionStatistics.classList.add('hide');
+  sectionTextbook.classList.add('hide');
+  sectionStatistics.classList.add('hide');
 });
 btnNavigationTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
   // sectionAudioChallenge.classList.add('hide');
-  // sectionTextbookclassList.classList.remove('hide');
-  // sectionStatistics.classList.add('hide');
+  sectionTextbook.classList.remove('hide');
+  sectionStatistics.classList.add('hide');
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
   // sectionAudioChallenge.classList.add('hide');
-  // sectionTextbookclassList.classList.add('hide');
-  // sectionStatistics.classList.remove('hide');
+  sectionTextbook.classList.add('hide');
+  sectionStatistics.classList.remove('hide');
 });
 // btnNavigationTeam?.addEventListener('click', () => {
 //   sectionHomepage.classList.remove('hide');

@@ -27,7 +27,8 @@ const submitBtnRegistration = <Element>(
 );
 
 //!onRegistration======================================================
-const link = 'https://rss-lang-task.herokuapp.com/users';
+// const link = 'https://rss-lang-task.herokuapp.com/users';
+const link = 'https://react-learnwords-example.herokuapp.com/users';
 let content;
 
 const createUser = async (url: RequestInfo, user: any) => {
@@ -67,9 +68,12 @@ function onRegistration() {
       .then(() => {
         formRegistration.reset();
         colorTryR();
+        setTimeout(exitFormRegistration, 1000);
         setTimeout(colorNormalR, 1000);
       })
       .catch((err) => {
+        colorFalseR();
+        setTimeout(colorNormalR, 1000);
         console.log(err);
       });
   });
@@ -81,10 +85,19 @@ function colorTryR() {
   coloStyl.style.backgroundColor = 'green' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+function colorFalseR() {
+  const coloStyl = document.querySelector('.registration__content') as any;
+  coloStyl.style.backgroundColor = 'red' as unknown as HTMLStyleElement;
+  return coloStyl;
+}
 function colorNormalR() {
   const coloStyl = document.querySelector('.registration__content') as any;
   coloStyl.style.backgroundColor =
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
+}
+function exitFormRegistration() {
+  document.querySelector('.registration__content')?.classList.add('hide-authorisation');
+  document.querySelector('.authorisation__content')?.classList.remove('hide-authorisation');
 }
 //!=================================================

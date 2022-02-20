@@ -70,8 +70,8 @@
             <section class="authorisation hide-pages">
                 <div class="conteiner">
                     <div class="contents-authorisation">
-                        <div class="contents-authorisation">
-                            <div class="authorisation__content ">
+                        <div class="contents-authorisation__user-login">
+                            <div class="authorisation__content">
                                 <p class="registration__exit">X</p>
                                 <div class="conteiner__content-menu">
                                     <p class="registration__welcome">Регистрация</p>
@@ -84,8 +84,7 @@
                                     <button class="authorisation__input-btn" type="submit">Войти</button>
                                 </form>
                             </div>
-                        </div>
-                        <div class="registration__content hide-authorisation ">
+                            <div class="registration__content hide-authorisation ">
                             <p class="registration__exit">X</p>
                             <div class="conteiner__content-menu">
                                 <p class="authorisation__welcome">Войти</p>
@@ -99,7 +98,25 @@
                                 </label>
                                 <button type="submit" class="registration__input-btn">Регистрация</button>
                             </form>
+                            </div>
                         </div>
+                        <div class="contents-authorisation__user-info hide-pages">
+                            <div class="contents-authorisation__user-info-content">
+                                <p class="registration__exit">X</p>
+                                <div class="conteiner__content-menu">
+                                    <p class="contents-authorisation__welcome">Пользователь</p>
+                                </div>
+                                <div class="user-info__content">
+                                    <div class="user-info__content-icon"></div>
+                                    <p>userId: <span class="user-info__content-text"></span></p>
+                                    <input type="text"  class="user-info__content-input" placeholder="Enter name"></input>
+                                    <div class="user-info__content-login-out">login-out</div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -107,6 +124,9 @@
                 <div class="conteiner">
                     <div class="team__content">
                         <div class="team__exit">X</div>
+                        <div class="team__content-info-text">
+                            <p>Теперь учить английский язык легко и увлекательно! Играйте в мини-игры и учите запоминайте слова. Словарь содержит все слова, которые раньше встречались в играх. Повторяйте их каждый день для закрепления результата.</p>
+                        </div>
                         <div class="team__content-conteiner">
                             <a class="team__first conteiner-size" target="_blank" href="https://github.com/R5G1">
                                 <div class="team__first-icon"></div>
@@ -272,7 +292,44 @@
       </li>
     </template>
     </section>
-
+    <section class="statistics hide">
+        <div class="conteiner">
+            <div class="statistics__content">
+                <div class="statistics__content-heder">Статистика <span class="statistics__content-heder-text">(зарегистрируйтесь чтобы увидеть прогресс)</span></div>
+                <div class="statistics__general-analysis">
+                    <div class="general__analysis-all">
+                        <p class="statistics__game-heder">"Общая сумма"</p>
+                        <div class="general__analysis-number">Kоличество новых слов: <span class="general__analysis-number-text">0</span></div>
+                        <div class= "general__analysis-percent">Процент правильных ответов: <span class= "general__analysis-percent-text">0</span> %</div>
+                    </div>
+                    <div class="statistics__game-sprint">
+                        <p class="statistics__game-heder">"Спринт"</p>
+                        <p class="statistics__game-sprint-number">Kоличество новых слов: 
+                            <span class="statistics__game-sprint-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-sprint-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-sprint-percent-text">0</span> %
+                        </p>
+                    </div>
+                    <div class="statistics__game-audio-challenge">
+                        <p class="statistics__game-heder">"Аудиовызов"</p>
+                        <p class="statistics__game-audio-challenge-number">Kоличество новых слов: 
+                            <span class="statistics__game-audio-challenge-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-audio-challenge-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-audio-challenge-percent-text">0</span> %
+                        </p>
+                        </div> 
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+    <section class="textbook hide">
+    </section>
 </body>
 
 </html>

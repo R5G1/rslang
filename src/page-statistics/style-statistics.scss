@@ -1,0 +1,103 @@
+.statistics {
+  color: white;
+  font-size: 16px;
+  
+  %cWhite {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .conteiner {
+    padding: 0 10px;
+  }
+  &__content {
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  &__content-heder {
+    @extend %cWhite;
+    span {
+      font-weight: normal;
+    }
+    margin: 80px 0px 20px 0px;
+    text-align: center;
+  }
+
+  &__general-analysis {
+  }
+  &__conteier {
+    display: flex;
+    justify-content: space-around;
+    p {
+      margin: 10px 0;
+    }
+  }
+  &__game-heder-level {
+    // @extend %cWhite;
+    font-weight: normal;
+    margin: 80px 0px 20px 0px;
+    text-align: center;
+  }
+  //?=========================================================================
+
+  .statistics__game-sprint,
+  .statistics__game-audio-challenge {
+    margin: 20px 0px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    p{
+      margin: 10px 0;
+    }
+  }
+  // &__conteier-new-words {
+  //   text-align: center;
+  // }
+  // &__conteier-tru-words {
+  //   text-align: center;
+  // }
+  &__game-heder {
+    @extend %cWhite;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+  }
+  //?=========================================================================
+
+
+
+  //?=========================================================================
+
+  // &__game-level-a1 {
+  // }
+
+  // &__game-level-a2 {
+  // }
+
+  // &__game-level-b1 {
+  // }
+
+  // &__game-level-b2 {
+  // }
+
+  // &__game-level-c1 {
+  // }
+
+  // &__game-level-c2 {
+  // }
+}
+.general {
+  &__analysis-all {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  &__analysis-number {
+    margin: 10px 0;
+  }
+
+  &__analysis-percent {
+    margin: 10px 0;
+  }
+}
