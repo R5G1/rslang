@@ -30,10 +30,13 @@ contentLoginOut?.addEventListener('click', () => {
 
 const informationName = document.querySelector('.user-info__content-text') as HTMLDivElement;
 const informationStatistics = document.querySelector('.statistics__content-heder-text') as HTMLDivElement;
+const local: any = localStorage.getItem('loginUser');
+
+const parsLocal = JSON.parse(local);
+
+const userIdString = parsLocal.userId;
+
 function showName() {
-  const local: any = localStorage.getItem('loginUser');
-  const parsLocal = JSON.parse(local);
-  const userIdString = parsLocal.userId;
   if (localStorage.getItem('loginUser')) {
     informationName.innerHTML = userIdString;
     informationStatistics.innerHTML = `userId ${userIdString}`;

@@ -4,4 +4,4 @@ import './index-registration';
 import './index-authorisation';
 import './index-user-words';
 import './index-pages';
-import './index-log-out';
+// import './index-log-out';

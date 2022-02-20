@@ -25,25 +25,25 @@ const statisticsAudioPercent = document.querySelector(
 function scoreStatisticsNumber() {}
 function scoreStatisticsPercent() {}
 
+const sumSprint = {
+  a1: 10,
+  a2: 10,
+  b1: 10,
+  b2: 10,
+  c1: 10,
+  c2: 10,
+};
+const sumAudio = {
+  a1: 10,
+  a2: 10,
+  b1: 10,
+  b2: 10,
+  c1: 10,
+  c2: 10,
+};
+
 function scoreSprintNumber() {}
 function scoreSprintPercent() {}
 
 function scoreAudioNumber() {}
 function scoreAudioPercent() {}
-
-let sumSprint = {
-  a1: `100`,
-  a2: `160`,
-  b1: `130`,
-  b2: `100`,
-  c1: `160`,
-  c2: `130`,
-};
-let sumAudio = {
-  a1: `100`,
-  a2: `160`,
-  b1: `130`,
-  b2: `100`,
-  c1: `160`,
-  c2: `130`,
-};
