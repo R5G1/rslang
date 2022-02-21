@@ -32,12 +32,11 @@ const informationName = document.querySelector('.user-info__content-text') as HT
 const informationStatistics = document.querySelector('.statistics__content-heder-text') as HTMLDivElement;
 const local: any = localStorage.getItem('loginUser');
 
-const parsLocal = JSON.parse(local);
-
-const userIdString = parsLocal.userId;
-
 function showName() {
   if (localStorage.getItem('loginUser')) {
+    const parsLocal = JSON.parse(local);
+
+    const userIdString = parsLocal.userId;
     informationName.innerHTML = userIdString;
     informationStatistics.innerHTML = `userId ${userIdString}`;
   }
