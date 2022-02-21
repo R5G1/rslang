@@ -1,4 +1,4 @@
-import { IWord } from '../audio/interfases';
+import { IWord } from './interfases';
 
 export default class API {
   server = 'https://rss-lang-task.herokuapp.com/';
