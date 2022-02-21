@@ -24,8 +24,8 @@ const submitBtnAuthorisation = <Element>(
 );
 
 //!==================================================
-// const link2 = 'https://rss-lang-task.herokuapp.com/signin';
-const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
+const link2 = 'https://rss-lang-task.herokuapp.com/signin';
+// const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
 let contentloginUser;
 
 const loginUser = async (url: RequestInfo, user: any) => {
@@ -39,7 +39,6 @@ const loginUser = async (url: RequestInfo, user: any) => {
   });
 
   contentloginUser = await rawResponse.json();
-  console.log(contentloginUser);
 
   localStorage.setItem('loginUser', JSON.stringify(contentloginUser));
 
@@ -66,6 +65,7 @@ function onLoginUser() {
         colorTryA();
         setTimeout(colorNormalA, 1000);
         setTimeout(exitFormAuthorisation, 1100);
+        showName();
       })
       .catch((err) => {
         colorFalseA();
@@ -110,3 +110,16 @@ function showAuthorisatione() {
 }
 
 window.addEventListener('load', showAuthorisatione);
+
+const informationName = document.querySelector('.user-info__content-text') as HTMLDivElement;
+const informationStatistics = document.querySelector('.statistics__content-heder-text') as HTMLDivElement;
+
+function showName() {
+  const local: any = localStorage.getItem('loginUser');
+  const parsLocal = JSON.parse(local);
+  const userIdString = parsLocal.userId;
+  if (localStorage.getItem('loginUser') !== null) {
+    informationName.innerHTML = parsLocal.userId;
+    informationStatistics.innerHTML = `userId ${parsLocal.userId}`;
+  }
+}
