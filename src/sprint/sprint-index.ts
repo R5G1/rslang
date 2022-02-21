@@ -1,5 +1,5 @@
 import Sprint from './components/sprint';
 
-let game = new Sprint();
+const game = new Sprint();
 
 game.start();

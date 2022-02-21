@@ -6,34 +6,50 @@ import IData from '../models/IData';
 
 export default class Gameplay {
   const: Const = new Const();
+
   api: API = new API();
+
   utils: Utils = new Utils();
 
-  roundDuration: number = 30;
-  currentIndex: number = -1;
-  BET: number = 10;
-  multiplier: number = 1;
-  score: number = 0;
-  isRightTranslate: boolean = true;
-  streak: number = 0;
+  roundDuration = 30;
+
+  currentIndex = -1;
+
+  BET = 10;
+
+  multiplier = 1;
+
+  score = 0;
+
+  isRightTranslate = true;
+
+  streak = 0;
+
   rightAnswersArray: Array<IWord> = [];
+
   wrongAnswersArray: Array<IWord> = [];
+
   data: IData = {
     arrayOfWords: [],
     words: [],
     translates: [],
     wrongTranslates: [],
   };
-  level: number = 0;
-  randomPageNumber: number = 0;
-  trueSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/true.mp3');
-  falseSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/false.mp3');
 
+  level = 0;
+
+  randomPageNumber = 0;
+
+  trueSound: HTMLAudioElement = new Audio();
+
+  falseSound: HTMLAudioElement = new Audio();
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   startTimer(timerElement: HTMLSpanElement, seconds: number) {
     timerElement.textContent = String(seconds);
     let remains = seconds;
 
-    let tick: Function;
+    let tick: { (): void; (): void; };
     setTimeout(
       (tick = () => {
         remains--;
@@ -44,16 +60,15 @@ export default class Gameplay {
           this.endRound();
         }
       }),
-      1000
+      1000,
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async getWordsForRound(level: number, page: number) {
     const arrayOfWords: Array<IWord> = await this.api.getWords(level, page);
     const words: Array<string> = arrayOfWords.map((el) => el.word);
-    const translates: Array<string> = arrayOfWords.map(
-      (el) => el.wordTranslate
-    );
+    const translates: Array<string> = arrayOfWords.map((el) => el.wordTranslate);
     const wrongTranslates = [...translates].reverse();
     return {
       arrayOfWords,
@@ -63,9 +78,11 @@ export default class Gameplay {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   swithMultiply(streak: number) {
     switch (streak) {
       case 0:
+        // eslint-disable-next-line no-return-assign
         this.const.multiplierMarks.forEach((el) => (el.style.opacity = '0.1'));
         this.const.multiplyNumber.classList.remove('multiply-two');
         this.const.multiplyNumber.classList.remove('multiply-four');
@@ -109,15 +126,17 @@ export default class Gameplay {
         this.multiplier = 8;
         break;
       case 10:
+        // eslint-disable-next-line no-return-assign
         this.const.multiplierMarks.forEach((el) => (el.style.opacity = '0'));
         this.const.multiplyNumber.classList.remove('multiply-four');
         this.const.multiplyNumber.classList.add('multiply-eight');
         break;
       default:
-        return;
+        break;
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async nextWord() {
     this.currentIndex++;
     if (this.currentIndex === 20) {
@@ -126,7 +145,7 @@ export default class Gameplay {
       if (this.randomPageNumber === 30) this.randomPageNumber = 0;
       this.data = await this.getWordsForRound(
         this.level,
-        this.randomPageNumber
+        this.randomPageNumber,
       );
     }
     this.const.score.textContent = String(this.score);
@@ -134,16 +153,15 @@ export default class Gameplay {
 
     this.const.word.textContent = this.data.words[this.currentIndex];
     if (Math.round(Math.random())) {
-      this.const.translate.textContent =
-        this.data.translates[this.currentIndex];
+      this.const.translate.textContent = this.data.translates[this.currentIndex];
       this.isRightTranslate = true;
     } else {
-      this.const.translate.textContent =
-        this.data.wrongTranslates[this.currentIndex];
+      this.const.translate.textContent = this.data.wrongTranslates[this.currentIndex];
       this.isRightTranslate = false;
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onRightAnswer() {
     this.streak++;
     this.rightAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
@@ -155,6 +173,7 @@ export default class Gameplay {
     this.nextWord();
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onWrongAnswer() {
     this.streak = 0;
     this.wrongAnswersArray.push(this.data.arrayOfWords[this.currentIndex]);
@@ -165,6 +184,7 @@ export default class Gameplay {
     this.nextWord();
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onTrueBtn = () => {
     if (this.isRightTranslate) {
       this.onRightAnswer();
@@ -175,6 +195,7 @@ export default class Gameplay {
     setTimeout(() => this.const.trueBtn.classList.remove('buttons__item_active'), 500);
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onFalseBtn = () => {
     if (!this.isRightTranslate) {
       this.onRightAnswer();
@@ -185,6 +206,7 @@ export default class Gameplay {
     setTimeout(() => this.const.falseBtn.classList.remove('buttons__item_active'), 500);
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onRightBtn = (evt: KeyboardEvent) => {
     if (evt.key === 'ArrowRight') {
       const event = new Event('click');
@@ -192,6 +214,7 @@ export default class Gameplay {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onLeftBtn = (evt: KeyboardEvent) => {
     if (evt.key === 'ArrowLeft') {
       const event = new Event('click');
@@ -199,6 +222,7 @@ export default class Gameplay {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   generateResult(fragment: DocumentFragment, item: IWord) {
     const cloneTemp = this.const.listItemTemplate.content.cloneNode(true) as HTMLDivElement;
 
@@ -217,20 +241,20 @@ export default class Gameplay {
     fragment.appendChild(cloneTemp);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   endRound() {
     this.const.modalResult.classList.remove('hide');
     this.const.modalGameResult.textContent = String(this.score);
 
-    const numberQuestion: number =
-      this.rightAnswersArray.length + this.wrongAnswersArray.length;
-    const succesPercent: number =
-      Math.round((this.rightAnswersArray.length / numberQuestion) * 100);
+    const numberQuestion: number = this.rightAnswersArray.length + this.wrongAnswersArray.length;
+    const succesPercent: number = Math.round((this.rightAnswersArray.length / numberQuestion) * 100);
 
-    const TRANSITION: number = 3000;
+    const TRANSITION = 3000;
     const timeForTick: number = TRANSITION / succesPercent;
-    
-    let tick: Function;
-    let numberOfPercent: number = -1;
+
+    let tick: { (): void; (): void; };
+
+    let numberOfPercent = -1;
     setTimeout(
       (tick = () => {
         numberOfPercent++;
@@ -245,7 +269,7 @@ export default class Gameplay {
           this.const.modalBarFill.style.width = `${succesPercent}%`;
         }
       }),
-      timeForTick
+      timeForTick,
     );
 
     this.const.modalMistakes.textContent = `${this.wrongAnswersArray.length}`;
@@ -254,8 +278,8 @@ export default class Gameplay {
     const mistakesFragment = document.createDocumentFragment() as DocumentFragment;
     const correctsFragment = document.createDocumentFragment() as DocumentFragment;
 
-    this.wrongAnswersArray.forEach(el => this.generateResult(mistakesFragment, el));
-    this.rightAnswersArray.forEach(el => this.generateResult(correctsFragment, el));
+    this.wrongAnswersArray.forEach((el) => this.generateResult(mistakesFragment, el));
+    this.rightAnswersArray.forEach((el) => this.generateResult(correctsFragment, el));
 
     this.const.mistakesList.appendChild(mistakesFragment);
     this.const.correctsList.appendChild(correctsFragment);
@@ -266,6 +290,7 @@ export default class Gameplay {
     window.removeEventListener('keydown', this.onLeftBtn);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async startRound() {
     this.currentIndex = -1;
     this.multiplier = 1;
@@ -274,19 +299,14 @@ export default class Gameplay {
     this.rightAnswersArray = [];
     this.wrongAnswersArray = [];
 
-    this.const.welcomeSection.classList.add('hide');
-    this.const.loaderSection.classList.remove('hide');
-
     const levelInputs = [...this.const.levelInputs] as Array<HTMLInputElement>;
-    const checkedInput = levelInputs.find(
-      (el) => el.checked
-    ) as HTMLInputElement;
+    const checkedInput = levelInputs.find((el) => el.checked) as HTMLInputElement;
     this.level = Number(checkedInput.value);
 
     this.randomPageNumber = this.utils.getRandomNumber(29);
     this.data = await this.getWordsForRound(this.level, this.randomPageNumber);
 
-    this.const.loaderSection.classList.add('hide');
+    this.const.welcomeSection.classList.add('hide');
     this.const.gameSection.classList.remove('hide');
 
     this.const.trueBtn.addEventListener('click', this.onTrueBtn);
