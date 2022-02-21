@@ -1,3 +1,4 @@
+/* eslint-disable */
 import API from './api';
 import sortWords from './sortwords';
 // import sortWords from '../js/sortwords';
