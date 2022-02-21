@@ -7,10 +7,11 @@ const sectionHomepage = <Element>document.querySelector('.homepage');
 const sectionHeder = <Element>document.querySelector('.main-page');
 const sectionAuthorisation = <Element>document.querySelector('.authorisation');
 const sectionSprint = <Element>document.querySelector('.sprint');
-// const sectionAudioChallenge = <Element>document.querySelector('.');
+const sectionAudioChallenge = <Element>document.querySelector('.audio-challenge');
 const sectionTextbook = <Element>document.querySelector('.textbook');
 const sectionStatistics = <Element>document.querySelector('.statistics');
 const sectionTeam = <Element>document.querySelector('.team');
+
 //!btnAuthorisation======================================================
 
 const btnAuthorisation = <Element>(
@@ -74,7 +75,11 @@ const btnNavigationStatistics = <Element>(
 const btnNavigationTeam = <Element>(
   document.querySelector('.navigation__menu-ul-team')
 );
+
+//?end const======================================================
+
 //!Authorisation======================================================
+
 btnAuthorisation?.addEventListener('click', () => {
   sectionHeder.classList.add('hide-pages');
   sectionAuthorisation.classList.remove('hide-pages');
@@ -99,30 +104,9 @@ btnAuthorisationContent?.addEventListener('click', () => {
   sectionAuthorisationContent.classList.remove('hide-authorisation');
   sectionRegistrationContent.classList.add('hide-authorisation');
 });
-//!btnSectionTeam======================================================
-btnTeam?.addEventListener('click', () => {
-  sectionHeder.classList.add('hide-pages');
-  sectionTeam.classList.remove('hide-pages');
-});
-btnTeamExit?.addEventListener('click', () => {
-  sectionHeder.classList.remove('hide-pages');
-  sectionTeam.classList.add('hide-pages');
-});
-
-//!page-menu======================================================
-
-btnTextbook?.addEventListener('click', () => {
-  sectionHomepage.classList.add('hide');
-  sectionNavigation.classList.remove('hide');
-  sectionTextbook.classList.remove('hide');
-});
-btnStatistics?.addEventListener('click', () => {
-  sectionHomepage.classList.add('hide');
-  sectionNavigation.classList.remove('hide');
-  sectionStatistics.classList.remove('hide');
-});
 
 //!sprint======================================================
+
 btnSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.remove('hide');
@@ -133,24 +117,50 @@ btSprintExit?.addEventListener('click', () => {
   sectionSprint.classList.add('hide');
   sectionNavigation.classList.add('hide');
 });
-// btSprintExitMenu?.addEventListener('click', () => {
-//   sectionHomepage.classList.remove('hide');
-//   sectionSprint.classList.add('hide');
-// });
 
 //!AudioChallenge======================================================
+
 btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
+  sectionAudioChallenge.classList.remove('hide');
   // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
   // const quest = new Quest(slot);
   // quest.startAudio(slot, 0, 0);
 });
-//!btnSectionNavigation======================================================
+
+//!Textbook======================================================
+
+btnTextbook?.addEventListener('click', () => {
+  sectionHomepage.classList.add('hide');
+  sectionNavigation.classList.remove('hide');
+  sectionTextbook.classList.remove('hide');
+});
+
+//!Statistics======================================================
+
+btnStatistics?.addEventListener('click', () => {
+  sectionHomepage.classList.add('hide');
+  sectionNavigation.classList.remove('hide');
+  sectionStatistics.classList.remove('hide');
+});
+
+//!btnSectionTeam======================================================
+btnTeam?.addEventListener('click', () => {
+  sectionHeder.classList.add('hide-pages');
+  sectionTeam.classList.remove('hide-pages');
+});
+btnTeamExit?.addEventListener('click', () => {
+  sectionHeder.classList.remove('hide-pages');
+  sectionTeam.classList.add('hide-pages');
+});
+
+//!=====btnSectionNavigation====================================
+
 btnNavigationHeder?.addEventListener('click', () => {
   sectionHomepage.classList.remove('hide');
   sectionSprint.classList.add('hide');
-  // sectionAudioChallenge.classList.add('hide');
+  sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
   sectionNavigation.classList.add('hide');
@@ -159,38 +169,28 @@ btnNavigationHeder?.addEventListener('click', () => {
 btnNavigationSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.remove('hide');
-  // sectionAudioChallenge.classList.add('hide');
+  sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
 });
 btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
-  // sectionAudioChallenge.classList.remove('hide');
+  sectionAudioChallenge.classList.remove('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
 });
 btnNavigationTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
-  // sectionAudioChallenge.classList.add('hide');
+  sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.remove('hide');
   sectionStatistics.classList.add('hide');
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
-  // sectionAudioChallenge.classList.add('hide');
+  sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.remove('hide');
 });
-// btnNavigationTeam?.addEventListener('click', () => {
-//   sectionHomepage.classList.remove('hide');
-//   sectionSprint.classList.add('hide');
-//   // sectionAudioChallenge.classList.add('hide');
-//   // sectionTextbookclassList.classList.add('hide');
-//   // sectionStatistics.classList.add('hide');
-//   sectionHeder.classList.add('hide-pages');
-//   sectionNavigation.classList.add('hide');
-//   // sectionTeam.classList.remove('hide-pages');
-// });

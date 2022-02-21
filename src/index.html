@@ -37,7 +37,7 @@
     <section class="homepage">
         <main>
             <section class="main-page">
-                <div class="conteiner">
+                <div class="container">
                     <div class="main-page__content">
                         <div class="m-p__content-img">
                             <div class="m-p__content-img-photo"></div>
@@ -68,12 +68,12 @@
                 </div>
             </section>
             <section class="authorisation hide-pages">
-                <div class="conteiner">
+                <div class="container">
                     <div class="contents-authorisation">
                         <div class="contents-authorisation__user-login">
                             <div class="authorisation__content">
                                 <p class="registration__exit">X</p>
-                                <div class="conteiner__content-menu">
+                                <div class="container__content-menu">
                                     <p class="registration__welcome">Регистрация</p>
                                 </div>
                                 <form class="authorisation__input-authorisation">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="registration__content hide-authorisation ">
                             <p class="registration__exit">X</p>
-                            <div class="conteiner__content-menu">
+                            <div class="container__content-menu">
                                 <p class="authorisation__welcome">Войти</p>
                             </div>
                             <form class="registration__input-registration">
@@ -103,7 +103,7 @@
                         <div class="contents-authorisation__user-info hide-pages">
                             <div class="contents-authorisation__user-info-content">
                                 <p class="registration__exit">X</p>
-                                <div class="conteiner__content-menu">
+                                <div class="container__content-menu">
                                     <p class="contents-authorisation__welcome">Пользователь</p>
                                 </div>
                                 <div class="user-info__content">
@@ -121,36 +121,36 @@
                 </div>
             </section>
             <section class="team hide-pages">
-                <div class="conteiner">
+                <div class="container">
                     <div class="team__content">
                         <div class="team__exit">X</div>
                         <div class="team__content-info-text">
                             <p>Теперь учить английский язык легко и увлекательно! Играйте в мини-игры и учите запоминайте слова. Словарь содержит все слова, которые раньше встречались в играх. Повторяйте их каждый день для закрепления результата.</p>
                         </div>
-                        <div class="team__content-conteiner">
-                            <a class="team__first conteiner-size" target="_blank" href="https://github.com/R5G1">
+                        <div class="team__content-container">
+                            <a class="team__first container-size" target="_blank" href="https://github.com/R5G1">
                                 <div class="team__first-icon"></div>
                                 <div class="team__link">@R5G1</div>
-                                <div class="team__text-conteiner">
+                                <div class="team__text-container">
                                     <!-- <p class="team__text-difficult"></p> -->
                                     <p class="team__text-normal">Авторизация</p>
                                     <p class="team__text-easily">Главная страница</p>
                                 </div>
                             </a>
-                            <a class="team__second conteiner-size" target="_blank" href="https://github.com/EdChekanov">
+                            <a class="team__second container-size" target="_blank" href="https://github.com/EdChekanov">
                                 <div class="team__second-icon"></div>
                                 <div class="team__link">@EdChekanov</div>
-                                <div class="team__text-conteiner">
+                                <div class="team__text-container">
                                     <p class="team__text-difficult">Спринт</p>
                                     <p class="team__text-normal">страница статистики</p>
                                     <!-- <p class="team__text-easily"></p> -->
                                 </div>
                             </a>
 
-                            <a class="team__third conteiner-size" target="_blank" href="https://github.com/BSKOM">
+                            <a class="team__third container-size" target="_blank" href="https://github.com/BSKOM">
                                 <div class="team__third-icon"></div>
                                 <div class="team__link">@BSKOM</div>
-                                <div class="team__text-conteiner">
+                                <div class="team__text-container">
                                     <p class="team__text-difficult">Аудиовызов</p>
                                     <p class="team__text-normal">Электронный учебник</p>
                                     <!-- <p class="team__text-easily"></p> -->
@@ -161,8 +161,8 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <div class="conteiner">
+        <section class="footer-home-page">
+            <div class="container">
                 <div class="footer__content">
                     <div class="footer__logors">
                         <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
@@ -180,9 +180,8 @@
                         <p>2022</p>
                     </div>
                 </div>
-        </footer>
+        </section>
     </section>
-
     <section class="sprint hide">
         <section class="sprint__welcome">
             <h1 class="welcome__heading">Спринт</h1>
@@ -293,9 +292,10 @@
     </template>
     </section>
     <section class="statistics hide">
-        <div class="conteiner">
+        <div class="container">
             <div class="statistics__content">
-                <div class="statistics__content-heder">Статистика <span class="statistics__content-heder-text">(зарегистрируйтесь чтобы увидеть прогресс)</span></div>
+                <div class="statistics__content-heder">Статистика <span class="statistics__content-heder-text">(зарегистрируйтесь чтобы увидеть прогресс)</span>
+                </div>
                 <div class="statistics__general-analysis">
                     <div class="general__analysis-all">
                         <p class="statistics__game-heder">"Общая сумма"</p>
@@ -319,16 +319,55 @@
                         <p class= "statistics__game-audio-challenge-percent">Процент правильных ответов: 
                             <span class= "statistics__game-audio-challenge-percent-text">0</span> %
                         </p>
-                        </div> 
+                    </div> 
+                </div>
+            </div>            
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logors">
+                        <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
+                            <div class="footer__logors-img"></div>
+                        </a>
+                    </div>
+
+                    <div class="footer__logo-naim">
+                        <span class="footer__logo-naim-text">App developer:</span>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
+                    </div>
+                    <div class="footer__logo-data">
+                        <p>2022</p>
                     </div>
                 </div>
-                
-            </div>
-            
-        </div>
-        
+        </footer>
+    </section>
+    <section class="audio-challenge hide">
     </section>
     <section class="textbook hide">
+
+        <footer>
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logors">
+                        <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
+                            <div class="footer__logors-img"></div>
+                        </a>
+                    </div>
+
+                    <div class="footer__logo-naim">
+                        <span class="footer__logo-naim-text">App developer:</span>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
+                    </div>
+                    <div class="footer__logo-data">
+                        <p>2022</p>
+                    </div>
+                </div>
+        </footer>
     </section>
 </body>
 
