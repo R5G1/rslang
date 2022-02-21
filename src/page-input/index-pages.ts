@@ -2,6 +2,9 @@
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable spaced-comment */
 import TBook from '../tbook/tbook';
+import data from '../audio/data';
+import Quest from '../audio/quest';
+import { IWord } from '../tbook/interfases';
 
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
@@ -127,9 +130,10 @@ btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionAudioChallenge.classList.remove('hide');
-  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  // const quest = new Quest(slot);
-  // quest.startAudio(slot, 0, 0);
+
+  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest(slot);
+  quest.startAudio(slot, 0, 0);
 });
 
 //!Textbook======================================================
@@ -178,13 +182,22 @@ btnNavigationSprint?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+  document.location.reload();
 });
+
 btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
   sectionAudioChallenge.classList.remove('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+
+  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest(slot);
+  quest.startAudio(slot, 0, 0);
+  if (document.querySelector('.audio-challenge hide')) {
+    document.location.reload();
+  }
 });
 btnNavigationTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
