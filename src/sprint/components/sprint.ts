@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Utils from './utils/utils';
 import Const from './const/const';
 import API from './API/api';

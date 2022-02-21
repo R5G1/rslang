@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default interface IWord {
   id: string;
   group: number;

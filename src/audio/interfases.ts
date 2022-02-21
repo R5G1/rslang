@@ -1,3 +1,4 @@
+/* eslint-disable */
 export interface ISpeaker {
   lvl: number;
   color: string;

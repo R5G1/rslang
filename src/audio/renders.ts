@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IWord } from './interfases';
 import './audio.css';
 

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { audio } from './audio';
 
 function playAudio(src: string): void {
