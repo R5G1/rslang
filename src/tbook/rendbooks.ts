@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IWord } from './interfases';
 
 const base = 'https://rss-lang-task.herokuapp.com/';
@@ -33,7 +34,7 @@ export const renderItems = (items: IWord[]) => {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const rpagin = () => {
-  const pArr = '0'.repeat(180).split('').map((_, idx) => idx);
+  const pArr = '0'.repeat(181).split('').map((_, idx) => idx);
   const pkey = (i: number) => `<div class="pag-page"><span class="click" data-foo="pag">${String(i)}</span></div>`;
   const pkeys = pArr.map((_, idx) => {
     if ((idx % 30 === 0) && (idx > 0)) {
@@ -54,16 +55,14 @@ export const rpagin = () => {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const renderBook = (itms: IWord[]) => {
   const html = `
-    <div class="container-tbook" >
   ${rpagin()}
   ${renderItems(itms)}
-    </div>
   `;
 
-  const root = document.createElement('section');
-  root.classList.add('tbook');
+  const root = document.createElement('div');
+  root.classList.add('container-tbook');
   root.innerHTML = html;
-  document.body.appendChild(root);
+  (<HTMLElement>(document.querySelector)<HTMLElement>('.textbook')).appendChild(root);
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

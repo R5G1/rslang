@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+/* eslint-disable */
 const sortWords = (arr) => arr.sort((a, b) => {
   if (a.audio < b.audio) {
     return -1;

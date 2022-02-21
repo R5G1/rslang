@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IWord } from './interfases';
 
 export default class API {
