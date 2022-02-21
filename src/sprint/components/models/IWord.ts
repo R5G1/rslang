@@ -7,7 +7,7 @@ export default interface IWord {
   audio: string;
   audioMeaning: string;
   audioExample: string;
-  textMeaning: string; 
+  textMeaning: string;
   textExample: string;
   transcription: string;
   wordTranslate: string;

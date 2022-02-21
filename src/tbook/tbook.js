@@ -1,8 +1,7 @@
 /* eslint-disable */
 import * as evHUB from './handlers'
-import API from '../js/api';
-import startp from '../js/startp';
-import {render} from './rendbooks';
+import API from './api';
+import {renderBook} from './rendbooks';
 import sortWords from './sortwords'
 import './tbook.css';
 
@@ -12,7 +11,7 @@ class TBook {
     this.page = page;
     this.onEv = (e) => this.disp(e);
     this.Api = new API();
-    this.words = startp;
+    this.words = [];
   }
 
   setEvents() {
@@ -31,7 +30,7 @@ class TBook {
       this.words = value;
       // console.log(this.words)
       //sort  
-      render(sortWords(this.words));
+      renderBook(sortWords(this.words));
       this.setEvents();
     })
   }
