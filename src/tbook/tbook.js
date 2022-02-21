@@ -2,7 +2,7 @@
 import * as evHUB from './handlers'
 import API from '../js/api';
 import startp from '../js/startp';
-import {render} from './rendbooks';
+import {renderBook} from './rendbooks';
 import sortWords from './sortwords'
 import './tbook.css';
 
@@ -31,7 +31,7 @@ class TBook {
       this.words = value;
       // console.log(this.words)
       //sort  
-      render(sortWords(this.words));
+      renderBook(sortWords(this.words));
       this.setEvents();
     })
   }
