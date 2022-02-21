@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-sequences */
 /* eslint-disable operator-linebreak */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-multi-assign */
@@ -12,50 +13,77 @@ const formAuthorisation = document.querySelector(
   '.authorisation__input-authorisation'
 ) as HTMLFormElement | any;
 
-const inputAuthorisation = <Element>(
-  (<unknown>document.querySelector('.authorisation__input-email'))
-);
-const passwordAuthorisation = <Element>(
-  document.querySelector('.authorisation__input-password')
-);
+const inputAuthorisation = document.querySelector(
+  '.authorisation__input-email'
+) as HTMLInputElement;
+const passwordAuthorisation = document.querySelector(
+  '.authorisation__input-password'
+) as HTMLInputElement;
 const submitBtnAuthorisation = <Element>(
   document.querySelector('.authorisation__input-btn')
 );
 
-//!getData======================================================
-const getData = async (url: RequestInfo) => {
-  const response = await fetch(url);
+//!==================================================
+// const link2 = 'https://rss-lang-task.herokuapp.com/signin';
+const link2 = 'https://react-learnwords-example.herokuapp.com/signin';
+let contentloginUser;
 
-  if (!response.ok) {
+const loginUser = async (url: RequestInfo, user: any) => {
+  const rawResponse = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  });
+
+  contentloginUser = await rawResponse.json();
+  console.log(contentloginUser);
+
+  localStorage.setItem('loginUser', JSON.stringify(contentloginUser));
+
+  if (!rawResponse.ok) {
     throw new Error(
-      `Ошибка по адресу ${url}, статус ошибки ${response.status}`
+      `ошибка по адресу ${url}, статус ошибки ${rawResponse.status}`
     );
   }
-  return response.json();
+  return contentloginUser;
 };
-// getData('https://jsonplaceholder.typicode.com/todos/1').then(
-//   (data) => console.log(data));
-const onAuthorisation = () => {
+
+localStorage.getItem('loginUser');
+
+function onLoginUser() {
   formAuthorisation.addEventListener('submit', (e: any) => {
     e.preventDefault();
-
-    getData('https://react-learnwords-example.herokuapp.com/doc/users/')
+    const user = {
+      email: inputAuthorisation.value,
+      password: passwordAuthorisation.value,
+    };
+    loginUser(link2, user)
       .then(() => {
         formAuthorisation.reset();
         colorTryA();
         setTimeout(colorNormalA, 1000);
+        setTimeout(exitFormAuthorisation, 1100);
       })
-      .catch((err: any) => {
+      .catch((err) => {
+        colorFalseA();
+        setTimeout(colorNormalA, 1000);
         console.log(err);
       });
   });
-};
-
-onAuthorisation();
+}
+onLoginUser();
 //!=================================================
 function colorTryA() {
   const coloStyl = document.querySelector('.authorisation__content') as any;
   coloStyl.style.backgroundColor = 'green' as unknown as HTMLStyleElement;
+  return coloStyl;
+}
+function colorFalseA() {
+  const coloStyl = document.querySelector('.authorisation__content') as any;
+  coloStyl.style.backgroundColor = 'red' as unknown as HTMLStyleElement;
   return coloStyl;
 }
 function colorNormalA() {
@@ -64,3 +92,21 @@ function colorNormalA() {
     'rgb(187, 187, 187)' as unknown as HTMLStyleElement;
   return coloStyl;
 }
+function exitFormAuthorisation(): void {
+  document.querySelector('.authorisation')?.classList.add('hide-pages');
+  document.querySelector('.main-page')?.classList.remove('hide-pages');
+  document
+    .querySelector('.contents-authorisation__user-login')
+    ?.classList.add('hide-pages');
+  document
+    .querySelector('.contents-authorisation__user-info')
+    ?.classList.remove('hide-pages');
+}
+//!=================================================
+function showAuthorisatione() {
+  if (localStorage.getItem('loginUser')) {
+    exitFormAuthorisation();
+  }
+}
+
+window.addEventListener('load', showAuthorisatione);

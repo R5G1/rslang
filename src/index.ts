@@ -1,10 +1,12 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable import/extensions */
 
 import './style.scss';
 
-import "./page-input/index";
+import './page-input/index';
+
+import './page-statistics/index';
 
 import './sprint/sprint-index';
-// eslint-disable-next-line import/extensions
-// eslint-disable-next-line import/first
+
+import './user-information/index-user-information';

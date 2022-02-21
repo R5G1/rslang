@@ -6,10 +6,12 @@ body {
   background: rgb(187, 187, 187);
 }
 
+@import "/src/page-input/style-navigation.scss";
+@import "/src/page-input/style-input.scss";
 main {
   min-height: calc(100vh - 80px);
   color: #ffffff;
-  .conteiner {
+  .container {
     padding: 0px 10px;
     margin: 0 auto;
   }
@@ -58,7 +60,6 @@ main {
     display: flex;
     justify-content: center;
   }
-
   &__content-img-photo {
     // margin: 20px 0px 20px 0px;
     min-width: 600px;
@@ -86,8 +87,9 @@ main {
       box-shadow: 0px 4px 8px 10px rgba(34, 60, 80, 0.2);
       // border-radius: 10px;
     }
+    
   }
-
+  
   &__menu {
   }
 
@@ -97,7 +99,7 @@ main {
     flex-wrap: wrap;
 
     li {
-      margin: 0px 20px 0px 20px;
+      margin: 10px 20px 0px 20px;
       padding: 10px 0px 0px 0px;
       width: 140px;
       height: 140px;
@@ -179,7 +181,17 @@ main {
       color: rgb(255, 0, 0);
     }
   }
-  .conteiner-size {
+  .team__content-info-text{
+    padding: 20px 0;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+  }
+  .container-size {
     max-width: 600px;
     max-height: 250px;
 
@@ -198,7 +210,7 @@ main {
     }
   }
 
-  &__content-conteiner {
+  &__content-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,7 +243,7 @@ main {
     margin: 10px 0px;
   }
 
-  &__text-conteiner {
+  &__text-container {
     display: flex;
     p {
       background: rgba(255, 255, 255, 0.253);
@@ -276,7 +288,8 @@ main {
 //!===============================================================================
 
 .footer {
-  .conteiner {
+ 
+  .container {
     padding: 0px;
     margin: 0 auto;
   }
@@ -333,6 +346,13 @@ main {
   }
 }
 
+footer{
+  position: fixed;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.844);
+  width: 100%;
+  z-index: 50;
+}
 //!===============================================================================
 
 .hide-pages {

@@ -8,134 +8,181 @@
     <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
     <title>RS Lang</title>
 </head>
+
 <body>
-<section class="homepage ">
-  <main>
-    <section class="main-page">
-      <div class="conteiner">
-        <div class="main-page__content">
-          <div class="m-p__content-img">
-            <div class="m-p__content-img-photo"></div>
-          </div>
-           <nav class="m-p__menu">
-             <ul class="m-p__menu-ul">
-               <li class="m-p__menu-ul-authorisation"><p class="m-p__menu-ul-text">Авторизация</p></li>
-               <li class="m-p__menu-ul-sprint"><p class="m-p__menu-ul-text">Спринт</p></li>
-               <li class="m-p__menu-ul-audio-challenge"><p class="m-p__menu-ul-text">Аудио вызов</p> </li>
-               <li class="m-p__menu-ul-textbook"><p class="m-p__menu-ul-text">Электронный учебник</p></li>
-               <li class="m-p__menu-ul-statistics"><p class="m-p__menu-ul-text">Статистика</p></li>
-               <li class="m-p__menu-ul-team"><p class="m-p__menu-ul-text">О команде</p></li>
-             </ul>
-           </nav> 
-          </div>
-          
-        </div>
-        
-      </div>
-      
+    <section class="navigation hide">
+        <nav class="navigation__menu ">
+            <ul class="navigation__menu-ul">
+                <li class="navigation__menu-ul-authorisation">
+                    <p class="navigation__menu-ul-text">Главная</p>
+                </li>
+                <li class="navigation__menu-ul-sprint">
+                    <p class="navigation__menu-ul-text">Спринт</p>
+                </li>
+                <li class="navigation__menu-ul-audio-challenge">
+                    <p class="navigation__menu-ul-text">Аудио вызов</p>
+                </li>
+                <li class="navigation__menu-ul-textbook">
+                    <p class="navigation__menu-ul-text">Электронный учебник</p>
+                </li>
+                <li class="navigation__menu-ul-statistics">
+                    <p class="navigation__menu-ul-text">Статистика</p>
+                </li>
+                <!-- <li class="navigation__menu-ul-team">
+                    <p class="navigation__menu-ul-text">О команде</p>
+                </li> -->
+            </ul>
+        </nav>
     </section>
-    <section class="authorisation hide-pages">
-      <div class="conteiner">
-        <div class="contents-authorisation">
-          <div class="authorisation__content ">
-            <p class="registration__exit">X</p>
-            <div class="conteiner__content-menu">
-              <p class="registration__welcome">Регистрация</p>
+    <section class="homepage">
+        <main>
+            <section class="main-page">
+                <div class="container">
+                    <div class="main-page__content">
+                        <div class="m-p__content-img">
+                            <div class="m-p__content-img-photo"></div>
+                        </div>
+                        <nav class="m-p__menu">
+                            <ul class="m-p__menu-ul">
+                                <li class="m-p__menu-ul-authorisation">
+                                    <p class="m-p__menu-ul-text">Авторизация</p>
+                                </li>
+                                <li class="m-p__menu-ul-sprint">
+                                    <p class="m-p__menu-ul-text">Спринт</p>
+                                </li>
+                                <li class="m-p__menu-ul-audio-challenge">
+                                    <p class="m-p__menu-ul-text">Аудио вызов</p>
+                                </li>
+                                <li class="m-p__menu-ul-textbook">
+                                    <p class="m-p__menu-ul-text">Электронный учебник</p>
+                                </li>
+                                <li class="m-p__menu-ul-statistics">
+                                    <p class="m-p__menu-ul-text">Статистика</p>
+                                </li>
+                                <li class="m-p__menu-ul-team">
+                                    <p class="m-p__menu-ul-text">О команде</p>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+            <section class="authorisation hide-pages">
+                <div class="container">
+                    <div class="contents-authorisation">
+                        <div class="contents-authorisation__user-login">
+                            <div class="authorisation__content">
+                                <p class="registration__exit">X</p>
+                                <div class="container__content-menu">
+                                    <p class="registration__welcome">Регистрация</p>
+                                </div>
+                                <form class="authorisation__input-authorisation">
+                                    <label for="authorisation__input-email">Email:</label>
+                                    <input class="authorisation__input-email" type="email" name="email" placeholder="Email" required>
+                                    <label for="authorisation__input-password">Password:</label>
+                                    <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
+                                    <button class="authorisation__input-btn" type="submit">Войти</button>
+                                </form>
+                            </div>
+                            <div class="registration__content hide-authorisation ">
+                            <p class="registration__exit">X</p>
+                            <div class="container__content-menu">
+                                <p class="authorisation__welcome">Войти</p>
+                            </div>
+                            <form class="registration__input-registration">
+                                <label>Email:
+                                        <input class="registration__input-email" type="email" name="email"  placeholder="Email" required>
+                                </label>
+                                <label>Password:
+                                    <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password" required>
+                                </label>
+                                <button type="submit" class="registration__input-btn">Регистрация</button>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="contents-authorisation__user-info hide-pages">
+                            <div class="contents-authorisation__user-info-content">
+                                <p class="registration__exit">X</p>
+                                <div class="container__content-menu">
+                                    <p class="contents-authorisation__welcome">Пользователь</p>
+                                </div>
+                                <div class="user-info__content">
+                                    <div class="user-info__content-icon"></div>
+                                    <p>userId: <span class="user-info__content-text"></span></p>
+                                    <input type="text"  class="user-info__content-input" placeholder="Enter name"></input>
+                                    <div class="user-info__content-login-out">login-out</div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <section class="team hide-pages">
+                <div class="container">
+                    <div class="team__content">
+                        <div class="team__exit">X</div>
+                        <div class="team__content-info-text">
+                            <p>Теперь учить английский язык легко и увлекательно! Играйте в мини-игры и учите запоминайте слова. Словарь содержит все слова, которые раньше встречались в играх. Повторяйте их каждый день для закрепления результата.</p>
+                        </div>
+                        <div class="team__content-container">
+                            <a class="team__first container-size" target="_blank" href="https://github.com/R5G1">
+                                <div class="team__first-icon"></div>
+                                <div class="team__link">@R5G1</div>
+                                <div class="team__text-container">
+                                    <!-- <p class="team__text-difficult"></p> -->
+                                    <p class="team__text-normal">Авторизация</p>
+                                    <p class="team__text-easily">Главная страница</p>
+                                </div>
+                            </a>
+                            <a class="team__second container-size" target="_blank" href="https://github.com/EdChekanov">
+                                <div class="team__second-icon"></div>
+                                <div class="team__link">@EdChekanov</div>
+                                <div class="team__text-container">
+                                    <p class="team__text-difficult">Спринт</p>
+                                    <p class="team__text-normal">страница статистики</p>
+                                    <!-- <p class="team__text-easily"></p> -->
+                                </div>
+                            </a>
 
-            </div>
-            <form  class="authorisation__input-authorisation" >
-              <label for="authorisation__input-email">Email:</label>
-              <input class="authorisation__input-email" type="email" name="email" placeholder="Email" required>
-               <label for="authorisation__input-password">Password:</label>
-              <input class="authorisation__input-password" type="password" name="password" placeholder="Password" minlength="8" required>
-              <button class="authorisation__input-btn"  type="submit">Войти</button>
-            </form> 
-          </div>
-          <div class="registration__content hide-authorisation ">
-            <p class="registration__exit">X</p>
-            <div class="conteiner__content-menu">
+                            <a class="team__third container-size" target="_blank" href="https://github.com/BSKOM">
+                                <div class="team__third-icon"></div>
+                                <div class="team__link">@BSKOM</div>
+                                <div class="team__text-container">
+                                    <p class="team__text-difficult">Аудиовызов</p>
+                                    <p class="team__text-normal">Электронный учебник</p>
+                                    <!-- <p class="team__text-easily"></p> -->
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section class="footer-home-page">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logors">
+                        <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
+                            <div class="footer__logors-img"></div>
+                        </a>
+                    </div>
 
-              <p class="authorisation__welcome">Войти</p>
-            </div>            
-            <form  class="registration__input-registration"  >
-              <label >Email:
-                <input class="registration__input-email" type="email" name="email"  placeholder="Email" required></label>
-              <label >Password:
-                <input class="registration__input-password" type="password" name="password" minlength="8"placeholder="Password" required>
-              </label>
-              
-              <button type="submit" class="registration__input-btn"  >Регистрация</button>
-            </form>
-          </div>
-        </div>
-        
-      </div>
-      
+                    <div class="footer__logo-naim">
+                        <span class="footer__logo-naim-text">App developer:</span>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
+                    </div>
+                    <div class="footer__logo-data">
+                        <p>2022</p>
+                    </div>
+                </div>
+        </section>
     </section>
-    <section class="team hide-pages">
-      <div class="conteiner">
-        <div class="team__content">
-          <div class="team__exit">X</div>
-          <div class="team__content-conteiner">
-            <a class="team__first conteiner-size" target="_blank" href="https://github.com/R5G1">
-              <div class="team__first-icon"></div>
-              <div class="team__link">@R5G1</div>
-              <div class="team__text-conteiner">
-                <!-- <p class="team__text-difficult"></p> -->
-                <p class="team__text-normal">Авторизация</p>
-                <p class="team__text-easily">Главная страница</p>
-              </div>
-            </a>
-            <a class="team__second conteiner-size" target="_blank" href="https://github.com/EdChekanov">
-              <div class="team__second-icon"></div>
-              <div class="team__link">@EdChekanov</div>
-              <div class="team__text-conteiner">
-                <p class="team__text-difficult">Спринт</p>
-                <p class="team__text-normal">страница статистики</p>
-                <!-- <p class="team__text-easily"></p> -->
-              </div>
-            </a>
-            
-            <a class="team__third conteiner-size" target="_blank" href="https://github.com/BSKOM">
-              <div class="team__third-icon"></div>
-              <div class="team__link">@BSKOM</div>
-              <div class="team__text-conteiner">
-                <p class="team__text-difficult">Аудиовызов</p>
-                <p class="team__text-normal">Электронный учебник</p>
-                <!-- <p class="team__text-easily"></p> -->
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-   </main>
-   <footer>
-    <div class="conteiner">
-      <div class="footer__content">
-        <div class="footer__logors">
-          <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
-            <div class="footer__logors-img"></div>
-          </a>
-        </div>
-  
-        <div class="footer__logo-naim">
-          <span class="footer__logo-naim-text">App developer:</span>
-          <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
-          <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
-          <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
-        </div>
-        <div class="footer__logo-data">
-          <p>2022</p>
-        </div>
-      </div>
-  </footer>
-<<<<<<< HEAD
- </section>
-=======
-</section>
-   
-<section class="sprint hide">
+    <section class="sprint hide">
         <section class="sprint__welcome">
             <h1 class="welcome__heading">Спринт</h1>
             <p class="welcome__text">
@@ -169,6 +216,9 @@
                 </li>
             </ul>
             <button class="welcome__start-btn">Начать</button>
+        </section>
+        <section class="sprint__loader hide">
+            <h1 class="loader__heading">Подождите идёт загрузка...</h1>
         </section>
         <section class="sprint__game hide">
             <div class="game__score">Счет: <span class="sprint-score">0</span></div>
@@ -240,8 +290,85 @@
         <p class="item__text"><span class="word"></span> — <span class="translate"></span></p>
       </li>
     </template>
-</section>
+    </section>
+    <section class="statistics hide">
+        <div class="container">
+            <div class="statistics__content">
+                <div class="statistics__content-heder">Статистика <span class="statistics__content-heder-text">(зарегистрируйтесь чтобы увидеть прогресс)</span>
+                </div>
+                <div class="statistics__general-analysis">
+                    <div class="general__analysis-all">
+                        <p class="statistics__game-heder">"Общая сумма"</p>
+                        <div class="general__analysis-number">Kоличество новых слов: <span class="general__analysis-number-text">0</span></div>
+                        <div class= "general__analysis-percent">Процент правильных ответов: <span class= "general__analysis-percent-text">0</span> %</div>
+                    </div>
+                    <div class="statistics__game-sprint">
+                        <p class="statistics__game-heder">"Спринт"</p>
+                        <p class="statistics__game-sprint-number">Kоличество новых слов: 
+                            <span class="statistics__game-sprint-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-sprint-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-sprint-percent-text">0</span> %
+                        </p>
+                    </div>
+                    <div class="statistics__game-audio-challenge">
+                        <p class="statistics__game-heder">"Аудиовызов"</p>
+                        <p class="statistics__game-audio-challenge-number">Kоличество новых слов: 
+                            <span class="statistics__game-audio-challenge-number-text">0</span>
+                        </p>
+                        <p class= "statistics__game-audio-challenge-percent">Процент правильных ответов: 
+                            <span class= "statistics__game-audio-challenge-percent-text">0</span> %
+                        </p>
+                    </div> 
+                </div>
+            </div>            
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logors">
+                        <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
+                            <div class="footer__logors-img"></div>
+                        </a>
+                    </div>
 
+                    <div class="footer__logo-naim">
+                        <span class="footer__logo-naim-text">App developer:</span>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
+                    </div>
+                    <div class="footer__logo-data">
+                        <p>2022</p>
+                    </div>
+                </div>
+        </footer>
+    </section>
+    <section class="audio-challenge hide">
+    </section>
+    <section class="textbook hide">
+
+        <footer>
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__logors">
+                        <a class="footer__logors-link" target="_blank" href="https://rs.school/js/">
+                            <div class="footer__logors-img"></div>
+                        </a>
+                    </div>
+
+                    <div class="footer__logo-naim">
+                        <span class="footer__logo-naim-text">App developer:</span>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/BSKOM">BSKOM</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/EdChekanov">EdChekanov</a>
+                        <a class="footer__logo-naim-link" target="_blank" href="https://github.com/R5G1">R5G1</a>
+                    </div>
+                    <div class="footer__logo-data">
+                        <p>2022</p>
+                    </div>
+                </div>
+        </footer>
+    </section>
 </body>
 
 </html>
