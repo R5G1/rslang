@@ -1,13 +1,16 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable spaced-comment */
+import TBook from '../tbook/tbook';
 
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
 const sectionHeder = <Element>document.querySelector('.main-page');
 const sectionAuthorisation = <Element>document.querySelector('.authorisation');
 const sectionSprint = <Element>document.querySelector('.sprint');
-const sectionAudioChallenge = <Element>document.querySelector('.audio-challenge');
+const sectionAudioChallenge = <Element>(
+  document.querySelector('.audio-challenge')
+);
 const sectionTextbook = <Element>document.querySelector('.textbook');
 const sectionStatistics = <Element>document.querySelector('.statistics');
 const sectionTeam = <Element>document.querySelector('.team');
@@ -135,6 +138,9 @@ btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionTextbook.classList.remove('hide');
+
+  const ntb = new TBook(1, 1);
+  ntb.startTBook();
 });
 
 //!Statistics======================================================
@@ -186,6 +192,9 @@ btnNavigationTextbook?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.remove('hide');
   sectionStatistics.classList.add('hide');
+
+  const ntb = new TBook(1, 1);
+  ntb.startTBook();
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
