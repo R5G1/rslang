@@ -61,12 +61,6 @@ export default class Sprint {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  addSrcToBtnSounds() {
-    this.gameplay.trueSound.src = '/src/sprint/assets/sounds/true.mp3';
-    this.gameplay.falseSound.src = '/src/sprint/assets/sounds/false.mp3';
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   addListenerToAgainBtn(Element: HTMLButtonElement) {
     const onAgainBtn = () => {
       this.const.modalResult.classList.add('hide');
@@ -78,7 +72,6 @@ export default class Sprint {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
-    this.addSrcToBtnSounds();
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);

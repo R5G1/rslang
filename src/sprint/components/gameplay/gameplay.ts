@@ -41,9 +41,9 @@ export default class Gameplay {
 
   randomPageNumber = 0;
 
-  trueSound: HTMLAudioElement = new Audio();
+  trueSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/true.mp3');
 
-  falseSound: HTMLAudioElement = new Audio();
+  falseSound: HTMLAudioElement = new Audio('https://rss-lang-task.herokuapp.com/files/false.mp3');
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   startTimer(timerElement: HTMLSpanElement, seconds: number) {
