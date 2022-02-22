@@ -209,7 +209,8 @@ btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionAudioChallenge.classList.remove('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
-
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
   // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
   const quest = new Quest([]);
   quest.startAudio(0, 0);
