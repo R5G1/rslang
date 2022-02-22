@@ -1,10 +1,8 @@
 /* eslint-disable */
-import { IWord } from './interfases';
-import playAudio from './playaudio';
-import { renderAudio, updateAudio, updateSlotResult } from './renders';
-import setQuest from './slotitems';
-import API from '../tbook/api';
-import sortWords from '../tbook/sortwords';
+import { IWord } from "./interfases";
+import playAudio from "./playaudio";
+import { renderAudio, updateAudio, updateSlotResult } from "./renders";
+import setQuest from "./slotitems";
 
 class Quest {
   slot: IWord[];
