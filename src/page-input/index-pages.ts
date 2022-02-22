@@ -133,12 +133,21 @@ btnAudioChallenge?.addEventListener('click', () => {
 });
 
 //!Textbook======================================================
+const preloader: any = document.getElementById('preloader');
+
+function preloaderPage() {
+  preloader.classList.add('hide-preloader');
+  setInterval(() => {
+    preloader.classList.add('preloader-hidden');
+  }, 3000);
+}
 
 btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionTextbook.classList.remove('hide');
-
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
   const ntb = new TBook(1, 1);
   ntb.startTBook();
 });
@@ -149,6 +158,8 @@ btnStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 
 //!btnSectionTeam======================================================
@@ -192,9 +203,10 @@ btnNavigationTextbook?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.remove('hide');
   sectionStatistics.classList.add('hide');
-
   const ntb = new TBook(1, 1);
   ntb.startTBook();
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
@@ -202,4 +214,6 @@ btnNavigationStatistics?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
