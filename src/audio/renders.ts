@@ -50,6 +50,7 @@ export const answ = (num: number, answers: number[], words: string[]) => `
 `;
 
 export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: number, chunk: number[]) => {
+  console.log('renderAudio', slot, lvl, color, idx, chunk);
   const words = slot.filter((_, ind) => chunk.includes(ind)).map((el: IWord) => el.wordTranslate);
   const html = `
   <section class="audio-call" id="audiocall">
