@@ -228,8 +228,8 @@ export default class Gameplay {
     const cloneTemp = this.const.listItemTemplate.content.cloneNode(true) as HTMLDivElement;
 
     const itemSound = cloneTemp.querySelector('.item__sound') as HTMLButtonElement;
-    const itemWord = cloneTemp.querySelector('.word') as HTMLSpanElement;
-    const itemTranslate = cloneTemp.querySelector('.translate') as HTMLSpanElement;
+    const itemWord = cloneTemp.querySelector('.text__word') as HTMLSpanElement;
+    const itemTranslate = cloneTemp.querySelector('.text__translate') as HTMLSpanElement;
 
     const sound = new Audio(`${this.api.server}${item.audio}`) as HTMLAudioElement;
 
@@ -300,6 +300,9 @@ export default class Gameplay {
     this.rightAnswersArray = [];
     this.wrongAnswersArray = [];
 
+    this.const.welcomeSection.classList.add('hide');
+    this.const.loaderSection.classList.remove('hide');
+
     const levelInputs = [...this.const.levelInputs] as Array<HTMLInputElement>;
     const checkedInput = levelInputs.find((el) => el.checked) as HTMLInputElement;
     this.level = Number(checkedInput.value);
@@ -307,7 +310,7 @@ export default class Gameplay {
     this.randomPageNumber = this.utils.getRandomNumber(29);
     this.data = await this.getWordsForRound(this.level, this.randomPageNumber);
 
-    this.const.welcomeSection.classList.add('hide');
+    this.const.loaderSection.classList.add('hide');
     this.const.gameSection.classList.remove('hide');
 
     this.const.trueBtn.addEventListener('click', this.onTrueBtn);
