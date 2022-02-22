@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { IWord } from "./interfases";
 import playAudio from "./playaudio";
 import { renderAudio, updateAudio, updateSlotResult } from "./renders";

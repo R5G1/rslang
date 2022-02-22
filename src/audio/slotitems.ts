@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { randomNum } from './randomnum';
 
 function setQuest(trueitem:number, items:number[], count:number):number[] {

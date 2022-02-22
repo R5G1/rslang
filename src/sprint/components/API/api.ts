@@ -1,3 +1,4 @@
+/* eslint-disable */
 import IWord from '../models/IWord';
 
 export default class API {

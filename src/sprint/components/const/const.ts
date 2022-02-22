@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default class Const {
   sprint = document.querySelector('.sprint') as HTMLDivElement;
 

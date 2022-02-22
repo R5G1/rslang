@@ -1,3 +1,4 @@
+/* eslint-disable */
 import IWord from './IWord';
 
 export default interface IData {
