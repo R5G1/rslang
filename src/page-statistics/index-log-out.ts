@@ -29,18 +29,3 @@ contentLoginOut?.addEventListener('click', () => {
   inerRegitr.innerHTML = '(зарегистрируйтесь чтобы увидеть прогресс)';
   localStorage.clear();
 });
-
-// const informationName = document.querySelector('.user-info__content-text') as HTMLDivElement;
-// const informationStatistics = document.querySelector('.statistics__content-heder-text') as HTMLDivElement;
-
-// function showName() {
-//   const local: any = localStorage.getItem('loginUser');
-//   const parsLocal = JSON.parse(local);
-//   const userIdString = parsLocal.userId;
-//   if (localStorage.getItem('loginUser') !== null) {
-//     informationName.innerHTML = parsLocal.userId;
-//     informationStatistics.innerHTML = `userId ${parsLocal.userId}`;
-//   }
-// }
-// showName();
-// window.addEventListener('load', showName);

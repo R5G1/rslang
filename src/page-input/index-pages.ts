@@ -55,7 +55,7 @@ const btnAudioChallenge = <Element>(
   document.querySelector('.m-p__menu-ul-audio-challenge')
 );
 const btnTextbook = <Element>document.querySelector('.m-p__menu-ul-textbook');
-const btnStatistics = <Element>(
+export const btnStatistics = <Element>(
   document.querySelector('.m-p__menu-ul-statistics')
 );
 
@@ -77,13 +77,23 @@ const btnNavigationAudioChallenge = <Element>(
 const btnNavigationTextbook = <Element>(
   document.querySelector('.navigation__menu-ul-textbook')
 );
-const btnNavigationStatistics = <Element>(
+export const btnNavigationStatistics = <Element>(
   document.querySelector('.navigation__menu-ul-statistics')
 );
 const btnNavigationTeam = <Element>(
   document.querySelector('.navigation__menu-ul-team')
 );
+//?preloader======================================================
+const preloader: any = document.getElementById('preloader');
 
+function preloaderPage() {
+  window.onload = function () {
+    preloader.classList.add('hide-preloader');
+    setInterval(() => {
+      preloader.classList.add('preloader-hidden');
+    }, 2000);
+  };
+}
 //?end const======================================================
 
 //!Authorisation======================================================
@@ -136,17 +146,11 @@ btnAudioChallenge?.addEventListener('click', () => {
   const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
   const quest = new Quest(slot);
   quest.startAudio(slot, 0, 0);
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 
 //!Textbook======================================================
-const preloader: any = document.getElementById('preloader');
-
-function preloaderPage() {
-  preloader.classList.add('hide-preloader');
-  setInterval(() => {
-    preloader.classList.add('preloader-hidden');
-  }, 3000);
-}
 
 btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
@@ -172,6 +176,8 @@ btnStatistics?.addEventListener('click', () => {
 btnTeam?.addEventListener('click', () => {
   sectionHeder.classList.add('hide-pages');
   sectionTeam.classList.remove('hide-pages');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btnTeamExit?.addEventListener('click', () => {
   sectionHeder.classList.remove('hide-pages');
