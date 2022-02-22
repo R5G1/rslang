@@ -5,7 +5,7 @@ import { renderAudio, updateAudio, updateSlotResult } from './renders';
 import setQuest from './slotitems';
 import API from '../tbook/api';
 import sortWords from '../tbook/sortwords';
-import {getStore} from '../page-input/index-pages'
+// import {getStore} from '../page-input/index-pages'
 
 class Quest {
   slot: IWord[];
@@ -63,7 +63,7 @@ class Quest {
       this.resSlot = [...this.slot].map((el, idx) => {
         return { sid: el.word, snum: idx, sres: -1, }
       });
-      console.log('a am start Audio', words, getStore());
+      console.log('a am start Audio', words,);
       this.shuffNum = setQuest(0, this.slotIndexs, 5).reverse().sort(() => Math.random() - 0.5);
       renderAudio(sortWords(words), group, 'green', this.curIndexSlot, this.shuffNum);
       this.setEvents();

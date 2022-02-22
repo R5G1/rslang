@@ -88,8 +88,9 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
   root.innerHTML = html;
   (<HTMLElement>root.querySelector('.audio-lvls')).style.background = `url(${imgCop}) center/cover  no-repeat `;
   // (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url(${imgCop})`;
-  // (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('../../public//${lvl}.jpg')`;
   (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+  console.log('.quests', <HTMLElement>root.querySelector('.quests'))
+  // (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
   document.body.appendChild(root);
 }
 
@@ -111,12 +112,14 @@ export const updateAudio = (slot: IWord[], lvl: number, color: string, idx: numb
   const imgCop = require(`../assets/${lvl}.jpg`);
   const questsDom = (<HTMLElement>document.querySelector('.quests'));
   const audioWrap = (<HTMLElement>document.querySelector('.audio-wrap'));
+  (<Element>audioWrap).removeChild(questsDom);
   // questsDom.replaceChild ;
   const quests = document.createElement('div');
-  quests.style.backgroundImage = `url(${imgCop}) center/cover  no-repeat `;
+  quests.style.background = `url(${imgCop}) center/cover  no-repeat `;
   quests.classList.add('quests');
   quests.classList.add('active');
   quests.innerHTML = html;
-  (<Element>audioWrap).removeChild(questsDom);
+  
   audioWrap.appendChild(quests);
+  console.log('audiowarp:', audioWrap);
 }
