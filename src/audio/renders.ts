@@ -21,9 +21,9 @@ export const renderSlot = (words: IWord[]) => `
   </ul>
 `;
 
-export const updateSlotResult = (results:number[]) => {
+export const updateSlotResult = (results: number[]) => {
   const modalResults = document.querySelectorAll('.modal-slot result');
-  [...modalResults].map((el, idx) => el.textContent = (results[idx] = 1) ? '+': '-' );
+  [...modalResults].map((el, idx) => el.textContent = (results[idx] = 1) ? '+' : '-');
 };
 
 export const renderLvls = `
@@ -81,13 +81,16 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
     </div>
   </section>
 `;
-
+  const imgCop = require(`../assets/${lvl}.jpg`);
   const root = document.createElement('div');
   root.classList.add('container');
   root.classList.add('container-audio');
   root.innerHTML = html;
-  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
-  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.audio-lvls')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+  // (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url(${imgCop})`;
+  (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+  console.log('.quests', <HTMLElement>root.querySelector('.quests'))
+  // (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
   document.body.appendChild(root);
 }
 
@@ -106,14 +109,17 @@ export const updateAudio = (slot: IWord[], lvl: number, color: string, idx: numb
         ${renderSlot(slot)}
         </div>
 `;
+  const imgCop = require(`../assets/${lvl}.jpg`);
   const questsDom = (<HTMLElement>document.querySelector('.quests'));
   const audioWrap = (<HTMLElement>document.querySelector('.audio-wrap'));
+  (<Element>audioWrap).removeChild(questsDom);
   // questsDom.replaceChild ;
   const quests = document.createElement('div');
-  quests.style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
+  quests.style.background = `url(${imgCop}) center/cover  no-repeat `;
   quests.classList.add('quests');
   quests.classList.add('active');
   quests.innerHTML = html;
-  (<Element>audioWrap).removeChild(questsDom );
+  
   audioWrap.appendChild(quests);
+  console.log('audiowarp:', audioWrap);
 }
