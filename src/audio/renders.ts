@@ -86,8 +86,8 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
   root.classList.add('container');
   root.classList.add('container-audio');
   root.innerHTML = html;
-  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
-  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('../../src/assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('../../src/assets/${lvl}.jpg')`;
   document.body.appendChild(root);
 }
 
