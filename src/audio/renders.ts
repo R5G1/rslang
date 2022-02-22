@@ -85,8 +85,8 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
   root.classList.add('container');
   root.classList.add('container-audio');
   root.innerHTML = html;
-  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
-  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
   document.body.appendChild(root);
 }
 
@@ -109,7 +109,7 @@ export const updateAudio = (slot: IWord[], lvl: number, color: string, idx: numb
   const audioWrap = (<HTMLElement>document.querySelector('.audio-wrap'));
   // questsDom.replaceChild ;
   const quests = document.createElement('div');
-  quests.style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  quests.style.backgroundImage = `url('../src/assets/${lvl}.jpg')`;
   quests.classList.add('quests');
   quests.classList.add('active');
   quests.innerHTML = html;

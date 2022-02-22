@@ -32,10 +32,6 @@
   /* flex-direction: column; */
   align-items: center;
   flex-wrap: wrap;
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 2px 0;
-  overflow: hidden; */
   background-color: var(--bg-green);
   width: 200%;
 }
