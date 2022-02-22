@@ -7,25 +7,11 @@
   background: #e0e0e0;
   z-index: 1001;
 }
-// #preloader.hide-preloader {
-//     animation: hidePreloader 2.5s;
-// }
 
 #preloader.preloader-hidden {
     display: none;
 }
 
-// @keyframes hidePreloader {
-//     0% {
-//         opacity: 1;
-//     }
-//     50% {
-//         opacity: 0.9;
-//     }
-//     100% {
-//         opacity: 0.8;
-//     }
-// }
 .preloader__row {
     position: relative;
     top: 50%;
