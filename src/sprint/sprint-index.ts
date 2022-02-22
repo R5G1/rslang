@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Sprint from './components/sprint';
 
 const game = new Sprint();

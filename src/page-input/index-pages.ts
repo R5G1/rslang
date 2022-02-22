@@ -1,13 +1,21 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable @typescript-eslint/comma-dangle */
 /* eslint-disable spaced-comment */
+import TBook from '../tbook/tbook';
+import data from '../audio/data';
+import Quest from '../audio/quest';
+import { IWord } from '../tbook/interfases';
+
+export const store = { words: 'words' };
 
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
 const sectionHeder = <Element>document.querySelector('.main-page');
 const sectionAuthorisation = <Element>document.querySelector('.authorisation');
 const sectionSprint = <Element>document.querySelector('.sprint');
-const sectionAudioChallenge = <Element>document.querySelector('.audio-challenge');
+const sectionAudioChallenge = <Element>(
+  document.querySelector('.audio-challenge')
+);
 const sectionTextbook = <Element>document.querySelector('.textbook');
 const sectionStatistics = <Element>document.querySelector('.statistics');
 const sectionTeam = <Element>document.querySelector('.team');
@@ -124,17 +132,30 @@ btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionAudioChallenge.classList.remove('hide');
-  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  // const quest = new Quest(slot);
-  // quest.startAudio(slot, 0, 0);
+
+  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest(slot);
+  quest.startAudio(slot, 0, 0);
 });
 
 //!Textbook======================================================
+const preloader: any = document.getElementById('preloader');
+
+function preloaderPage() {
+  preloader.classList.add('hide-preloader');
+  setInterval(() => {
+    preloader.classList.add('preloader-hidden');
+  }, 3000);
+}
 
 btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionTextbook.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
+  const ntb = new TBook(1, 1);
+  ntb.startTBook();
 });
 
 //!Statistics======================================================
@@ -143,6 +164,8 @@ btnStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 
 //!btnSectionTeam======================================================
@@ -172,13 +195,22 @@ btnNavigationSprint?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+  document.location.reload();
 });
+
 btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.add('hide');
   sectionAudioChallenge.classList.remove('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+
+  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest(slot);
+  quest.startAudio(slot, 0, 0);
+  if (document.querySelector('.audio-challenge hide')) {
+    document.location.reload();
+  }
 });
 btnNavigationTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
@@ -186,6 +218,10 @@ btnNavigationTextbook?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.remove('hide');
   sectionStatistics.classList.add('hide');
+  const ntb = new TBook(1, 1);
+  ntb.startTBook();
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
@@ -193,4 +229,6 @@ btnNavigationStatistics?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });

@@ -10,3 +10,5 @@ import './page-statistics/index';
 import './sprint/sprint-index';
 
 import './user-information/index-user-information';
+
+import './preloader/index-preloader';
