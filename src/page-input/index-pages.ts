@@ -132,10 +132,9 @@ btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionAudioChallenge.classList.remove('hide');
-
-  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  const quest = new Quest(slot);
-  quest.startAudio(slot, 0, 0);
+  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest([]);
+  quest.startAudio(0, 0);
 });
 
 //!Textbook======================================================
@@ -205,9 +204,9 @@ btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
 
-  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  const quest = new Quest(slot);
-  quest.startAudio(slot, 0, 0);
+  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest([]);
+  quest.startAudio(0, 0);
   if (document.querySelector('.audio-challenge hide')) {
     document.location.reload();
   }
