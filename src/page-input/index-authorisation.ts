@@ -106,6 +106,7 @@ function exitFormAuthorisation(): void {
 function showAuthorisatione() {
   if (localStorage.getItem('loginUser')) {
     exitFormAuthorisation();
+    showName();
   }
 }
 
