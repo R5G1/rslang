@@ -77,8 +77,8 @@ class Quest {
       const lvls = document.querySelectorAll('.lvl');
       this.curLvl = +[...lvls].map((el, idx) => (el === target) ? String(idx) : '').join('') + 1;
       // console.log('lvls, this.curLvl', lvls, this.curLvl);
-      (<HTMLElement>document.querySelector('.audio-lvls')).style.backgroundImage = `url('../src/assets/${this.curLvl}.jpg')`;
-      (<HTMLElement>document.querySelector('.quests')).style.backgroundImage = `url('../src/assets/${this.curLvl}.jpg')`;
+      (<HTMLElement>document.querySelector('.audio-lvls')).style.backgroundImage = `url('../../src/assets/${this.curLvl}.jpg')`;
+      (<HTMLElement>document.querySelector('.quests')).style.backgroundImage = `url('../../src/assets/${this.curLvl}.jpg')`;
       +[...lvls].map((el) => el.classList.remove('selected'));
       target.classList.add('selected');
       (<HTMLElement>document.querySelector('.audio-lvls')).classList.remove('active');
