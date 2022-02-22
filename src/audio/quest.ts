@@ -13,7 +13,7 @@ class Quest {
   click: NodeListOf<Element>;
 
   res: NodeListOf<Element>;
-  resSlot: { sid: { $oid: string; }; snum: number; sres: number; }[];
+  resSlot: { sid:  string; snum: number; sres: number; }[];
   curQuestion: number;
   curIndexSlot: number;
   caseList: string[];
@@ -25,14 +25,14 @@ class Quest {
 
   constructor(slot: IWord[]) {
     this.slot = slot;
-    this.resSlot = [...slot].map((el, idx) => {
-      return { sid: el._id, snum: idx, sres: -1, }
+    this.resSlot = [...this.slot].map((el, idx) => {
+      return { sid: el.word, snum: idx, sres: -1, }
     });
     this.onEvent = (e: MouseEvent) => this.disp(e);
     this.click = document.querySelectorAll('.click');
     this.res = document.querySelectorAll('.res');
     this.curQuestion = 0;
-    this.slotIndexs = [...slot].map((_, ind) => ind);
+    this.slotIndexs = '0'.repeat(20).split('').map((_,idx)=>idx);
     this.curIndexSlot = 0;
     this.curLvl = 0;
     this.curIndexQuest = 0;
@@ -57,8 +57,13 @@ class Quest {
     const prom = api.getWords(group, page);
     prom.then((value) => {
       const words = value;
-      this.slot = [...words];
-      console.log('a am start Audio', words)
+      this.slot = sortWords(words);
+      // this.slot = slot;
+      this.resSlot = [...this.slot].map((el, idx) => {
+        return { sid: el.word, snum: idx, sres: -1, }
+      });
+      console.log('a am start Audio', words);
+      this.shuffNum = setQuest(0, this.slotIndexs, 5).reverse().sort(() => Math.random() - 0.5);
       renderAudio(sortWords(words), group, 'green', this.curIndexSlot, this.shuffNum);
       this.setEvents();
     });
