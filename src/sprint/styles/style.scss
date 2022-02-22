@@ -26,6 +26,7 @@
     height: 100%;
     background-color: #f3f3f3;
     user-select: none;
+    color: grey;
     &__welcome {
         display: flex;
         flex-direction: column;
@@ -35,7 +36,6 @@
         height: 70vh;
         border-radius: 1vw;
         @extend %box-shadow;
-        color: grey;
         .welcome {
             &__heading {
                 font-size: 3rem;
@@ -48,7 +48,6 @@
                 font-size: 1.3rem;
                 border-radius: 1vw;
                 @extend %box-shadow;
-                color: grey;
                 &:hover {
                     @include animation(pulsate-bck 0.5s ease-in-out infinite both);
                 }
@@ -80,6 +79,18 @@
             }
         }
     }
+    &__loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60vw;
+        height: 60vh;
+        border-radius: 1vw;
+        @extend %box-shadow;
+        .loader__heading {
+            font-size: 2rem;
+        }
+    }
     &__game {
         position: relative;
         display: flex;
@@ -90,7 +101,6 @@
         height: 70vh;
         font-size: 2rem;
         border-radius: 1vw;
-        color: grey;
         @extend %box-shadow;
         .game {
             &__score {
@@ -292,7 +302,6 @@
         padding: 15px;
         border-radius: 1vw;
         background: #f3f3f3;
-        color: grey;
         @extend %box-shadow;
         .modal-result {
             &__heading {
@@ -435,11 +444,12 @@
     }
     &__controls {
         position: absolute;
-        top: 2vh;
+        top: 50%;
         right: 2vw;
         display: flex;
         flex-direction: column;
         align-items: center;
+        transform: translateY(-50%);
         .controls {
             &__close-btn {
                 background: url("/src/sprint/assets/icons/close-btn.png") no-repeat center center;

@@ -30,6 +30,8 @@ export default class Const {
 
   welcomeSection = this.sprint.querySelector('.sprint__welcome') as HTMLDivElement;
 
+  loaderSection = this.sprint.querySelector('.sprint__loader') as HTMLDivElement;
+
   gameSection = this.sprint.querySelector('.sprint__game') as HTMLDivElement;
 
   modalResult = this.sprint.querySelector('.sprint__modal-result') as HTMLDivElement;
@@ -55,4 +57,8 @@ export default class Const {
   resultNoMark = this.sprint.querySelector('.result__no') as HTMLDivElement;
 
   againBtn = this.sprint.querySelector('.modal-result__again') as HTMLButtonElement;
+
+  toMenuBtn = this.sprint.querySelector('.modal-result__exit') as HTMLButtonElement;
+
+  mainMenu = document.querySelector('.homepage') as HTMLDivElement;
 }
