@@ -5,7 +5,7 @@ import { renderAudio, updateAudio, updateSlotResult } from './renders';
 import setQuest from './slotitems';
 import API from '../tbook/api';
 import sortWords from '../tbook/sortwords';
-import {store} from '../page-input/index-pages'
+import {getStore} from '../page-input/index-pages'
 
 class Quest {
   slot: IWord[];
@@ -63,7 +63,7 @@ class Quest {
       this.resSlot = [...this.slot].map((el, idx) => {
         return { sid: el.word, snum: idx, sres: -1, }
       });
-      console.log('a am start Audio', words, store);
+      console.log('a am start Audio', words, getStore());
       this.shuffNum = setQuest(0, this.slotIndexs, 5).reverse().sort(() => Math.random() - 0.5);
       renderAudio(sortWords(words), group, 'green', this.curIndexSlot, this.shuffNum);
       this.setEvents();
@@ -75,11 +75,12 @@ class Quest {
 
     if (target.classList.contains('lvl')) {
       // console.log('target', target)
+      const imgCop = require(`../assets/${this.curLvl}.jpg`);
       const lvls = document.querySelectorAll('.lvl');
       this.curLvl = +[...lvls].map((el, idx) => (el === target) ? String(idx) : '').join('') + 1;
       // console.log('lvls, this.curLvl', lvls, this.curLvl);
-      (<HTMLElement>document.querySelector('.audio-lvls')).style.backgroundImage = `url('../../public/${this.curLvl}.jpg')`;
-      (<HTMLElement>document.querySelector('.quests')).style.backgroundImage = `url('../../public/${this.curLvl}.jpg')`;
+      (<HTMLElement>document.querySelector('.audio-lvls')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+      (<HTMLElement>document.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
       +[...lvls].map((el) => el.classList.remove('selected'));
       target.classList.add('selected');
       (<HTMLElement>document.querySelector('.audio-lvls')).classList.remove('active');

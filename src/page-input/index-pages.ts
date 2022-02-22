@@ -7,7 +7,8 @@ import Quest from '../audio/quest';
 import { IWord } from '../tbook/interfases';
 
 export const store = { words: 'words' };
-
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const getStore = () => store;
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
 const sectionHeder = <Element>document.querySelector('.main-page');
