@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable  */
 /* eslint no-console:  */
 import playAudio from './playaudio';
 
