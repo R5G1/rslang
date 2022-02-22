@@ -51,7 +51,7 @@ class Quest {
     [...this.click].map((el) => (<HTMLElement>el).removeEventListener('click', this.onEvent));
   }
 
-  startAudio(dat: IWord[], group: number, page: number): void {
+  startAudio(group: number, page: number): void {
     console.log('a am start Audio')
     const api = new API();
     const prom = api.getWords(group, page);

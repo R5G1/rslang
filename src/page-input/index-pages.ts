@@ -133,9 +133,9 @@ btnAudioChallenge?.addEventListener('click', () => {
   sectionNavigation.classList.remove('hide');
   sectionAudioChallenge.classList.remove('hide');
 
-  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  const quest = new Quest(slot);
-  quest.startAudio(slot, 0, 0);
+  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest([]);
+  quest.startAudio(0, 0);
 });
 
 //!Textbook======================================================
