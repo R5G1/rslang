@@ -18,3 +18,5 @@ const levelAudio = '';
 const newWordsAudio = '';
 
 const dataAudio = '';
+
+export const store = { words: 'words' };
