@@ -1,5 +1,4 @@
 /* eslint-disable  */
-/* eslint no-console:  */
 import playAudio from './playaudio';
 
 // import { renderAudio } from './renders';
