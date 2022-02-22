@@ -14,7 +14,7 @@ class Quest {
 
   res: NodeListOf<Element>;
   resSlot: { sid: { $oid: string; }; snum: number; sres: number; }[];
-  curQuestion: { $oid: string; };
+  curQuestion: number;
   curIndexSlot: number;
   caseList: string[];
   curLvl: number;
@@ -31,7 +31,7 @@ class Quest {
     this.onEvent = (e: MouseEvent) => this.disp(e);
     this.click = document.querySelectorAll('.click');
     this.res = document.querySelectorAll('.res');
-    this.curQuestion = slot[0]._id;
+    this.curQuestion = 0;
     this.slotIndexs = [...slot].map((_, ind) => ind);
     this.curIndexSlot = 0;
     this.curLvl = 0;
@@ -58,6 +58,7 @@ class Quest {
     prom.then((value) => {
       const words = value;
       this.slot = [...words];
+      console.log('a am start Audio', words)
       renderAudio(sortWords(words), group, 'green', this.curIndexSlot, this.shuffNum);
       this.setEvents();
     });
