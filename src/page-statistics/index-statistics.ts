@@ -105,4 +105,8 @@ btnNavigationStatistics.addEventListener('click', () => {
 function scoreReset() {
   generalAnalysisNumber.innerHTML = `${numberZero}`;
   generalAnalysisPercent.innerHTML = `${numberZero}`;
+  statisticsSprintNumber.innerHTML = `${numberZero}`;
+  statisticsSprintPercent.innerHTML = `${numberZero}`;
+  statisticsAudioNumber.innerHTML = `${numberZero}`;
+  statisticsAudioPercent.innerHTML = `${numberZero}`;
 }
