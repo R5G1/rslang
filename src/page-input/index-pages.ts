@@ -6,7 +6,6 @@ import data from '../audio/data';
 import Quest from '../audio/quest';
 import { IWord } from '../tbook/interfases';
 
-export const store = { words: 'words' };
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 // export const getStore = () => store;
 const sectionHomepage = <Element>document.querySelector('.homepage');
@@ -130,6 +129,8 @@ btnSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.remove('hide');
   sectionNavigation.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btSprintExit?.addEventListener('click', () => {
   sectionHomepage.classList.remove('hide');
@@ -201,6 +202,8 @@ btnNavigationSprint?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
   document.location.reload();
 });
 
