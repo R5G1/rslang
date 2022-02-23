@@ -5,6 +5,7 @@ import { renderAudio, updateAudio, updateSlotResult } from './renders';
 import setQuest from './slotitems';
 import API from '../tbook/api';
 import sortWords from '../tbook/sortwords';
+
 // import {getStore} from '../page-input/index-pages'
 
 class Quest {
@@ -14,7 +15,7 @@ class Quest {
   click: NodeListOf<Element>;
 
   res: NodeListOf<Element>;
-  resSlot: { sid:  string; snum: number; sres: number; }[];
+  resSlot: { sid: string; snum: number; sres: number; }[];
   curQuestion: number;
   curIndexSlot: number;
   caseList: string[];
@@ -23,6 +24,9 @@ class Quest {
   slotIndexs: number[];
   shuffNum: number[];
   base: string;
+  rs: { usr: string; /* current User */ date: string; /* current Date */ group: number; /* lvl */ page: number; /* page */ word: string; /* word */ nameGame: string; /* number for Ed */ res: number; /* result of this word for this user*/ };
+  curPage: number;
+
 
   constructor(slot: IWord[]) {
     this.slot = slot;
@@ -33,15 +37,27 @@ class Quest {
     this.click = document.querySelectorAll('.click');
     this.res = document.querySelectorAll('.res');
     this.curQuestion = 0;
-    this.slotIndexs = '0'.repeat(20).split('').map((_,idx)=>idx);
+    this.slotIndexs = '0'.repeat(20).split('').map((_, idx) => idx);
     this.curIndexSlot = 0;
     this.curLvl = 0;
+    this.curPage = 0;
     this.curIndexQuest = 0;
     this.shuffNum = setQuest(this.curIndexSlot, this.slotIndexs, 5).reverse().sort(() => Math.random() - 0.5);
     this.caseList = ['answer', 'res', 'lvl', 'start', 'next', 'quit'];
     this.base = 'https://rss-lang-task.herokuapp.com/';
+    this.rs = {
+      usr: '' /* current User */,
+      date: '01/02/22' /* current Date */,
+      group: 0 /* lvl */,
+      page: 0 /* page */,
+      word: 'alcohol' /* word */,
+      nameGame: 'audio' /* namr game*/,
+      res: -1 /* result of this word for this user*/,
+    }
   }
-
+  setVal(ob: object) {
+    return {...ob}
+  }
   setEvents() {
     this.click = document.querySelectorAll('.click');
     [...this.click].map((el) => (<HTMLElement>el).addEventListener('click', this.onEvent));
@@ -93,11 +109,17 @@ class Quest {
     }
 
     if (target.classList.contains('answer')) {
-      this.resSlot[this.curIndexSlot].sres = target.classList.contains('yes') ? 1 : 0;
+      this.resSlot[this.curIndexSlot].sres = target.classList.contains('yes') ? 1 : 0 ;
+      this.rs.group = this.slot[this.curIndexSlot].group;
+      this.rs.page = this.slot[this.curIndexSlot].page;
+      this.rs.word = this.slot[this.curIndexSlot].word;
+      this.rs.res = (target.classList.contains('yes') ? 1 : 0);
+      (<any>window).stor.push(this.setVal(this.rs));
+      console.log('target',target,'window.stor', (<any>window).stor )
       target.classList.remove('yes');
       if (this.curIndexSlot === (this.slot.length - 1)) {
         const ressl = [...this.resSlot].map((el) => el.sres);
-        console.log('ressl', ressl)
+        console.log('eng round! ressl', ressl)
         updateSlotResult(ressl);
       } else {
         this.curIndexSlot += 1;
@@ -107,7 +129,7 @@ class Quest {
         (<HTMLElement>document.querySelector('.quests')).classList.add('active');
         const srca = `${this.base}${this.slot[this.curIndexSlot].audio}`;
         playAudio(srca);
-        console.log('this.resSlot', this.resSlot);
+        console.log('this.resSlot', this.resSlot, 'window.stor', (<any>window).stor);
       }
     }
     if (target.classList.contains('start')) {
