@@ -64802,5 +64802,3 @@ const data = [{
 }];
 
 export default data;
-
-/* eslint-enable */

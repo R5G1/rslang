@@ -25,20 +25,7 @@ contentLoginOut?.addEventListener('click', () => {
   document.querySelector('.authorisation')?.classList.add('hide-pages');
   document.querySelector('.contents-authorisation__user-login')?.classList.remove('hide-pages');
   document.querySelector('.contents-authorisation__user-info')?.classList.add('hide-pages');
+  const inerRegitr: any = document.querySelector('.statistics__content-heder-text');
+  inerRegitr.innerHTML = '(зарегистрируйтесь чтобы увидеть прогресс)';
   localStorage.clear();
 });
-
-const informationName = document.querySelector('.user-info__content-text') as HTMLDivElement;
-const informationStatistics = document.querySelector('.statistics__content-heder-text') as HTMLDivElement;
-const local: any = localStorage.getItem('loginUser');
-
-function showName() {
-  if (localStorage.getItem('loginUser')) {
-    const parsLocal = JSON.parse(local);
-
-    const userIdString = parsLocal.userId;
-    informationName.innerHTML = userIdString;
-    informationStatistics.innerHTML = `userId ${userIdString}`;
-  }
-}
-window.addEventListener('load', showName);
