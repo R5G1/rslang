@@ -48,7 +48,10 @@ export default class Sprint {
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, class-methods-use-this
   addListenerToCloseBtn(Element: HTMLButtonElement) {
-    const onCloseBtn = () => { document.exitFullscreen().catch(() => {}); };
+    this.addListenerToMenuBtn(Element);
+    const onCloseBtn = () => {
+      document.exitFullscreen().catch(() => {}); 
+    };
     Element.addEventListener('click', onCloseBtn);
   }
 
@@ -61,27 +64,34 @@ export default class Sprint {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  addSrcToBtnSounds() {
-    this.gameplay.trueSound.src = '/src/sprint/assets/sounds/true.mp3';
-    this.gameplay.falseSound.src = '/src/sprint/assets/sounds/false.mp3';
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   addListenerToAgainBtn(Element: HTMLButtonElement) {
     const onAgainBtn = () => {
       this.const.modalResult.classList.add('hide');
+      this.const.gameSection.classList.add('hide');
       this.gameplay.startRound();
     };
     Element.addEventListener('click', onAgainBtn);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  addListenerToMenuBtn(Element: HTMLButtonElement) {
+    const onToMenuBtn = () => {
+      this.const.modalResult.classList.add('hide');
+      this.const.gameSection.classList.add('hide');
+      this.const.sprint.classList.add('hide');
+      this.const.welcomeSection.classList.remove('hide');
+      this.const.mainMenu.classList.remove('hide');
+    };
+    Element.addEventListener('click', onToMenuBtn);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async start() {
     this.addListenerToFullscreenBtn(this.const.fullscreenBtn);
-    this.addSrcToBtnSounds();
     this.addListenerToSoundBtn(this.const.soundBtn);
     this.addListenerToCloseBtn(this.const.closeBtn);
     this.addListenerToStartBtn(this.const.startBtn);
     this.addListenerToAgainBtn(this.const.againBtn);
+    this.addListenerToMenuBtn(this.const.toMenuBtn);
   }
 }
