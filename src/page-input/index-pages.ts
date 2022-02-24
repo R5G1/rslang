@@ -6,6 +6,8 @@ import data from '../audio/data';
 import Quest from '../audio/quest';
 import { IWord } from '../tbook/interfases';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// export const getStore = () => store;
 const sectionHomepage = <Element>document.querySelector('.homepage');
 
 const sectionHeder = <Element>document.querySelector('.main-page');
@@ -53,7 +55,7 @@ const btnAudioChallenge = <Element>(
   document.querySelector('.m-p__menu-ul-audio-challenge')
 );
 const btnTextbook = <Element>document.querySelector('.m-p__menu-ul-textbook');
-const btnStatistics = <Element>(
+export const btnStatistics = <Element>(
   document.querySelector('.m-p__menu-ul-statistics')
 );
 
@@ -75,13 +77,23 @@ const btnNavigationAudioChallenge = <Element>(
 const btnNavigationTextbook = <Element>(
   document.querySelector('.navigation__menu-ul-textbook')
 );
-const btnNavigationStatistics = <Element>(
+export const btnNavigationStatistics = <Element>(
   document.querySelector('.navigation__menu-ul-statistics')
 );
 const btnNavigationTeam = <Element>(
   document.querySelector('.navigation__menu-ul-team')
 );
+//?preloader======================================================
+const preloader: any = document.getElementById('preloader');
 
+function preloaderPage() {
+  window.onload = function () {
+    preloader.classList.add('hide-preloader');
+    setInterval(() => {
+      preloader.classList.add('preloader-hidden');
+    }, 2000);
+  };
+}
 //?end const======================================================
 
 //!Authorisation======================================================
@@ -117,6 +129,8 @@ btnSprint?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionSprint.classList.remove('hide');
   sectionNavigation.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btSprintExit?.addEventListener('click', () => {
   sectionHomepage.classList.remove('hide');
@@ -130,10 +144,11 @@ btnAudioChallenge?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionAudioChallenge.classList.remove('hide');
-
-  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  const quest = new Quest(slot);
-  quest.startAudio(slot, 0, 0);
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
+  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest([]);
+  quest.startAudio(0, 0);
 });
 
 //!Textbook======================================================
@@ -142,7 +157,8 @@ btnTextbook?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionTextbook.classList.remove('hide');
-
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
   const ntb = new TBook(1, 1);
   ntb.startTBook();
 });
@@ -153,12 +169,16 @@ btnStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
   sectionNavigation.classList.remove('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 
 //!btnSectionTeam======================================================
 btnTeam?.addEventListener('click', () => {
   sectionHeder.classList.add('hide-pages');
   sectionTeam.classList.remove('hide-pages');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btnTeamExit?.addEventListener('click', () => {
   sectionHeder.classList.remove('hide-pages');
@@ -182,6 +202,8 @@ btnNavigationSprint?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
   document.location.reload();
 });
 
@@ -191,10 +213,11 @@ btnNavigationAudioChallenge?.addEventListener('click', () => {
   sectionAudioChallenge.classList.remove('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.add('hide');
-
-  const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
-  const quest = new Quest(slot);
-  quest.startAudio(slot, 0, 0);
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
+  // const slot = [...data].filter((w: IWord) => (w.group === 0) && (w.page === 0));
+  const quest = new Quest([]);
+  quest.startAudio(0, 0);
   if (document.querySelector('.audio-challenge hide')) {
     document.location.reload();
   }
@@ -205,9 +228,10 @@ btnNavigationTextbook?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.remove('hide');
   sectionStatistics.classList.add('hide');
-
   const ntb = new TBook(1, 1);
   ntb.startTBook();
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });
 btnNavigationStatistics?.addEventListener('click', () => {
   sectionHomepage.classList.add('hide');
@@ -215,4 +239,6 @@ btnNavigationStatistics?.addEventListener('click', () => {
   sectionAudioChallenge.classList.add('hide');
   sectionTextbook.classList.add('hide');
   sectionStatistics.classList.remove('hide');
+  preloader.classList.remove('preloader-hidden');
+  preloaderPage();
 });

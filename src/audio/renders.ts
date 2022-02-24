@@ -21,9 +21,9 @@ export const renderSlot = (words: IWord[]) => `
   </ul>
 `;
 
-export const updateSlotResult = (results:number[]) => {
+export const updateSlotResult = (results: number[]) => {
   const modalResults = document.querySelectorAll('.modal-slot result');
-  [...modalResults].map((el, idx) => el.textContent = (results[idx] = 1) ? '+': '-' );
+  [...modalResults].map((el, idx) => el.textContent = (results[idx] = 1) ? '+' : '-');
 };
 
 export const renderLvls = `
@@ -39,18 +39,22 @@ export const renderLvls = `
       </div>
 `;
 
-export const answ = (num: number, answers: number[], words: string[]) => `
+export const answ = (num: number, answers: number[], words: string[]) => {
+  console.log('num', answers, words)
+  return `
       <div class="audio-answers" id="id-${num}">
          ${[...answers].map(
-  (el: number, idx: number) => `
+    (el: number, idx: number) => `
         <div class="answer ${idx === num ? 'yes' : ''} click">${words[idx]}</div>  
       `).join('')}
         <div class="next click ">next</div>  
       </div>
-`;
+`};
 
 export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: number, chunk: number[]) => {
   const words = slot.filter((_, ind) => chunk.includes(ind)).map((el: IWord) => el.wordTranslate);
+  const indCorrect = words.indexOf(slot[idx].wordTranslate);
+  // console.log('renderAudio', slot, lvl, color, idx, chunk, indCorrect, words[indCorrect] );
   const html = `
   <section class="audio-call" id="audiocall">
     <h2 class="audio-title">Audio Call</h2>
@@ -71,7 +75,7 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
           ${SpeakerColor(lvl, color)};
           </div>
           <img src="" alt="">
-        ${answ(idx, chunk, words)}
+        ${answ(indCorrect, chunk, words)}
         </div>
         <div class="modal">
         ${renderSlot(slot)}
@@ -80,39 +84,47 @@ export const renderAudio = (slot: IWord[], lvl: number, color: string, idx: numb
     </div>
   </section>
 `;
-
+  const imgCop = require(`../assets/${lvl}.jpg`);
   const root = document.createElement('div');
   root.classList.add('container');
   root.classList.add('container-audio');
   root.innerHTML = html;
-  (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
-  (<HTMLElement>root.querySelector('.quests')).style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  (<HTMLElement>root.querySelector('.audio-lvls')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+  // (<HTMLElement>root.querySelector('.audio-lvls')).style.backgroundImage = `url(${imgCop})`;
+  (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
+  // console.log('.quests', <HTMLElement>root.querySelector('.quests'))
+  // (<HTMLElement>root.querySelector('.quests')).style.background = `url(${imgCop}) center/cover  no-repeat `;
   document.body.appendChild(root);
 }
 
 export const updateAudio = (slot: IWord[], lvl: number, color: string, idx: number, chunk: number[]) => {
+  // const curWord = slot.filter(_, )
   const words = slot.filter((_, ind) => chunk.includes(ind)).map((el: IWord) => el.wordTranslate);
-  // console.log('idx', idx, 'words', words);
+  const indCorrect = words.indexOf(slot[idx].wordTranslate);
+  // console.log('updateAudio:', 'word:', slot[idx].wordTranslate, slot, lvl, color, idx, chunk, indCorrect, 'words', words);
   const html = `
         <div class="quest">
           <div class="speaker click">
           ${SpeakerColor(lvl, color)};
           </div>
           <img src="" alt="">
-        ${answ(idx, chunk, words)}
+        ${answ(indCorrect, chunk, words)}
         </div>
         <div class="modal">
         ${renderSlot(slot)}
         </div>
 `;
+  const imgCop = require(`../assets/${lvl}.jpg`);
   const questsDom = (<HTMLElement>document.querySelector('.quests'));
   const audioWrap = (<HTMLElement>document.querySelector('.audio-wrap'));
+  (<Element>audioWrap).removeChild(questsDom);
   // questsDom.replaceChild ;
   const quests = document.createElement('div');
-  quests.style.backgroundImage = `url('./assets/${lvl}.jpg')`;
+  quests.style.background = `url(${imgCop}) center/cover  no-repeat `;
   quests.classList.add('quests');
   quests.classList.add('active');
   quests.innerHTML = html;
-  (<Element>audioWrap).removeChild(questsDom );
+
   audioWrap.appendChild(quests);
+  console.log('audiowarp:', audioWrap);
 }
