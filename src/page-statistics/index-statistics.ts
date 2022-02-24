@@ -40,55 +40,75 @@ const statisticsAudioPercent = document.querySelector(
 ) as HTMLDivElement;
 
 const numberZero = 0 as number;
-let numberSumSprint = 0 as number;
-let numberPercentSprint = 0 as number;
-let numberSumAudio = 0 as number;
-let numberPercentAudio = 0 as number;
 
-store.forEach((item, index, array) => {
-  if (store[index].nameGame === 'sprint') {
-    numberPercentSprint++;
-    if (store[index].res === 1) {
-      numberSumSprint++;
-    }
+function windowStor() {
+  const numberSumSprint = (<any>window).stor.trueSprint.length as number;
+  const numberPercentSprint = ((<any>window).stor.trueSprint.length + (<any>window).stor.falseSprint.length) as number;
+  const numberSumAudio = 0 as number;
+  const numberPercentAudio = 0 as number;
+
+  // store.forEach((item, index, array) => {
+  //   if (store[index].nameGame === 'sprint') {
+  //     numberPercentSprint++;
+  //     if (store[index].res === 1) {
+  //       numberSumSprint++;
+  //     }
+  //   }
+  //   if (store[index].nameGame === 'audio') {
+  //     numberPercentAudio++;
+  //     if (store[index].res === 1) {
+  //       numberSumAudio++;
+  //     }
+  //   }
+  // });
+
+  function scoreSprintNumber(number: number, Percent: number) {
+    statisticsSprintNumber.innerHTML = `${number}`;
+    statisticsSprintPercent.innerHTML = `${scoreStatisticsPercent(
+      number,
+      Percent
+    )}`;
   }
-  if (store[index].nameGame === 'audio') {
-    numberPercentAudio++;
-    if (store[index].res === 1) {
-      numberSumAudio++;
-    }
+  function scoreAudioNumber(number: number, Percent: number) {
+    statisticsAudioNumber.innerHTML = `${number}`;
+    statisticsAudioPercent.innerHTML = `${scoreStatisticsPercent(
+      number,
+      Percent
+    )}`;
   }
-});
+  function scoreStatisticsPercent(number: number, Percent: number) {
+    const scoreSum = ((number / Percent) * 100).toFixed(1);
+    return scoreSum;
+  }
 
-function scoreSprintNumber(number: number, Percent: number) {
-  statisticsSprintNumber.innerHTML = `${number}`;
-  statisticsSprintPercent.innerHTML = `${scoreStatisticsPercent(number, Percent)}`;
-}
-function scoreAudioNumber(number: number, Percent: number) {
-  statisticsAudioNumber.innerHTML = `${number}`;
-  statisticsAudioPercent.innerHTML = `${scoreStatisticsPercent(number, Percent)}`;
-}
-function scoreStatisticsPercent(number: number, Percent: number) {
-  const scoreSum = ((number / Percent) * 100).toFixed(1);
-  return scoreSum;
-}
+  function mainStatisticsPercent() {
+    const sumNumber = numberSumSprint + numberSumAudio;
+    const sumPercent = numberPercentSprint + numberPercentAudio;
+    generalAnalysisNumber.innerHTML = `${sumNumber}`;
+    generalAnalysisPercent.innerHTML = `${scoreStatisticsPercent(
+      sumNumber,
+      sumPercent
+    )}`;
+  }
 
-function mainStatisticsPercent() {
-  const sumNumber = numberSumSprint + numberSumAudio;
-  const sumPercent = numberPercentSprint + numberPercentAudio;
-  generalAnalysisNumber.innerHTML = `${sumNumber}`;
-  generalAnalysisPercent.innerHTML = `${scoreStatisticsPercent(sumNumber, sumPercent)}`;
+  function scoreResult() {
+    scoreSprintNumber(numberSumSprint, numberPercentSprint);
+    scoreAudioNumber(numberSumAudio, numberPercentAudio);
+    mainStatisticsPercent();
+  }
+  scoreResult();
 }
-
-function scoreResult() {
-  scoreSprintNumber(numberSumSprint, numberPercentSprint);
-  scoreAudioNumber(numberSumAudio, numberPercentAudio);
-  mainStatisticsPercent();
+function scoreReset() {
+  generalAnalysisNumber.innerHTML = `${numberZero}`;
+  generalAnalysisPercent.innerHTML = `${numberZero}`;
+  statisticsSprintNumber.innerHTML = `${numberZero}`;
+  statisticsSprintPercent.innerHTML = `${numberZero}`;
+  statisticsAudioNumber.innerHTML = `${numberZero}`;
+  statisticsAudioPercent.innerHTML = `${numberZero}`;
 }
-
 btnStatistics.addEventListener('click', () => {
   if (localStorage.getItem('loginUser')) {
-    scoreResult();
+    windowStor();
   } else {
     scoreReset();
   }
@@ -96,13 +116,8 @@ btnStatistics.addEventListener('click', () => {
 
 btnNavigationStatistics.addEventListener('click', () => {
   if (localStorage.getItem('loginUser')) {
-    scoreResult();
+    windowStor();
   } else {
     scoreReset();
   }
 });
-
-function scoreReset() {
-  generalAnalysisNumber.innerHTML = `${numberZero}`;
-  generalAnalysisPercent.innerHTML = `${numberZero}`;
-}
