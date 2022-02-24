@@ -67,6 +67,7 @@ export default class Sprint {
   addListenerToAgainBtn(Element: HTMLButtonElement) {
     const onAgainBtn = () => {
       this.const.modalResult.classList.add('hide');
+      this.const.gameSection.classList.add('hide');
       this.gameplay.startRound();
     };
     Element.addEventListener('click', onAgainBtn);

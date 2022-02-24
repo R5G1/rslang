@@ -282,6 +282,15 @@ export default class Gameplay {
     this.wrongAnswersArray.forEach((el) => this.generateResult(mistakesFragment, el));
     this.rightAnswersArray.forEach((el) => this.generateResult(correctsFragment, el));
 
+    if(!(<any>window).stor) (<any>window).stor = [];
+    if(!(<any>window).stor.trueSprint) (<any>window).stor.trueSprint = [];
+    if(!(<any>window).stor.falseSprint) (<any>window).stor.falseSprint = [];
+
+    (<any>window).stor.trueSprint = [...(<any>window).stor.trueSprint, ...this.rightAnswersArray];
+    (<any>window).stor.falseSprint = [...(<any>window).stor.falseSprint, ...this.wrongAnswersArray];
+
+    this.const.mistakesList.innerHTML = '';
+    this.const.correctsList.innerHTML = '';
     this.const.mistakesList.appendChild(mistakesFragment);
     this.const.correctsList.appendChild(correctsFragment);
 
